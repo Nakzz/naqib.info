@@ -10,7 +10,7 @@ class ComingSoon extends Component {
     };
 
     commingSoonTime = () => {
-        let endTime = new Date("January 23, 2020 17:00:00 PDT");			
+        let endTime = new Date("June 23, 2020 17:00:00 PDT");			
         let endTimeParse = (Date.parse(endTime)) / 1000;
         let now = new Date();
         let nowParse = (Date.parse(now) / 1000);
@@ -39,6 +39,7 @@ class ComingSoon extends Component {
 
     onSubmit = e => {
         e.preventDefault();
+        //TODO: api call to keystone ADD THIS TO 
     };
 
     render() {
@@ -48,8 +49,8 @@ class ComingSoon extends Component {
                     <div className="d-table-cell">
                         <div className="container">
                             <div className="coming-soon-content">
-                                <h1>We are launching our new website</h1>
-                                <p>Working hard for something we don't care about is called stress. Working hard for smething we love is called passion.</p>
+                                <h1>I am launching my new website. </h1>
+                                <p>I am building the whole website from scratch, so it will take some time. Stay tuned! </p>
 
                                 <div id="timer">
                                     <div id="days">{this.state.days} <span>Days</span></div>

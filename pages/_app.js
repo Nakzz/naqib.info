@@ -29,13 +29,13 @@ export default withRedux(initStore)(
             return (
                 <React.Fragment>
                     <DefaultSeo
-                        title="Fleja | React Next Multi-Concepts Templates"
-                        description="Fleja | React Next Multi-Concepts Templates. This has been built with React, Next.js, Express.js, and ES6+"
+                        title="Ajmain Naqib | Personal Website"
+                        description="Ajmain Naqib's portfolio website, built on top of React Next Multi-Concepts Templates. This has been built with React, Next.js, Express.js, and ES6+" // TODO: change this since this will be shown on google search
                         openGraph={{
                             type: 'website',
                             locale: 'en_IE',
-                            url: 'https://nextland-react.envytheme.com/',
-                            site_name: 'Fleja | React Next Multi-Concepts Templates',
+                            url: 'http://naqib.info',
+                            site_name: 'Ajmain Naqib | Personal Website',
                         }}
                     />
                     <Preloader>

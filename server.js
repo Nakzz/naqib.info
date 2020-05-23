@@ -21,18 +21,20 @@ app.prepare().then(() => {
     server.use(bodyParser.json());
 
     server.get('*', (req, res) => {
-        return handle(req, res)
+        // return handle(req, res)
+        return app.render(req, res, '/coming-soon') //FOR COMING SOON PAGE REDIRECT
     });
 
-    server.post('/api/stripe/checkout', async (req, res) => {
-        await stripe.charges.create({
-            amount: req.body.amount,
-            currency: 'usd',
-            description: 'Fleja React Next eCommerce + Landing Page Templates',
-            source: req.body.token.id
-        });
-        res.send({})
-    });
+    //NOT USING STRIPE
+    // server.post('/api/stripe/checkout', async (req, res) => {
+    //     await stripe.charges.create({
+    //         amount: req.body.amount,
+    //         currency: 'usd',
+    //         description: 'Fleja React Next eCommerce + Landing Page Templates',
+    //         source: req.body.token.id
+    //     });
+    //     res.send({})
+    // });
 
     const PORT = process.env.PORT || 3000;
 
