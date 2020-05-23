@@ -45,6 +45,7 @@
     "redux-devtools-extension": "^2.13.8",
     "redux-thunk": "^2.3.0",
     "stripe": "^7.15.0",
+    "typed.js": "^2.0.11",
     "wowjs": "^1.1.3"
   }
 }

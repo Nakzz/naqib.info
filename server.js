@@ -21,8 +21,8 @@ app.prepare().then(() => {
     server.use(bodyParser.json());
 
     server.get('*', (req, res) => {
-        // return handle(req, res)
-        return app.render(req, res, '/coming-soon') //FOR COMING SOON PAGE REDIRECT
+        return handle(req, res)
+        // return app.render(req, res, '/coming-soon') //FOR COMING SOON PAGE REDIRECT
     });
 
     //NOT USING STRIPE

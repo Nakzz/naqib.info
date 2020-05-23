@@ -6,20 +6,37 @@ export class Footer extends Component {
             <footer className="footer-area ptb-120 pb-0">
                 <div className="container">
                     <div className="row">
-                        <div className="col-lg-3 col-md-6 col-sm-6">
+                        <div className="col-lg-4 col-md-6 col-sm-6">
                             <div className="single-footer-widget">
                                 <div className="logo">
                                     <a href="#">
-                                        <img src={require("../../images/footer-logo.png")} alt="logo" />
+                                        <img src={require("../../images/logo.png")} alt="logo" />
                                     </a>
                                 </div>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
 
                                 <ul className="social-links">
-                                    <li><a href="#"><i className="icofont-facebook"></i></a></li>
-                                    <li><a href="#"><i className="icofont-twitter"></i></a></li>
-                                    <li><a href="#"><i className="icofont-instagram"></i></a></li>
-                                    <li><a href="#"><i className="icofont-pinterest"></i></a></li>
+                                    
+                                
+                    <li>
+                            <a href="https://www.linkedin.com/in/ajmain/">
+                                <i className="icofont-linkedin"></i>
+
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/Nakzz/">
+                                <i className="icofont-github"></i>
+
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="mailto:naqib@wisc.edu">
+                                <i className="icofont-email"></i>
+
+                            </a>
+                        </li>
+                                  
                                 </ul>
                             </div>
                         </div>
@@ -29,65 +46,41 @@ export class Footer extends Component {
                                 <h3>Quick Links</h3>
 
                                 <ul className="list">
-                                    <li><a href="#">Home</a></li>
-                                    <li><a href="#">About</a></li>
-                                    <li><a href="#">Portfolio</a></li>
-                                    <li><a href="#">News</a></li>
-                                    <li><a href="#">Contact</a></li>
-                                    <li><a href="#">FAQ's</a></li>
+                                    <li><a href="/home">Home</a></li>
+                                    <li><a href="/about-me">About</a></li>
+                                    <li><a href="/projects">Portfolio</a></li>
+                                    <li><a href="/blog">Blog</a></li>
+                                    <li><a href="/contact">Contact</a></li>
+                                    <li><a href="/faq">FAQ's</a></li>
                                 </ul>
                             </div>
                         </div>
 
-                        <div className="col-lg-3 col-md-6 col-sm-6">
-                            <div className="single-footer-widget">
-                                <h3>Recent Post</h3>
 
-                                <ul className="footer-recent-post">
-                                    <li>
-                                        <a href="#">The Most Popular New Business Apps</a>
 
-                                        <span>25 Feb 2019</span>
-                                    </li>
-
-                                    <li>
-                                        <a href="#">The Best Marketing Management Tools</a>
-
-                                        <span>27 Feb 2019</span>
-                                    </li>
-
-                                    <li>
-                                        <a href="#">3 WooCommerce Plugins to Boost Sales</a>
-
-                                        <span>28 Feb 2019</span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div className="col-lg-3 col-md-6 col-sm-6">
+                        <div className="col-lg-5 col-md-6 col-sm-6">
                             <div className="single-footer-widget">
                                 <h3>Get in Touch</h3>
 
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
+                                <p>I'd love to chat!</p>
 
                                 <ul className="footer-contact-info">
-                                    <li>
+                                    {/* <li>
                                         <i className="icofont-google-map"></i>
                                         <span>Location:</span> 
                                         27 Division St, New York, NY 10002, USA
-                                    </li>
+                                    </li> */}
 
                                     <li>
                                         <i className="icofont-phone"></i>
                                         <span>Phone:</span> 
-                                        <a href="#">+44 014799584</a>
+                                        <a href="tel:347-356-7867">+1 347 356 7867</a>
                                     </li>
 
                                     <li>
                                         <i className="icofont-email"></i>
                                         <span>Email:</span> 
-                                        <a href="#">support@fleja.com</a>
+                                        <a href="mailto:naqib@wisc.edu">naqib@wisc.edu</a>
                                     </li>
                                 </ul>
                             </div>
@@ -97,11 +90,12 @@ export class Footer extends Component {
                     <div className="copyright-area">
                         <div className="row">
                             <div className="col-lg-6 col-md-6">
-                                <p>Copyright @2019. All rights reserved.</p>
+                                <p>Copyright @2020. All rights reserved.</p>
+                                {/* TODO: generate server date */}
                             </div>
 
                             <div className="col-lg-6 col-md-6 text-right">
-                                <p>Design & Developed by <a href="https://envytheme.com" target="_blank">EnvyTheme</a></p>
+                                <p>Developed by <a href="http://naqib.info" target="_blank">Ajmain Naqib</a></p>
                             </div>
                         </div>
                     </div>

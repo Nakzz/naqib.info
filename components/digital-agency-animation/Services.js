@@ -1,22 +1,23 @@
 import React, { Component } from 'react';
 
 export class Services extends Component {
+    //TODO: get from CMS API
     render() {
         return (
             <section className="welcome-services ptb-120 bg-38d16a">
                 <div className="container">
                     <div className="section-title">
-                        <span className="wow fadeInUp">Our Services</span>
-                        <h2 className="wow fadeInDown">Welcome to our business digital agency</h2>
+                        <span className="wow fadeInUp">I am currently </span>
+                        <h2 className="wow fadeInDown">Specializing in...</h2>
                     </div>
 
                     <div className="row">
                         <div className="col-lg-4 col-md-6">
                             <div className="single-services">
                                 <div className="icon">
-                                    <i className="icofont-dart"></i>
+                                    <i className="icofont-cloud"></i>
                                 </div>
-                                <h3>Digital Marketing</h3>
+                                <h3>Cloud Application Development</h3>
                                 <p>Quis ipsum suspendisse ultrices gravida. Risus commodo  maecenas accumsan lacus vel facilisis labore dolore magna aliqua.</p>
                             </div>
                         </div>
@@ -26,7 +27,7 @@ export class Services extends Component {
                                 <div className="icon">
                                     <i className="icofont-handshake-deal"></i>
                                 </div>
-                                <h3>Market Analysis</h3>
+                                <h3>Machine Learning & Data Science</h3>
                                 <p>Quis ipsum suspendisse ultrices gravida. Risus commodo  maecenas accumsan lacus vel facilisis labore dolore magna aliqua.</p>
                             </div>
                         </div>
@@ -36,7 +37,7 @@ export class Services extends Component {
                                 <div className="icon">
                                     <i className="icofont-pie-chart"></i>
                                 </div>
-                                <h3>Business Promotion</h3>
+                                <h3>Business Development</h3>
                                 <p>Quis ipsum suspendisse ultrices gravida. Risus commodo  maecenas accumsan lacus vel facilisis labore dolore magna aliqua.</p>
                             </div>
                         </div>

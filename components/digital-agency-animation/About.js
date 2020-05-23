@@ -8,21 +8,22 @@ export class About extends Component {
                     <div className="row">
                         <div className="col-lg-6 col-md-6">
                             <div className="cta-about-image">
-                                <img src={require("../../images/cta-about.jpg")} alt="cta-image" />
+                                <img src={require("../../images/home/graduation.jpg")} alt="cta-image" />
                             </div>
                         </div>
 
                         <div className="col-lg-6 col-md-6">
                             <div className="cta-about-content ptb-120">
                                 <div className="section-title">
-                                    <span className="wow fadeInUp">About Us</span>
-                                    <h2 className="wow fadeInDown">We are Creative Agency <br /> from the USA</h2>
+                                    <span className="wow fadeInUp">About me</span>
+                                    <h2 className="wow fadeInDown">ABC <br /> from the New York</h2>
                                 </div>
-                                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+                                <p>I am currently pursuing a B.S. degree in Applied Computer Science with a focus on Entrepreneurship and Product Development at University of Wisconsin- Madison. I am originially from Bangladesh, but now I call Madison my home. </p> 
+                                {/* TODO: get from CMS API */}
 
-                                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+                                <p>Although roles like Software Engineering, Product Development, and Executive Management is currently fulfilling the scope of my career interests, I am a curious soul already ready to learn more. I am interested in exploring the technology, business strategy and space exploration industry.</p>
 
-                                <a href="#" className="btn btn-primary wow fadeInUp">Let's Talk</a>
+                                <a href="#" className="btn btn-primary wow fadeInUp">Want to know more about me?</a>
                             </div>
                         </div>
                     </div>

@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
+import TypedReact from '../home/typedReact';
 
 export class Banner extends Component {
+
+
+
     render() {
         return (
             <div className="main-banner digital-agency-banner">
@@ -17,9 +21,21 @@ export class Banner extends Component {
                             <div className="row h-100 align-items-center">
                                 <div className="col-lg-6 col-md-12">
                                     <div className="hero-content">
-                                        <h1 className="wow fadeInUp">We are creative digital agency</h1>
-                                        <p className="wow fadeInDown">Lorem ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                                        <a href="#" className="btn btn-primary wow fadeInLeft">Get Started</a>
+                                    <h4 className="wow fadeInUp m-l-20">Hey there! </h4>
+                                    <h1 className="wow m-b-20">My name is AJ </h1>
+
+                                    <TypedReact
+    strings={[
+    	'I\'m a <strong>Software Engineer...</strong>',
+        'I\'m an <strong>Entreprenuer...</strong>',
+        'I\'m a <strong>Photographer...</strong>',
+        'I\'m a <strong>Leader...</strong>',
+        "I\'m a POSSE scholar...",
+        "I\'m a FIRST alum"
+    ]}
+  />
+                                        <a href="#" className="m-t-30 btn btn-primary wow fadeInLeft">Download CV</a>
+                                        {/* TODO: add api link for CV */}
                                     </div>
                                 </div>
                             </div>
@@ -29,29 +45,30 @@ export class Banner extends Component {
 
                 <div className="banner-social-buttons">
                     <ul>
-                        <li>
-                            <a href="#">
-                                <i className="icofont-facebook"></i>
+                    <li>
+                            <a href="https://www.linkedin.com/in/ajmain/">
+                                <i className="icofont-linkedin"></i>
 
-                                <span>Facebook</span>
+                                <span>Linkedin</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/Nakzz/">
+                                <i className="icofont-github"></i>
+
+                                <span>Github</span>
                             </a>
                         </li>
 
                         <li>
-                            <a href="#">
-                                <i className="icofont-twitter"></i>
+                            <a href="mailto:naqib@wisc.edu">
+                                <i className="icofont-email"></i>
 
-                                <span>Twitter</span>
+                                <span>Email</span>
                             </a>
                         </li>
 
-                        <li>
-                            <a href="#">
-                                <i className="icofont-instagram"></i>
-
-                                <span>Instagram</span>
-                            </a>
-                        </li>
+                        
                     </ul>
                 </div>
                 

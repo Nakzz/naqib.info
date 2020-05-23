@@ -72,7 +72,7 @@ export class Navbar extends Component {
                         <nav className="navbar navbar-expand-md navbar-light">
                             <Link href="/digital-agency">
                                 <a className="navbar-brand">
-                                    <img src={require("../../images/logo.png")} alt="logo" />
+                                    <img src={require("../../images/logo_full.png")} alt="logo" />
                                 </a>
                             </Link>
 
@@ -98,47 +98,7 @@ export class Navbar extends Component {
                                                 </Link>
                                             </li>
                                             
-                                            <li className="nav-item">
-                                                <Link activeClassName="active" href="/freelancer">
-                                                    <a className="nav-link">Freelancer Portfolio </a>
-                                                </Link>
-                                            </li>
-
-                                            <li className="nav-item">
-                                                <Link activeClassName="active" href="/startup-agency">
-                                                    <a className="nav-link">Startup Agency</a>
-                                                </Link>
-                                            </li>
-
-                                            <li className="nav-item">
-                                                <Link activeClassName="active" href="/agency-portfolio">
-                                                    <a className="nav-link">Agency Portfolio</a>
-                                                </Link>
-                                            </li>
-
-                                            <li className="nav-item">
-                                                <Link activeClassName="active" href="/creative-blog">
-                                                    <a className="nav-link">Creative Blog</a>
-                                                </Link>
-                                            </li>
-
-                                            <li className="nav-item">
-                                                <Link activeClassName="active" href="/digital-agency-animation">
-                                                    <a className="nav-link">Digital Agency Animation</a>
-                                                </Link>
-                                            </li>
-
-                                            <li className="nav-item">
-                                                <Link activeClassName="active" href="/freelancer-portfolio-animation">
-                                                    <a className="nav-link">Freelancer Portfolio Animation</a>
-                                                </Link>
-                                            </li>
-
-                                            <li className="nav-item">
-                                                <Link activeClassName="active" href="/startup-agency-animation">
-                                                    <a className="nav-link">Startup Agency Animation</a>
-                                                </Link>
-                                            </li>
+                                            
                                         </ul>
                                     </li>
                                     
@@ -147,20 +107,13 @@ export class Navbar extends Component {
                                     </a>
                                         <ul className="dropdown_menu">
                                             <li className="nav-item">
-                                                <a href="#" className="nav-link">About</a>
-                                                <ul className="dropdown_menu">
-                                                    <li className="nav-item">
-                                                        <Link activeClassName="active" href="/about-us">
-                                                            <a className="nav-link">About Us</a>
-                                                        </Link>
-                                                    </li>
+                                                
+                                        
                                                     
-                                                    <li className="nav-item">
                                                         <Link activeClassName="active" href="/about-me">
-                                                            <a className="nav-link">About Me</a>
+                                                            <a href="#" className="nav-link">About Me</a>
+                                                            
                                                         </Link>
-                                                    </li>
-                                                </ul>
                                             </li>
 
                                             <li className="nav-item">
@@ -182,45 +135,9 @@ export class Navbar extends Component {
                                             
                                             <li className="nav-item">
                                                 <Link activeClassName="active" href="/services">
-                                                    <a className="nav-link">Services</a>
+                                                    <a className="nav-link">Projects</a>
                                                 </Link>
-                                            </li>
-
-                                            <li className="nav-item">
-                                                <Link activeClassName="active" href="/login">
-                                                    <a className="nav-link">Login</a>
-                                                </Link>
-                                            </li>
-
-                                            <li className="nav-item">
-                                                <Link activeClassName="active" href="/signup">
-                                                    <a className="nav-link">Sign Up</a>
-                                                </Link>
-                                            </li>
-
-                                            <li className="nav-item">
-                                                <Link activeClassName="active" href="/coming-soon">
-                                                    <a className="nav-link">Coming Soon</a>
-                                                </Link>
-                                            </li>
-
-                                            <li className="nav-item">
-                                                <Link activeClassName="active" href="/error">
-                                                    <a className="nav-link">404 Error</a>
-                                                </Link>
-                                            </li>
-                                            
-                                            <li className="nav-item">
-                                                <Link activeClassName="active" href="/faq">
-                                                    <a className="nav-link">FAQ</a>
-                                                </Link>
-                                            </li>
-
-                                            <li className="nav-item">
-                                                <Link activeClassName="active" href="/contact">
-                                                    <a className="nav-link">Contact</a>
-                                                </Link>
-                                            </li>
+                                            </li>                                      
                                         </ul>
                                     </li>
 
@@ -258,42 +175,7 @@ export class Navbar extends Component {
                                         </ul>
                                     </li>
 
-                                    <li className="nav-item">
-                                        <Link href="/products">
-                                            <a 
-                                                className="nav-link"
-                                                onClick={e => e.preventDefault()}
-                                            >
-                                                Shop <i className="icofont-simple-down"></i>
-                                            </a>
-                                        </Link>
-                                        <ul className="dropdown_menu">
-                                            <li className="nav-item">
-                                                <Link activeClassName="active" href="/products">
-                                                    <a className="nav-link">Products</a>
-                                                </Link>
-                                            </li>
-                                            
-                                            <li className="nav-item">
-                                                <Link activeClassName="active" href="/product-details">
-                                                    <a className="nav-link">Products Details</a>
-                                                </Link>
-                                            </li>
-
-                                            <li className="nav-item">
-                                                <Link activeClassName="active" href="/cart">
-                                                    <a className="nav-link">Cart</a>
-                                                </Link>
-                                            </li>
-
-                                            <li className="nav-item">
-                                                <Link activeClassName="active" href="/checkout">
-                                                    <a className="nav-link">Checkout</a>
-                                                </Link>
-                                            </li>
-                                        </ul>
-                                    </li>
-
+              
                                     <li className="nav-item">
                                         <Link activeClassName="active" href="/contact">
                                             <a className="nav-link">Contact</a>
@@ -301,7 +183,7 @@ export class Navbar extends Component {
                                     </li>
                                 </ul>
 
-                                <div className="others-option">
+                                {/* <div className="others-option"> FIXME: Maybe in the future add searching capabilities
                                     <ul>
                                         <li>
                                             <span 
@@ -329,7 +211,7 @@ export class Navbar extends Component {
                                             </div>
                                         </li>
                                     </ul>
-                                </div>
+                                </div> */}
                             </div>
                         </nav>
                     </div>
