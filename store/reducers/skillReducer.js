@@ -19,11 +19,11 @@ onSkillPieChange
 // 1
 
 export const initState = {
-skillPicked : undefined
+skillPicked : -1
 }
 
 const skillReducer= (state = initState, action) => {
-   
+//    console.log("Action caught at skillReducer!")
     if(action.type === onSkillPieChange){
         // let newId = state.skillPicked.find(item=> item.id === action.id) 
          let newId =  action.id //FIXME: should check if action.id is even real like above line
