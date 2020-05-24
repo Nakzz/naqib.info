@@ -7,7 +7,7 @@ export class HowWeWork extends Component {
                 <div className="container">
                     <div className="section-title">
                         <span className="wow fadeInUp">Around the World</span>
-                        <h2 className="wow fadeInDown">Superior design & concept work</h2>
+                        <h2 className="wow fadeInDown">I am a creative problem solver</h2>
                     </div>
 
                     <div className="row">
