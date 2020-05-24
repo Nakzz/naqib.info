@@ -8,7 +8,7 @@ import { Provider } from 'react-redux';
 import { Preloader, Placeholder } from 'react-preloading-screen';
 import App from 'next/app';
 import withRedux from 'next-redux-wrapper';
-import { initStore } from '../store/reducers/cartReducer';
+import { initStore } from '../store/reducers/index';
 import { DefaultSeo } from 'next-seo';
 import Loader from '../components/shared/Loader';
 import GoTop from '../components/shared/GoTop';

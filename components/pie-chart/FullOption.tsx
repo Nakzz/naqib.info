@@ -13,7 +13,7 @@ type Props = {
 
 
 function FullOption(props: Props) {
-  const [selected, setSelected] = useState<number | undefined>(0);
+  const [selected, setSelected] = useState<number | undefined>(undefined);
   const [hovered, setHovered] = useState<number | undefined>(undefined);
 
 
@@ -53,13 +53,15 @@ function FullOption(props: Props) {
         fontSize: '5px',
         fontFamily: 'sans-serif',
       })}
-      radius={22}
+      radius={12}
       labelPosition={112}
       animate 
-      rounded
+      
 
       onClick={(_, index) => {
         setSelected(index === selected ? undefined : index);
+
+        //REDUX STUFF
       }}
       onMouseOver={(_, index) => {
         setHovered(index);
@@ -72,3 +74,4 @@ function FullOption(props: Props) {
 }
 
 export default FullOption;
+
