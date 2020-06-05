@@ -1,4 +1,5 @@
-import {onSkillPieChange} from './action-types/skill-action_type'
+import {ON_SKILL_CHANGE, FETCH_SKILLS, SKILL_PICKED_ID} from './action-types/skill-action_type'
+
 
 
 /**
@@ -28,7 +29,49 @@ import {onSkillPieChange} from './action-types/skill-action_type'
   //change the skill id
 export const changeSkillPieId = (id) => {
     return {
-        type: onSkillPieChange,
+        type: ON_SKILL_CHANGE,
         id
     }
+}
+
+export const getSkillId = () => dispatch => {
+
+  dispatch({
+    type: SKILL_PICKED_ID,
+    // payload: id // I dont think there's any payload
+  })
+}
+
+export const fetchSkills = () => dispatch =>{
+  //TODO: this should be calling from API, but for now bear with me
+
+let skills = [{
+              id: 2,
+              title: "JavaScript Frameworks",
+              val: 10
+      },{
+          id: 2,
+          title: "CSS preprocessing",
+          val: 10
+  },{
+      id: 2,
+      title: "Automation tools",
+      val: 10
+  },{
+  id: 2,
+  title: "Browser tools",
+  val: 10
+  },{
+      id: 2,
+      title: "Responsive design",
+      val: 10
+  }
+  
+  ]
+
+  dispatch({
+    type: FETCH_SKILLS,
+    payload: skills
+  })
+
 }
