@@ -45,7 +45,7 @@ export class index extends Component {
 
                 {/* <WhyChooseUs /> TODO: add later */} 
                
-                <Works />git 
+                <Works /> 
                 {/* <Feedback /> TODO: maybe in the future if I can get some bigger deals */}
                 
       
