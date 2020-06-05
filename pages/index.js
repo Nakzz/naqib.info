@@ -43,14 +43,14 @@ export class index extends Component {
                 {/* <HowWeWork /> */}
                 <Skills />
 
-                <WhyChooseUs />
+                {/* <WhyChooseUs /> TODO: add later */} 
                
-                <Works />
+                <Works /> 
                 {/* <Feedback /> TODO: maybe in the future if I can get some bigger deals */}
                 
       
 
-                <Funfacts />
+                {/* <Funfacts /> TODO: add later*/}
                 <Blog />
 
                 <Contact />

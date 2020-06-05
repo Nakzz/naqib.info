@@ -12,7 +12,7 @@ import {
     RESET_CART
 } from '../actions/action-types/cart-actions'
 
-const initState = {
+export const initState = {
     products: [
         {
             id: 1,
@@ -94,6 +94,8 @@ const initState = {
 
 const cartReducer= (state = initState, action) => {
    
+    // console.log(state)
+
     if(action.type === ADD_TO_CART){
         let addedItem = state.products.find(item => item.id === action.id)
         //check if the action id exists in the addedItems
@@ -219,10 +221,14 @@ const cartReducer= (state = initState, action) => {
     }
 }
 
-export const initStore = (initialState = initState) => {
-    return createStore(
-        cartReducer,
-        initialState,
-        composeWithDevTools(applyMiddleware(thunkMiddleware))
-    )
-}
+export default cartReducer;
+
+
+
+// export const initStore = (initialState = initState) => {
+//     return createStore(
+//         cartReducer,
+//         initialState,
+//         composeWithDevTools(applyMiddleware(thunkMiddleware))
+//     )
+// }

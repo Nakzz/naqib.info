@@ -21,8 +21,11 @@ export class ProductsContent extends Component {
     }
 
     render() {
-
+        // console.log(this.props)
+        
         let { products } = this.props;
+
+        
 
         return (
             <section className="product-area ptb-120">
@@ -122,8 +125,9 @@ export class ProductsContent extends Component {
 }
 
 const mapStateToProps = (state) => {
+    // console.log(state)
     return {
-        products: state.products
+        products: state.cartReducer.products
     }
 }
 

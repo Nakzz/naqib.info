@@ -183,7 +183,8 @@ export class Navbar extends Component {
                                     </li>
                                 </ul>
 
-                                {/* <div className="others-option"> FIXME: Maybe in the future add searching capabilities
+                                {/* <div className="others-option"> 
+                                {/* FIXME: Maybe in the future add searching capabilities 
                                     <ul>
                                         <li>
                                             <span 
@@ -215,8 +216,8 @@ export class Navbar extends Component {
                             </div>
                         </nav>
                     </div>
-                    <SearchForm onClick={this.handleSearchForm} active={this.state.searchForm ? 'active' : ''} />
-                    <SideDrawer onClick={this.handleDrawer} show={this.state.drawer ? 'show' : ''} />
+                    {/* <SearchForm onClick={this.handleSearchForm} active={this.state.searchForm ? 'active' : ''} />
+                    <SideDrawer onClick={this.handleDrawer} show={this.state.drawer ? 'show' : ''} /> */}
                 </div>
             </header>
         );
@@ -225,7 +226,7 @@ export class Navbar extends Component {
 
 const mapStateToProps = (state)=>{
     return{
-        products: state.addedItems
+        products: state.cartReducer.addedItems
     }
 }
 

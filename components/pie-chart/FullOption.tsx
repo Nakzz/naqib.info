@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { PieChart } from 'react-minimal-pie-chart';
+import { useDispatch, useSelector  } from 'react-redux';
+import { changeSkillPieId } from '../../store/actions/skillAction';
 
 type Props = {
   data: {
@@ -12,11 +14,13 @@ type Props = {
 };
 
 
-function FullOption(props: Props) {
-  const [selected, setSelected] = useState<number | undefined>(0);
+
+export default function FullOption(props: Props) {
+  const [selected, setSelected] = useState<number | undefined>(undefined);
   const [hovered, setHovered] = useState<number | undefined>(undefined);
 
-
+  const count = useSelector(state => state.skillReducer.skillPicked);
+  const dispatch = useDispatch();
   // console.log(props)
   const data = props.data.map((entry, i) => {
     if (hovered === i) {
@@ -53,13 +57,15 @@ function FullOption(props: Props) {
         fontSize: '5px',
         fontFamily: 'sans-serif',
       })}
-      radius={22}
+      radius={12}
       labelPosition={112}
       animate 
-      rounded
+      
 
       onClick={(_, index) => {
         setSelected(index === selected ? undefined : index);
+        dispatch(changeSkillPieId(index));
+        //REDUX STUFF
       }}
       onMouseOver={(_, index) => {
         setHovered(index);
@@ -70,5 +76,3 @@ function FullOption(props: Props) {
     />
   );
 }
-
-export default FullOption;

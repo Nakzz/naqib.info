@@ -5,10 +5,10 @@ import BarSkill from '../home/barSkill';
 
 
 const dataMock = [
-    { title: 'Architecture', value: 10, color: '#E38627' },
-            { title: 'Backend Development', value: 15, color: '#C13C37' },
-            { title: 'Frontend Development', value: 20, color: '#6A2135' },
-            {title: 'Three', value: 20, color: '#6A2135'}
+    { title: 'Architecture', value: 20, color: '#6C7549' },
+    { title: 'Backend', value: 20, color: '#C23B36' },
+    { title: 'Frontend', value: 10, color: '#2D94C2' },
+    {title: 'DevOPS', value: 15, color: '#6A2135'}
   ];
 
 
@@ -32,7 +32,7 @@ export class Skills extends Component {
                             
                             </div>
                 <div className="container">
-                    <div className="row h-100 align-items-end">
+                    <div className="row h-100 ">
                         <div className="col-lg-6 col-md-12">
                             <div className="our-skill">
                                 <div className="section-title">
@@ -42,20 +42,21 @@ export class Skills extends Component {
                                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                                 </div>
                                 
+                                <div className="col-lg-6 col-md-12">
+                                <BarSkill/>
+                                </div>
 
                             </div>
                         </div>
 
-                        <div className="col-lg-6 col-md-12">
+                        <div className="col-lg-6 col-md-12 align-items-end">
                             <div className="m-t-20">
                             
                                 <FullOption data={dataMock} />
                             
                             </div>
                         </div>
-                        <div className="col-lg-6 col-md-12">
-                        <BarSkill/>
-                        </div>
+
                     </div>
                 </div>
             </section>
