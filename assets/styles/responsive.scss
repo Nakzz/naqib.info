@@ -328,6 +328,8 @@ $bg-gray: #f9f9f9;
         padding: {
             top: 60px;
             bottom: 60px;
+            left: 10px;
+            right: 5px;
         }
         .container-fluid {
             padding: {
@@ -346,7 +348,6 @@ $bg-gray: #f9f9f9;
     .cta-about-content {
         max-width: 100%;
         margin: {
-            left: 0;
             top: 35px;
         }
         padding: 0;

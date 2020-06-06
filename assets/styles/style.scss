@@ -61,6 +61,7 @@ $font-family: 'Rubik', sans-serif;
 $paragraph-font-family: 'Open Sans', sans-serif;
 $template-color: #38d16a;
 $pink-color: #F54EA2;
+$blue-color : #151448;
 $white-color: #ffffff;
 $black-color: #121619;
 $paragraph-color: #6084a4;
@@ -192,7 +193,7 @@ p {
         color: $white-color;
     }
     &:hover, &:focus {
-        background: $pink-color;
+        background: $blue-color;
         color: $white-color;
         box-shadow: 0 13px 27px 0 rgba(245, 78, 162, .25);
     }
@@ -1640,6 +1641,7 @@ Services CSS
             bottom: 10px;
         }
     }
+
     p {
         margin-bottom: -5px;
     }
@@ -1662,7 +1664,7 @@ Services CSS
     .icon {
         font-size: 50px;
         transition: $transition;
-        color: $pink-color;
+        color: $blue-color;
         line-height: 1;
     }
     h3 {
@@ -1673,6 +1675,18 @@ Services CSS
         }
         transition: $transition;
     }
+
+    h5 {
+        font-size: 18px !important;
+        font-weight: 400 !important; 
+        margin: {
+            left: 5px;
+            top: 15px;
+            bottom: 10px;
+        }
+        transition: $transition;
+    }
+
     p {
         transition: $transition;
     }
@@ -1680,7 +1694,7 @@ Services CSS
         box-shadow: 0 0 28px 0 rgba(6, 74, 255, 0.22);
         background: $template-color;
 
-        .icon, h3, p {
+        .icon, h3,h5,span, p {
             color: $white-color;
         }
     }
@@ -1974,9 +1988,9 @@ Why Choose Us CSS
 }
 .circle-dot {
     position: absolute;
-    top: -380px;
+    top: 80px;
     left: -45px;
-    z-index: -1;
+    z-index: -1000;
 }
 
 /*================================================
@@ -2941,6 +2955,11 @@ Our Skill CSS
     }
 }
 
+.skill-area {
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+}
 .my-skill-area {
     position: relative;
     z-index: 1;
@@ -5017,7 +5036,7 @@ Footer CSS
     position: relative;
     z-index: 1;
     overflow: hidden;
-    background: #08071c;
+    background: $blue-color; //#08071c;
 
     .line-bg {
         position: absolute;
