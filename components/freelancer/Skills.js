@@ -6,11 +6,11 @@ export class Skills extends Component {
             <section className="my-skill-area ptb-120">
                 <div className="container">
                     <div className="section-title">
-                        <span>Why Choose Us</span>
+                        <span>Why Choose Me</span>
                         <h2>Some of My Skills</h2>
                     </div>
 
-                    <div className="row h-100 align-items-center">
+                    {/* <div className="row h-100 align-items-center">
                         <div className="col-lg-6 col-md-12">
                             <div className="our-skill">
                                 <div className="skills">
@@ -83,7 +83,7 @@ export class Skills extends Component {
                                 <a href="#" className="btn btn-primary">Hire Me</a>
                             </div>
                         </div>
-                    </div>
+                    </div> */}
                 </div>
             </section>
         );
