@@ -95,43 +95,15 @@ export class Navbar extends Component {
                                 </Link>
                                      
 
+
                                     <li className="nav-item">
-                                        <a href="#" className="nav-link">Pages <i className="icofont-simple-down"></i>
-                                    </a>
-                                        <ul className="dropdown_menu">
-                                            <li className="nav-item">
-                                                
-                                        
-                                                    
-                                                        <Link activeClassName="active" href="/about-me">
+                                    <Link activeClassName="active" href="/about-me">
                                                             <a href="#" className="nav-link">About Me</a>
                                                             
                                                         </Link>
-                                            </li>
+                                        
+                                        
 
-                                            <li className="nav-item">
-                                                <a href="#" className="nav-link">Team</a>
-                                                <ul className="dropdown_menu">
-                                                    <li className="nav-item">
-                                                        <Link activeClassName="active" href="/team">
-                                                            <a className="nav-link">Team</a>
-                                                        </Link>
-                                                    </li>
-
-                                                    <li className="nav-item">
-                                                        <Link activeClassName="active" href="/team-details">
-                                                            <a className="nav-link">Team Details</a>
-                                                        </Link>
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                            
-                                            <li className="nav-item">
-                                                <Link activeClassName="active" href="/services">
-                                                    <a className="nav-link">Projects</a>
-                                                </Link>
-                                            </li>                                      
-                                        </ul>
                                     </li>
 
                                     <li className="nav-item">
@@ -156,7 +128,7 @@ export class Navbar extends Component {
                                         <ul className="dropdown_menu">
                                             <li className="nav-item">
                                                 <Link activeClassName="active" href="/portfolio">
-                                                    <a className="nav-link">Portfolio</a>
+                                                    <a className="nav-link">Project</a>
                                                 </Link>
                                             </li>
                                             
