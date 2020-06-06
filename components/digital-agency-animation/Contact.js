@@ -19,22 +19,22 @@ export class Contact extends Component {
                     </div>
                 </div>
 
-                <div class="shape13">
+                <div className="shape13">
                     <img src={require("../../images/shapes/13.png")} alt="shape" />
                 </div>
-                <div class="shape18">
+                <div className="shape18">
                     <img src={require("../../images/shapes/18.png")} alt="shape" />
                 </div>
-                <div class="shape19">
+                <div className="shape19">
                     <img src={require("../../images/shapes/19.png")} alt="shape" />
                 </div>
-                <div class="shape20 rotateme">
+                <div className="shape20 rotateme">
                     <img src={require("../../images/shapes/20.png")} alt="shape" />
                 </div>
-                <div class="shape21">
+                <div className="shape21">
                     <img src={require("../../images/shapes/21.png")} alt="shape" />
                 </div>
-                <div class="shape22">
+                <div className="shape22">
                     <img src={require("../../images/shapes/22.png")} alt="shape" />
                 </div>
             </section>

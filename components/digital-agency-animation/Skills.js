@@ -32,8 +32,8 @@ export class Skills extends Component {
                             
                             </div>
                 <div className="container">
-                    <div className="row h-100 ">
-                        <div className="col-lg-6 col-md-12">
+                    <div className="row h-100 m-b-40">
+                        <div className="col-lg-5 col-md-12">
                             <div className="our-skill">
                                 <div className="section-title">
                                     
@@ -42,14 +42,14 @@ export class Skills extends Component {
                                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                                 </div>
                                 
-                                <div className="col-lg-6 col-md-12">
+                                <div className="col-lg-12 col-md-12">
                                 <BarSkill/>
                                 </div>
 
                             </div>
                         </div>
 
-                        <div className="col-lg-6 col-md-12 align-items-end">
+                        <div className="col-lg-7 col-md-12 align-items-end">
                             <div className="m-t-20">
                             
                                 <FullOption data={dataMock} />
