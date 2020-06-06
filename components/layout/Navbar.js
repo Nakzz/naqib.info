@@ -70,7 +70,7 @@ export class Navbar extends Component {
                 <div id="navbar" className={`artflex-nav ${layOutCls}`}>
                     <div className="container">
                         <nav className="navbar navbar-expand-md navbar-light">
-                            <Link href="/digital-agency">
+                            <Link href="/">
                                 <a className="navbar-brand">
                                     <img src={require("../../images/logo_full.png")} alt="logo" />
                                 </a>
@@ -90,18 +90,11 @@ export class Navbar extends Component {
 
                             <div className={classOne} id="navbarSupportedContent">
                                 <ul className="navbar-nav ml-auto">
-                                    <li className="nav-item"><a href="#" className="nav-link">Home <i className="icofont-simple-down"></i></a>
-                                        <ul className="dropdown_menu">
-                                            <li className="nav-item">
-                                                <Link activeClassName="active" href="/digital-agency">
-                                                    <a className="nav-link">Digital Agency</a>
-                                                </Link>
-                                            </li>
-                                            
-                                            
-                                        </ul>
-                                    </li>
-                                    
+                                <Link href="/">
+                                    <li className="nav-item"><a href="#" className="nav-link">Home</a></li>
+                                </Link>
+                                     
+
                                     <li className="nav-item">
                                         <a href="#" className="nav-link">Pages <i className="icofont-simple-down"></i>
                                     </a>
