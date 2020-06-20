@@ -54,10 +54,10 @@ export default function FullOption(props: Props) {
       label={({ dataEntry }) => dataEntry.title}
       labelStyle={(index) => ({
         fill: data[index].color,
-        fontSize: '5px',
+        fontSize: '3px',
         fontFamily: 'sans-serif',
       })}
-      radius={12}
+      radius={25}
       labelPosition={112}
       animate 
       
