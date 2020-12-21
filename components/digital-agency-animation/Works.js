@@ -26,7 +26,7 @@ export class Works extends Component {
             <section className="works-area ptb-120 pb-0 bg-08071c">
                 <div className="container">
                     <div className="section-title">
-                        <span className="wow fadeInUp">Our Work</span>
+                        <span className="wow fadeInUp">Highlighted Projects </span>
                         <h2 className="wow fadeInDown">We have completed 2K project successfully</h2>
                     </div>
                 </div>
@@ -37,7 +37,7 @@ export class Works extends Component {
                             <img src={require("../../images/work-image/1.jpg")} alt="image" />
 
                             <div className="works-content">
-                                <h3><a href="#">Digital Marketing</a></h3>
+                                <h3><a href="#">TODO: project microservice</a></h3>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                             </div>
 
@@ -80,7 +80,7 @@ export class Works extends Component {
                             <img src={require("../../images/work-image/2.jpg")} alt="image" />
 
                             <div className="works-content">
-                                <h3><a href="#">Digital Marketing</a></h3>
+                                <h3><a href="#">TODO: project microservice</a></h3>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                             </div>
 
@@ -106,7 +106,7 @@ export class Works extends Component {
                             <img src={require("../../images/work-image/3.jpg")} alt="image" />
 
                             <div className="works-content">
-                                <h3><a href="#">Digital Marketing</a></h3>
+                                <h3><a href="#">TODO: project microservice</a></h3>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                             </div>
 
@@ -130,7 +130,7 @@ export class Works extends Component {
                             <img src={require("../../images/work-image/4.jpg")} alt="image" />
 
                             <div className="works-content">
-                                <h3><a href="#">Digital Marketing</a></h3>
+                                <h3><a href="#">TODO: project microservice</a></h3>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                             </div>
 
@@ -154,7 +154,7 @@ export class Works extends Component {
                             <img src={require("../../images/work-image/5.jpg")} alt="image" />
 
                             <div className="works-content">
-                                <h3><a href="#">Digital Marketing</a></h3>
+                                <h3><a href="#">TODO: project microservice</a></h3>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                             </div>
 
@@ -178,7 +178,7 @@ export class Works extends Component {
                             <img src={require("../../images/work-image/6.jpg")} alt="image" />
 
                             <div className="works-content">
-                                <h3><a href="#">Digital Marketing</a></h3>
+                                <h3><a href="#">TODO: project microservice</a></h3>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                             </div>
 

@@ -25,8 +25,8 @@ export class Blog extends Component {
                                 </div>
 
                                 <div className="blog-post-content">
-                                    <span className="date">25 Feb, 2019</span>
-                                    <h3><a href="#">The Most Popular New top Business Apps</a></h3>
+                                    <span className="date">28 Feb, 2099</span>
+                                    <h3><a href="#">TODO: Connect with blog microservice</a></h3>
                                     <a href="#" className="read-more-btn">Read More <i className="icofont-double-right"></i></a>
                                 </div>
                             </div>
@@ -40,13 +40,13 @@ export class Blog extends Component {
                                     </Link>
 
                                     <div className="post-tag">
-                                        <a href="#">Agency</a>
+                                        <a href="#">Machine Learning</a>
                                     </div>
                                 </div>
 
                                 <div className="blog-post-content">
-                                    <span className="date">27 Feb, 2019</span>
-                                    <h3><a href="#">The Best Marketing top Management Tools</a></h3>
+                                    <span className="date">28 Feb, 2099</span>
+                                    <h3><a href="#">TODO: Connect with blog microservice</a></h3>
                                     <a href="#" className="read-more-btn">Read More <i className="icofont-double-right"></i></a>
                                 </div>
                             </div>
@@ -60,13 +60,13 @@ export class Blog extends Component {
                                     </Link>
 
                                     <div className="post-tag">
-                                        <a href="#">IT</a>
+                                        <a href="#">Development</a>
                                     </div>
                                 </div>
 
                                 <div className="blog-post-content">
-                                    <span className="date">28 Feb, 2019</span>
-                                    <h3><a href="#">3 WooCommerce Plugins to Boost Sales</a></h3>
+                                    <span className="date">28 Feb, 2099</span>
+                                    <h3><a href="#">TODO: Connect with blog microservice</a></h3>
                                     <a href="#" className="read-more-btn">Read More <i className="icofont-double-right"></i></a>
                                 </div>
                             </div>

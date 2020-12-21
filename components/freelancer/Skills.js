@@ -10,6 +10,7 @@ export class Skills extends Component {
                         <h2>Some of My Skills</h2>
                     </div>
 
+ <h1>TODO: elaborated version from index</h1>
                     {/* <div className="row h-100 align-items-center">
                         <div className="col-lg-6 col-md-12">
                             <div className="our-skill">

@@ -16,7 +16,7 @@ export class Services extends Component {
                                 <img src={require("../../images/blog-image/1.jpg")} alt="image" />
                                 
                                 <div className="services-content">
-                                    <h3><a href="#">Web Design</a></h3>
+                                    <h3><a href="#">Web Development</a></h3>
                                     <p>Lorem ipsum dolor sit amet, consecte tuer adipiscing elit enean.</p>
                                 </div>
                             </div>
@@ -27,7 +27,7 @@ export class Services extends Component {
                                 <img src={require("../../images/blog-image/2.jpg")} alt="image" />
                                 
                                 <div className="services-content">
-                                    <h3><a href="#">Web Development</a></h3>
+                                    <h3><a href="#">Product Development</a></h3>
                                     <p>Lorem ipsum dolor sit amet, consecte tuer adipiscing elit enean.</p>
                                 </div>
                             </div>
@@ -49,7 +49,7 @@ export class Services extends Component {
                                 <img src={require("../../images/blog-image/4.jpg")} alt="image" />
                                 
                                 <div className="services-content">
-                                    <h3><a href="#">Live Support</a></h3>
+                                    <h3><a href="#">System Design</a></h3>
                                     <p>Lorem ipsum dolor sit amet, consecte tuer adipiscing elit enean.</p>
                                 </div>
                             </div>
@@ -60,7 +60,7 @@ export class Services extends Component {
                                 <img src={require("../../images/blog-image/5.jpg")} alt="image" />
                                 
                                 <div className="services-content">
-                                    <h3><a href="#">Content Writing</a></h3>
+                                    <h3><a href="#">Architectural Drawing</a></h3>
                                     <p>Lorem ipsum dolor sit amet, consecte tuer adipiscing elit enean.</p>
                                 </div>
                             </div>
@@ -71,7 +71,7 @@ export class Services extends Component {
                                 <img src={require("../../images/blog-image/6.jpg")} alt="image" />
                                 
                                 <div className="services-content">
-                                    <h3><a href="#">Timely Deliverables</a></h3>
+                                    <h3><a href="#">Consulting</a></h3>
                                     <p>Lorem ipsum dolor sit amet, consecte tuer adipiscing elit enean.</p>
                                 </div>
                             </div>
