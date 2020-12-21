@@ -37,7 +37,7 @@ export class index extends Component {
             <React.Fragment>
                 <Navbar />
                 <Banner />
-                <About />
+                {/* <About /> */}
                 <Services />
 
                 {/* <HowWeWork /> */}

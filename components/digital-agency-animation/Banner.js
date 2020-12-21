@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import TypedReact from '../home/typedReact';
+import Link from 'next/link';
 
 export class Banner extends Component {
 
-
+//TODO: componentdidmount() and get the strings in the TypedReact from API
 
     render() {
         return (
@@ -31,10 +32,14 @@ export class Banner extends Component {
         'I\'m a <strong>Photographer...</strong>',
         'I\'m a <strong>Leader...</strong>',
         "I\'m a POSSE scholar...",
-        "I\'m a FIRST alum"
+        "I\'m a FIRST alum..."
     ]}
   />
-                                        <a href="#" className="m-t-30 btn btn-primary wow fadeInLeft">Download CV</a>
+
+                                <Link href="/">
+                                <a href="#" className="m-t-30 btn btn-primary wow fadeInLeft">Learn more about me!</a>
+                                </Link>
+                                       
                                         {/* TODO: add api link for CV */}
                                     </div>
                                 </div>

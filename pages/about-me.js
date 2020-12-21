@@ -3,10 +3,11 @@ import Link from 'next/link';
 import Navbar from '../components/layout/Navbar';
 import Footer from '../components/layout/Footer';
 import AboutMe from '../components/about/AboutMe';
-import Cta from '../components/about/Cta';
+import Education from '../components/about/Education';
 import Services from '../components/freelancer/Services';
 import Skills from '../components/freelancer/Skills';
 import Funfacts from '../components/freelancer/Funfacts';
+import About from '../components/digital-agency-animation/About';
 
 export class index extends Component {
     render() {
@@ -26,10 +27,13 @@ export class index extends Component {
                         </ul>
                     </div>
                 </div>
-                <AboutMe />
-                <Cta />
-                <Services />
+                {/* <AboutMe /> */}
+                <About />
+                <Education/>
                 <Skills />
+
+                {/* <Cta /> */}
+                <Services />
                 <Funfacts />
 
                 <Footer />

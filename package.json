@@ -1,14 +1,14 @@
 {
-  "name": "fleja",
+  "name": "naqib_personal_website",
   "version": "1.5.0",
-  "description": "Fleja | React Next Multi-Concepts Templates",
+  "description": "Built from scrach",
   "main": "index.js",
   "scripts": {
     "dev": "node server.js -p $PORT",
     "build": "next build",
     "start": "NODE_ENV=production node server.js -p $PORT"
   },
-  "author": "EnvyTheme.com",
+  "author": "Ajmain Naqib",
   "license": "ISC",
   "dependencies": {
     "@babel/runtime-corejs2": "^7.9.2",
