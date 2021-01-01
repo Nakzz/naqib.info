@@ -18,8 +18,55 @@ import Funfacts from '../components/digital-agency-animation/Funfacts';
 import Blog from '../components/digital-agency-animation/Blog';
 import Partner from '../components/digital-agency-animation/Partner';
 import Contact from '../components/digital-agency-animation/Contact';
+import { GetServerSideProps } from 'next'
 
-export class index extends Component {
+import {initializeApollo} from "../utils/apolloClient"
+
+interface Props{
+
+}
+
+export class index extends Component<Props> {
+
+    constructor(props:Props){
+        super(props)
+    }
+
+    static getServerSideProps: GetServerSideProps = async (context) => {
+        const apolloClient = initializeApollo();
+    
+        const { data } = await apolloClient.query({
+            query: gql`
+                # Write your query or mutation here
+                {
+                    allSkills(orderBy: "name_ASC") {
+                        name
+                        level
+                        subSkills {
+                            name
+                            level
+                        }
+                    }
+                    allPages(orderBy: "name_ASC", first: 4) {
+                        name
+                    }
+                    allPosts(orderBy: "id_DESC", first: 4) {
+                        title
+                        posted
+                    }
+                }
+            `,
+        });
+        console.log("getServerSideProps");
+    
+        console.log(data);
+    
+        return {
+            props: {
+                data: data,
+            },
+        };
+    }
 
     componentDidMount(){ 
         this.setState({ display: true });

@@ -16,7 +16,7 @@ type Props = {
 
 
 export default function FullOption(props: Props) {
-  const [selected, setSelected] = useState<number | undefined>(undefined);
+  const [selected, setSelected] = useState<number | undefined>(0);
   const [hovered, setHovered] = useState<number | undefined>(undefined);
 
   const count = useSelector(state => state.skillReducer.skillPicked);
