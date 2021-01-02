@@ -1,8 +1,9 @@
-import { 
-    ON_SKILL_CHANGE,
-    SKILL_PICKED_ID,
-    FETCH_SKILLS
-} from '../actions/action-types/skill-action_type'
+import {
+	ON_SKILL_CHANGE,
+	SKILL_PICKED_ID,
+	FETCH_SKILLS,
+	SET_SUBSKILLS,
+} from "../actions/action-types/skill-action_type";
 
 // You can use subscribe() to update the UI in response to state changes.
 // Normally you'd use a view binding library (e.g. React Redux) rather than subscribe() directly.
@@ -16,45 +17,48 @@ import {
 // 1
 
 export const initState = {
-skillPicked : -1,
-skills : []
-}
+	skillPicked: -1,
+	skills: [],
+};
 
-const skillReducer= (state = initState, action) => {
-//    console.log("Action caught at skillReducer!")
-    if(action.type === ON_SKILL_CHANGE){
-        // let newId = state.skillPicked.find(item=> item.id === action.id) 
-         let newId =  action.id //FIXME: should check if action.id is even real like above line
+const skillReducer = (state = initState, action) => {
+	//    console.log("Action caught at skillReducer!")
+	if (action.type === ON_SKILL_CHANGE) {
+		// let newId = state.skillPicked.find(item=> item.id === action.id)
+		let newId = action.id; //FIXME: should check if action.id is even real like above line
 
-       return {
-           ... state,
-           skillPicked : newId
-       }
-    }
+		return {
+			...state,
+			skillPicked: newId,
+		};
+	}
 
-    if(action.type === SKILL_PICKED_ID){
-        // let newId = state.skillPicked.find(item=> item.id === action.id)
+	if (action.type === SKILL_PICKED_ID) {
+		// let newId = state.skillPicked.find(item=> item.id === action.id)
 
-       return {
-           ... state,
-           skillPicked : action.skillPicked
-       }
-    }
+		return {
+			...state,
+			skillPicked: action.skillPicked,
+		};
+	}
 
-    if(action.type== FETCH_SKILLS){
-        return {
-            ... state,
-            skills : action.payload
-        }
-    }
+	if (action.type == SET_SUBSKILLS) {
+		return {
+			...state,
+			skills: action.payload,
+		};
+	}
 
-    
-    
-    
-   // if nothing is caught
-    return state
-    
-}
+	if (action.type == FETCH_SKILLS) {
+		return {
+			...state,
+			// skills: action.payload,
+		};
+	}
+
+	// if nothing is caught
+	return state;
+};
 
 // Create a Redux store holding the state of your app.
 // Its API is { subscribe, dispatch, getState }.

@@ -8,8 +8,8 @@ export class Funfacts extends Component {
                     <div className="row">
                         <div className="col-lg-3 col-md-3 col-sm-6">
                             <div className="funfact">
-                                <h3><span className="odometer" data-count="520">520</span></h3>
-                                <p>Awards Winning</p>
+                                <h3><span className="odometer" data-count="89">89</span></h3>
+                                <p>Github Projects TODO: connect with git API</p>
                             </div>
                         </div>
                         
