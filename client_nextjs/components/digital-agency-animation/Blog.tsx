@@ -17,13 +17,13 @@ export class Blog extends Component<Props> {
 	}
 
 	render() {
-		console.log(this.props.data);
+		// console.log(this.props.data);
 		let posts = this.props.data.map((item, ind) => {
 			return (
-				<div className="col-lg-4 col-md-6">
+				<div key={ind} className="col-lg-4 col-md-6">
 					<div className="single-blog-post">
 						<div className="blog-image">
-							<Link  href={"/blog-details/" + item.slug}>
+							<Link href={"/blog-details/" + item.slug}>
 								<a>
 									<img
 										src={require("../../images/blog-image/1.jpg")}
@@ -33,10 +33,9 @@ export class Blog extends Component<Props> {
 							</Link>
 
 							<div className="post-tag">
-                                <Link href={"/blog-details/" + item.slug}>
-                                <a href={item.slug}>{item.title}</a>
-
-							</Link>
+								<Link href={"/blog-details/" + item.slug}>
+									<a href={item.slug}>{item.title}</a>
+								</Link>
 							</div>
 						</div>
 

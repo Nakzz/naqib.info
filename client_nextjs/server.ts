@@ -25,6 +25,10 @@ app.prepare().then(() => {
         maxAge: dev ? '0' : '365d'
     }));
 
+    server.use('/_next', express.static(path.join(__dirname, '.next'), {
+        maxAge: dev ? '0' : '365d'
+    }));
+
     server.use(bodyParser.json());
 
     server.get('*', (req, res) => {
