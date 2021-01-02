@@ -6,8 +6,14 @@
   "scripts": {
     "dev": "node server.ts -p $PORT",
     "build": "next build",
-    "start": "NODE_ENV=production node server.ts -p $PORT"
+    "start": "NODE_ENV=production node server.ts -p $PORT",
+    "requirements-check": "node check_node_version.js",
+    "predev": "npm run requirements-check"
   },
+  "engines": {
+    "node": ">=14.15.3"
+ },
+ "engineStrict": true,
   "author": "Ajmain Naqib",
   "license": "ISC",
   "dependencies": {
@@ -47,6 +53,7 @@
     "redux": "^4.0.5",
     "redux-devtools-extension": "^2.13.8",
     "redux-thunk": "^2.3.0",
+    "semver": "^5.7.1",
     "stripe": "^7.15.0",
     "typed.js": "^2.0.11",
     "wowjs": "^1.1.3"
