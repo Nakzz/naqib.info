@@ -9,7 +9,7 @@ const { userOwnsItem, isUserAdmin } = require("../access-control");
 const defaultFieldAccess = {
 	create: true || isUserAdmin,
 	update: userOwnsItem || isUserAdmin,
-	read: userOwnsItem || isUserAdmin,
+	// read: userOwnsItem || isUserAdmin ||true,
 };
 
 // const defaultFieldAccess = {
