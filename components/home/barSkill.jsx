@@ -4,11 +4,6 @@ import {fetchSkills} from '../../store/actions/skillAction'
 
 class BarSkill extends Component {
 
-  componentDidMount(){
-      this.props.fetchSkills();
-    }
-    
-      
     render() {
 
         let { skillPicked, skills } = this.props;
@@ -19,8 +14,8 @@ class BarSkill extends Component {
 
         // console.log(displayData, skillPicked)
 
-        const data = displayData.map(elem=>(
-            <div className="skill-item">
+        const data = displayData.map((elem, i)=>(
+            <div key={i} className="skill-item">
               <div className="skill-header">
                   <h3 className="skill-title">{elem.title}</h3>
 
@@ -56,4 +51,4 @@ const mapStateToProps = state => ({
     });
   
   
-  export default connect( mapStateToProps , {fetchSkills} )(BarSkill); 
+  export default connect( mapStateToProps )(BarSkill); 

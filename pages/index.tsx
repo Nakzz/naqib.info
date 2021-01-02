@@ -33,9 +33,10 @@ export async function getServerSideProps() {
         query: gql`
             # Write your query or mutation here
             {
-                allSkills(orderBy: "name_ASC") {
-                    name
-                    level
+                allSkills(orderBy: "title_ASC") {
+                    title
+                    value
+                    color
                     subSkills {
                         name
                         level
@@ -47,6 +48,7 @@ export async function getServerSideProps() {
                 allPosts(orderBy: "id_DESC", first: 4) {
                     title
                     posted
+                    slug
                 }
             }
         `,
@@ -56,9 +58,8 @@ export async function getServerSideProps() {
     console.log(data);
 
     return {
-        props: {
-            data: data,
-        },
+        props: {...data},
+        
     };
 }
 
@@ -93,7 +94,7 @@ export async function getServerSideProps() {
                 <Services />
 
                 {/* <HowWeWork /> */}
-                <Skills />
+                <Skills data={this.props.allSkills}/>
 
                 {/* <WhyChooseUs /> TODO: add later */} 
                
@@ -103,7 +104,7 @@ export async function getServerSideProps() {
       
 
                 {/* <Funfacts /> TODO: add later*/}
-                <Blog />
+                <Blog data={this.props.allPosts}/>
 
                 <Contact />
 

@@ -1,6 +1,9 @@
-import {ON_SKILL_CHANGE, FETCH_SKILLS, SKILL_PICKED_ID} from './action-types/skill-action_type'
-
-
+import {
+	ON_SKILL_CHANGE,
+	FETCH_SKILLS,
+	SKILL_PICKED_ID,
+	SET_SUBSKILLS,
+} from "./action-types/skill-action_type";
 
 /**
  * This is a reducer, a pure function with (state, action) => state signature.
@@ -25,53 +28,62 @@ import {ON_SKILL_CHANGE, FETCH_SKILLS, SKILL_PICKED_ID} from './action-types/ski
 //     }
 //   }
 
-
-  //change the skill id
+//change the skill id
 export const changeSkillPieId = (id) => {
-    return {
-        type: ON_SKILL_CHANGE,
-        id
-    }
-}
+	return {
+		type: ON_SKILL_CHANGE,
+		id,
+	};
+};
 
-export const getSkillId = () => dispatch => {
+export const getSkillId = () => (dispatch) => {
+	dispatch({
+		type: SKILL_PICKED_ID,
+		// payload: id // I dont think there's any payload
+	});
+};
 
-  dispatch({
-    type: SKILL_PICKED_ID,
-    // payload: id // I dont think there's any payload
-  })
-}
+export const setSubSkills = (data) => (dispatch) => {
+	console.log("setSubskill is called");
+	dispatch({
+		type: SET_SUBSKILLS,
+		payload: data, // I dont think there's any payload
+	});
+};
 
-export const fetchSkills = () => dispatch =>{
-  //TODO: this should be calling from API, but for now bear with me
+export const fetchSkills = () => (dispatch) => {
+	//TODO: this should be calling from API, but for now bear with me
 
-let skills = [{
-              id: 2,
-              title: "JavaScript Frameworks",
-              val: 10
-      },{
-          id: 2,
-          title: "CSS preprocessing",
-          val: 10
-  },{
-      id: 2,
-      title: "Automation tools",
-      val: 10
-  },{
-  id: 2,
-  title: "Browser tools",
-  val: 10
-  },{
-      id: 2,
-      title: "Responsive design",
-      val: 10
-  }
-  
-  ]
+	// let skills = [
+	// 	{
+	// 		id: 2,
+	// 		title: "JavaScript Frameworks",
+	// 		val: 10,
+	// 	},
+	// 	{
+	// 		id: 2,
+	// 		title: "CSS preprocessing",
+	// 		val: 10,
+	// 	},
+	// 	{
+	// 		id: 2,
+	// 		title: "Automation tools",
+	// 		val: 10,
+	// 	},
+	// 	{
+	// 		id: 2,
+	// 		title: "Browser tools",
+	// 		val: 10,
+	// 	},
+	// 	{
+	// 		id: 2,
+	// 		title: "Responsive design",
+	// 		val: 10,
+	// 	},
+	// ];
 
-  dispatch({
-    type: FETCH_SKILLS,
-    payload: skills
-  })
-
-}
+	dispatch({
+		type: FETCH_SKILLS,
+		// payload: skills,
+	});
+};

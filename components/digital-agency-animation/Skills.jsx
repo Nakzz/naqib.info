@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { PieChart } from "react-minimal-pie-chart";
 import FullOption from "../pie-chart/FullOption.tsx";
 import BarSkill from "../home/barSkill";
+import { setSubSkills } from "../../store/actions/skillAction";
+import { connect } from "react-redux";
 
 const dataMock = [
 	{ title: "Architecture", value: 20, color: "#6C7549" },
@@ -11,11 +13,36 @@ const dataMock = [
 ];
 
 export class Skills extends Component {
+	constructor(props) {
+		super(props);
+	}
 	componentDidMount() {
 		//TODO: get these from API
 	}
 
+	dispatchSubskills(allSkills) {
+		let subSkill = [];
+
+		allSkills.forEach((e, index) => {
+			// console.log(e)
+			if (e)
+				e.subSkills.forEach((elem) => {
+					subSkill.push({
+						id: index,
+						title: elem.name,
+						val: elem.level,
+					});
+				});
+		});
+
+		console.log(subSkill);
+		this.props.setSubSkills(subSkill);
+	}
+
 	render() {
+		// console.log(this.props)
+		this.dispatchSubskills(this.props.data);
+
 		return (
 			<section className="skill-area m-t-50">
 				<div className="skill-image">
@@ -49,7 +76,8 @@ export class Skills extends Component {
 
 						<div className="col-lg-7 col-md-12 align-items-end">
 							<div className="m-t-20">
-								<FullOption data={dataMock} />
+								{/* <FullOption data={dataMock} /> */}
+								<FullOption data={this.props.data} />
 							</div>
 						</div>
 					</div>
@@ -59,4 +87,7 @@ export class Skills extends Component {
 	}
 }
 
-export default Skills;
+// export default Skills;
+
+
+export default connect(null,{ setSubSkills })(Skills);
