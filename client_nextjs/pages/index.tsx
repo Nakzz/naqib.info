@@ -43,10 +43,11 @@ export async function getServerSideProps() {
 				allPages(orderBy: "name_ASC", first: 4) {
 					name
 				}
-				allPosts(orderBy: "id_DESC", first: 4) {
+				allPosts(orderBy: "id_DESC", first: 4,where:{status:published,private:false}) {
 					title
 					posted
 					slug
+					heading
 				}
 			}
 		`,

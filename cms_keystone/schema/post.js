@@ -37,7 +37,7 @@ const Post = {
 	fields: {
 		title: { type: Text },
 		slug: { type: Slug, from: "title" },
-		private: { type: Checkbox },
+		private: { type: Checkbox, defaultValue: true },
 
 		author: {
 			type: AuthedRelationship,
@@ -58,13 +58,17 @@ const Post = {
 				{ label: "Published", value: "published" },
 			],
 		},
+		heading: { type: Text },
+
 		body: { type: Wysiwyg },
 		posted: {
 			type: DateTime,
 			format: "dd/MM/yyyy",
 			defaultValue: ({ context, originalInput }) => {
-				var tzoffset = (new Date()).getTimezoneOffset() * 60000; //offset in milliseconds
-var localISOTime = (new Date(Date.now() - tzoffset)).toISOString().slice(0, -1);
+				var tzoffset = new Date().getTimezoneOffset() * 60000; //offset in milliseconds
+				var localISOTime = new Date(Date.now() - tzoffset)
+					.toISOString()
+					.slice(0, -1);
 
 				return localISOTime;
 			},
