@@ -1,4 +1,5 @@
 const {
+	File,
 	Text,
 	Slug,
 	DateTime,
@@ -13,18 +14,30 @@ const {
 } = require("@keystonejs/fields-authed-relationship");
 const { CloudinaryAdapter } = require("@keystonejs/file-adapters");
 const { CloudinaryImage } = require("@keystonejs/fields-cloudinary-image");
+const { LocalFileAdapter } = require("@keystonejs/file-adapters");
 
 const {
 	isUserAdmin,
 	isUserAuthenticated,
 	userOwnsItem,
 } = require("../access-control");
-
+const { staticRoute, staticPath, distDir } = require("../config.ts");
 // const cloudinaryAdapter = new CloudinaryAdapter({
 // 	cloudName: process.env.CLOUDINARY_CLOUD_NAME,
 // 	apiKey: process.env.CLOUDINARY_KEY,
 // 	apiSecret: process.env.CLOUDINARY_SECRET,
 // });
+const dev = process.env.NODE_ENV !== "production";
+
+const fileAdapter = new LocalFileAdapter({
+	src: `${dev ? "" : `${distDir}/`}${staticPath}/uploads`,
+	path: `${staticRoute}/uploads`,
+});
+
+const avatarFileAdapter = new LocalFileAdapter({
+	src: `${staticPath}/avatars`,
+	path: `${staticRoute}/avatars`,
+});
 
 const defaultFieldAccess = {
 	create: isUserAdmin || userOwnsItem, // This will be ignored by custom mutation
@@ -73,17 +86,18 @@ const Post = {
 				return localISOTime;
 			},
 		},
-		// image: { //TODO: fix later
-		//   type: File,
-		//   adapter: fileAdapter,
-		//   hooks: {
-		//     beforeChange: async ({ existingItem }) => {
-		//       if (existingItem && existingItem.image) {
-		//         await fileAdapter.delete(existingItem.image);
-		//       }
-		//     },
-		//   },
-		// },
+		image: {
+			//TODO: fix later
+			type: File,
+			adapter: fileAdapter,
+			hooks: {
+				beforeChange: async ({ existingItem }) => {
+					if (existingItem && existingItem.image) {
+						await fileAdapter.delete(existingItem.image);
+					}
+				},
+			},
+		},
 		// image: { type: CloudinaryImage, adapter: cloudinaryAdapter }, FIXME: RangeError: Maximum call stack size exceeded on upload
 		comments: {
 			type: Relationship,
@@ -93,6 +107,13 @@ const Post = {
 	},
 	plugins: [byTracking(), atTracking()],
 	access: { create: isUserAdmin, read: true, update: true }, // This access control will be ignored by our custom mutations
+	hooks: {
+		afterDelete: ({ existingItem }) => {
+			if (existingItem.image) {
+				fileAdapter.delete(existingItem.image);
+			}
+		},
+	},
 };
 
 const PostCategory = {
