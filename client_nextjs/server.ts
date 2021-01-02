@@ -8,8 +8,8 @@ var fs = require("fs");
 var http = require("http");
 var https = require("https");
 
-var privateKey = fs.readFileSync("./cert/privkey.pem", "utf8");
-var certificate = fs.readFileSync("./cert/fullchain.pem", "utf8");
+var privateKey = fs.readFileSync("../cert/privkey.pem", "utf8");
+var certificate = fs.readFileSync("../cert/fullchain.pem", "utf8");
 var credentials = { key: privateKey, cert: certificate };
 
 const dev = process.env.NODE_ENV !== 'production';

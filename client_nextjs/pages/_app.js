@@ -18,17 +18,17 @@ import GoTop from "../components/shared/GoTop";
 
 export default withRedux(initStore)(
 	class MyApp extends App {
-
 		static async getInitialProps({ Component, ctx }) {
-			const pageProps = Component.getInitialProps ? await Component.getInitialProps(ctx) : {};
-	   
-		   if (Object.keys(pageProps).length > 0) {
-			 // return pageProps only when its present
-			 return { pageProps }; 
-		   
-		   }
-		   return {};
-		 }
+			const pageProps = Component.getInitialProps
+				? await Component.getInitialProps(ctx)
+				: {};
+
+			if (Object.keys(pageProps).length > 0) {
+				// return pageProps only when its present
+				return { pageProps };
+			}
+			return {};
+		}
 
 		render() {
 			const { Component, pageProps, store } = this.props;
@@ -42,9 +42,16 @@ export default withRedux(initStore)(
 						openGraph={{
 							type: "website",
 							locale: "en_IE",
-							url: "http://naqib.info",
+							url: "https://naqib.info",
 							site_name: "Ajmain Naqib | Personal Website",
 						}}
+						additionalMetaTags={[
+							{
+								property: "viewport",
+								content:
+									"width=device-width, initial-scale=1, shrink-to-fit=no",
+							},
+						]}
 					/>
 					<Preloader>
 						<Provider store={store}>
