@@ -107,20 +107,20 @@ export class Navbar extends Component {
                                     </li>
 
                                     <li className="nav-item">
-                                        <a href="#" className="nav-link">Blog <i className="icofont-simple-down"></i></a>
-                                        <ul className="dropdown_menu">
-                                            <li className="nav-item">
-                                                <Link activeClassName="active" href="/blog">
-                                                    <a className="nav-link">Blog</a>
+                                        <Link activeClassName="active" href="/blog">
+                                        <a href="#" className="nav-link">Blog </a>
+                                        {/* <ul className="dropdown_menu">
+                                            <li className="nav-item"> */}
+                                                    {/* <a className="nav-link">Blog</a> */}
                                                 </Link>
-                                            </li>
+                                            {/* </li>
                                             
                                             <li className="nav-item">
                                                 <Link activeClassName="active" href="/blog-details">
                                                     <a className="nav-link">Blog Details</a>
                                                 </Link>
                                             </li>
-                                        </ul>
+                                        </ul> */}
                                     </li>
 
                                     <li className="nav-item">
@@ -128,13 +128,13 @@ export class Navbar extends Component {
                                         <ul className="dropdown_menu">
                                             <li className="nav-item">
                                                 <Link activeClassName="active" href="/portfolio">
-                                                    <a className="nav-link">Project</a>
+                                                    <a className="nav-link">Projects</a>
                                                 </Link>
                                             </li>
                                             
                                             <li className="nav-item">
                                                 <Link activeClassName="active" href="/portfolio-details">
-                                                    <a className="nav-link">Portfolio Details</a>
+                                                    <a className="nav-link">Photography</a>
                                                 </Link>
                                             </li>
                                         </ul>

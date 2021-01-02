@@ -51,7 +51,7 @@ export class Footer extends Component {
                                     <li><a href="/projects">Portfolio</a></li>
                                     <li><a href="/blog">Blog</a></li>
                                     <li><a href="/contact">Contact</a></li>
-                                    <li><a href="/faq">FAQ's</a></li>
+                                    {/* <li><a href="/faq">FAQ's</a></li> */}
                                 </ul>
                             </div>
                         </div>
