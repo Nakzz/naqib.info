@@ -30,7 +30,7 @@
     "next-routes": "^1.4.2",
     "next-seo": "^2.2.1",
     "next-videos": "^1.1.3",
-    "node-sass": "^4.13.1",
+    "node-sass": "^5.0.0",
     "react": "^16.13.1",
     "react-accessible-accordion": "^3.0.1",
     "react-dom": "^16.13.1",
