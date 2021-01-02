@@ -21,22 +21,16 @@ const {
 	isUserAuthenticated,
 	userOwnsItem,
 } = require("../access-control");
-const { staticRoute, staticPath, distDir } = require("../config.ts");
+const { staticRoute, staticPath } = require("../config.ts");
 // const cloudinaryAdapter = new CloudinaryAdapter({
 // 	cloudName: process.env.CLOUDINARY_CLOUD_NAME,
 // 	apiKey: process.env.CLOUDINARY_KEY,
 // 	apiSecret: process.env.CLOUDINARY_SECRET,
 // });
-const dev = process.env.NODE_ENV !== "production";
 
 const fileAdapter = new LocalFileAdapter({
-	src: `${dev ? "" : `${distDir}/`}${staticPath}/uploads`,
-	path: `${staticRoute}/uploads`,
-});
-
-const avatarFileAdapter = new LocalFileAdapter({
-	src: `${staticPath}/avatars`,
-	path: `${staticRoute}/avatars`,
+	src: `${staticPath}${staticRoute}/blogs`,
+	path: `${staticRoute}/blogs`,
 });
 
 const defaultFieldAccess = {
@@ -87,12 +81,13 @@ const Post = {
 			},
 		},
 		image: {
-			//TODO: fix later
 			type: File,
 			adapter: fileAdapter,
 			hooks: {
 				beforeChange: async ({ existingItem }) => {
 					if (existingItem && existingItem.image) {
+						console.log("going to delete!");
+						console.log(existingItem.image);
 						await fileAdapter.delete(existingItem.image);
 					}
 				},
@@ -104,13 +99,21 @@ const Post = {
 			ref: "Comment.post",
 			many: true,
 		},
+		tags: {
+			type: Relationship,
+			ref: "Tag.post",
+			many: true,
+		},
 	},
 	plugins: [byTracking(), atTracking()],
 	access: { create: isUserAdmin, read: true, update: true }, // This access control will be ignored by our custom mutations
 	hooks: {
-		afterDelete: ({ existingItem }) => {
+		afterDelete: async ({ existingItem }) => {
+			console.log("afterDelete");
 			if (existingItem.image) {
-				fileAdapter.delete(existingItem.image);
+				console.log("going to delete!");
+				console.log(existingItem.image);
+				await fileAdapter.delete(existingItem.image);
 			}
 		},
 	},

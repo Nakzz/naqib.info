@@ -1,9 +1,13 @@
 const {
+	File,
 	Text,
 	Checkbox,
 	Password,
 	Relationship,
 } = require("@keystonejs/fields");
+const { LocalFileAdapter } = require("@keystonejs/file-adapters");
+
+const { staticRoute, staticPath } = require("../config.ts");
 const { userOwnsItem, isUserAdmin } = require("../access-control");
 
 const defaultFieldAccess = {
@@ -17,6 +21,11 @@ const defaultFieldAccess = {
 //   update: true,
 //   read: true
 // };
+
+const avatarFileAdapter = new LocalFileAdapter({
+	src: `${staticPath}${staticRoute}/avatars`,
+	path: `${staticRoute}/avatars`,
+});
 
 module.exports.User = {
 	fields: {
@@ -35,9 +44,11 @@ module.exports.User = {
 		},
 		isAdmin: {
 			type: Checkbox,
-      access: { ...defaultFieldAccess, 
-        // create: () => false 
-      },
+			access: {
+				...defaultFieldAccess,
+				// create: () => false
+			},
 		},
+		avatar: { type: File, adapter: avatarFileAdapter },
 	},
 };
