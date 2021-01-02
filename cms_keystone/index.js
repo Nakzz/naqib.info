@@ -11,14 +11,19 @@ require("dotenv").config();
 const { User } = require("./schema/user.js");
 const { Comment } = require("./schema/comment.ts");
 const { Page } = require("./schema/page.js");
+const { Tag } = require("./schema/tags.ts");
 const { Post, PostCategory } = require("./schema/post.js");
 const { Skill, SubSkill } = require("./schema/skills");
+const { staticRoute, staticPath, distDir } = require("./config.ts");
 
 const initialiseData = require("./initial-data");
 
 var mongoUri; // Database connection
 
 const PROJECT_NAME = "cms_naqib";
+
+process.env.NODE_ENV="development"  //REVIEW: only for testing
+
 if (process.env.NODE_ENV === "production")
 	mongoUri = "mongodb://localhost/cms-naqib";
 else if (process.env.NODE_ENV === "docker_production")
@@ -60,6 +65,7 @@ keystone.createList("PostCategory", PostCategory);
 keystone.createList("Post", Post);
 keystone.createList("SubSkill", SubSkill);
 keystone.createList("Skill", Skill);
+keystone.createList("Tag", Tag);
 
 const adminAuthStrategy = keystone.createAuthStrategy({
 	type: PasswordAuthStrategy,
@@ -87,7 +93,7 @@ module.exports = {
 		}),
 		new StaticApp({
 			path: "/",
-			src: "/data/naqib.info_static_content/public",
+			src: staticPath,
 			fallback: "false",
 		}),
 	],
