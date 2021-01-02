@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import gql from 'graphql-tag'
+
 const isServer = typeof window === 'undefined'
 const WOW = !isServer ? require('wowjs') : null
 import Navbar from '../components/layout/Navbar';
@@ -18,55 +20,55 @@ import Funfacts from '../components/digital-agency-animation/Funfacts';
 import Blog from '../components/digital-agency-animation/Blog';
 import Partner from '../components/digital-agency-animation/Partner';
 import Contact from '../components/digital-agency-animation/Contact';
-import { GetServerSideProps } from 'next'
+// import { GetServerSideProps } from 'next'
 
 import {initializeApollo} from "../utils/apolloClient"
 
-interface Props{
 
+export async function getServerSideProps() {
+
+    const apolloClient = initializeApollo();
+
+    const { data } = await apolloClient.query({
+        query: gql`
+            # Write your query or mutation here
+            {
+                allSkills(orderBy: "name_ASC") {
+                    name
+                    level
+                    subSkills {
+                        name
+                        level
+                    }
+                }
+                allPages(orderBy: "name_ASC", first: 4) {
+                    name
+                }
+                allPosts(orderBy: "id_DESC", first: 4) {
+                    title
+                    posted
+                }
+            }
+        `,
+    });
+    console.log("getServerSideProps");
+
+    console.log(data);
+
+    return {
+        props: {
+            data: data,
+        },
+    };
 }
 
-export class index extends Component<Props> {
+ class index extends Component {
 
-    constructor(props:Props){
+    constructor(props){
         super(props)
     }
 
-    static getServerSideProps: GetServerSideProps = async (context) => {
-        const apolloClient = initializeApollo();
-    
-        const { data } = await apolloClient.query({
-            query: gql`
-                # Write your query or mutation here
-                {
-                    allSkills(orderBy: "name_ASC") {
-                        name
-                        level
-                        subSkills {
-                            name
-                            level
-                        }
-                    }
-                    allPages(orderBy: "name_ASC", first: 4) {
-                        name
-                    }
-                    allPosts(orderBy: "id_DESC", first: 4) {
-                        title
-                        posted
-                    }
-                }
-            `,
-        });
-        console.log("getServerSideProps");
-    
-        console.log(data);
-    
-        return {
-            props: {
-                data: data,
-            },
-        };
-    }
+
 
     componentDidMount(){ 
         this.setState({ display: true });
@@ -79,7 +81,10 @@ export class index extends Component<Props> {
         }).init();
     }
 
+
     render() {
+        
+        console.log("props from index render: " + JSON.stringify(this.props))
         return (
             <React.Fragment>
                 <Navbar />

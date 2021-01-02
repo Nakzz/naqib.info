@@ -18,13 +18,17 @@ import GoTop from "../components/shared/GoTop";
 
 export default withRedux(initStore)(
 	class MyApp extends App {
+
 		static async getInitialProps({ Component, ctx }) {
-			return {
-				pageProps: Component.getInitialProps
-					? await Component.getInitialProps(ctx)
-					: {},
-			};
-		}
+			const pageProps = Component.getInitialProps ? await Component.getInitialProps(ctx) : {};
+	   
+		   if (Object.keys(pageProps).length > 0) {
+			 // return pageProps only when its present
+			 return { pageProps }; 
+		   
+		   }
+		   return {};
+		 }
 
 		render() {
 			const { Component, pageProps, store } = this.props;

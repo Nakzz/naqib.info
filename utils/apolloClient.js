@@ -11,7 +11,7 @@ function createApolloClient() {
 		ssrMode: typeof window === "undefined", // set to true for SSR
 		link: new HttpLink({
 			//    uri: "https://naqib.info:3000/admin/api",
-			uri: "https://192.168.1.126:3010/admin/api", //docker
+			//uri: "https://192.168.1.126:3010/admin/api", //docker
 			uri: "https://192.168.1.126:3000/admin/api", //dev
 			fetchOptions: {
 				agent: new https.Agent({ rejectUnauthorized: false }), //Since Keystone is in internal network, cert verification isn't needed

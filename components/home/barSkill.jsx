@@ -17,7 +17,7 @@ class BarSkill extends Component {
         if(skills )
           displayData = skills.filter(elem => elem.id == skillPicked)
 
-        console.log(displayData, skillPicked)
+        // console.log(displayData, skillPicked)
 
         const data = displayData.map(elem=>(
             <div className="skill-item">
