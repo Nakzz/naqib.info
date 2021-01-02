@@ -1,0 +1,17 @@
+version: "2"
+services:
+  cms:
+    build: ./CMS/
+    network_mode: bridge
+    environment:
+      - NODE_ENV=docker_production
+    ports:
+      - "3010:3000"
+    depends_on:
+      - mongo
+  mongo:
+    image: mongo
+    network_mode: bridge
+    # ports:
+    #   - "27017:27017"
+# docker-compose up --build -d
