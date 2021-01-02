@@ -28,7 +28,7 @@ app.prepare().then(() => {
     server.use(bodyParser.json());
 
     server.get('*', (req, res) => {
-        if (!req.secure)
+        if (!req.secure) // HTTP=> HTTPS
         res.redirect('https://' + req.headers.host + req.url);
         return handle(req, res)
         // return app.render(req, res, '/coming-soon') //FOR COMING SOON PAGE REDIRECT
