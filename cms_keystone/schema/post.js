@@ -36,7 +36,7 @@ const fileAdapter = new LocalFileAdapter({
 const defaultFieldAccess = {
 	create: isUserAdmin || userOwnsItem, // This will be ignored by custom mutation
 	update: isUserAdmin || userOwnsItem,
-	read: true,
+	// read: true,
 };
 
 const Post = {
@@ -44,7 +44,7 @@ const Post = {
 	fields: {
 		title: { type: Text },
 		slug: { type: Slug, from: "title" },
-		private: { type: Checkbox, defaultValue: true },
+		private: { type: Checkbox, defaultValue: false },
 
 		author: {
 			type: AuthedRelationship,
@@ -66,7 +66,6 @@ const Post = {
 			],
 		},
 		heading: { type: Text },
-
 		body: { type: Wysiwyg },
 		posted: {
 			type: DateTime,
@@ -121,8 +120,8 @@ const Post = {
 
 const PostCategory = {
 	fields: {
-		name: { type: Text },
-		slug: { type: Slug, from: "name" },
+		name: { type: Text, isUnique: true, isRequired: true },
+		slug: { type: Slug, from: "name", isUnique: true, isRequired: true },
 	},
 };
 

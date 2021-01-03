@@ -22,7 +22,7 @@ var mongoUri; // Database connection
 
 const PROJECT_NAME = "cms_naqib";
 
-process.env.NODE_ENV="development"  //REVIEW: only for testing
+//process.env.NODE_ENV="development"  //REVIEW: only for testing
 
 if (process.env.NODE_ENV === "production")
 	mongoUri = "mongodb://localhost/cms-naqib";

@@ -11,8 +11,11 @@ interface Post {
 	title: string;
 	slug: string;
 	posted: string;
-    body: string;
-    heading: string;
+	body: string;
+	heading: string;
+	image: {
+        filename?: string
+    }
 	author: {
 		name: string;
 		email: string;
@@ -22,7 +25,11 @@ interface Post {
 	};
 	comments: {
 		name: string;
-	};
+    };
+    tags:[{
+        name: string;
+        slug: string;
+    }]
 }
 
 interface Props {
@@ -69,6 +76,9 @@ export async function getStaticProps({ params }) {
 				allPosts(where:{slug:"${params.slug}"}) {
                     title
                     slug
+                    image{
+                        filename
+                    }
                     posted
                     heading
                     body
@@ -76,17 +86,40 @@ export async function getStaticProps({ params }) {
                         name
                         email
                       }
-                      categories{
+                    categories{
                         name
-                      }
-                      comments{
+                        slug
+                    }
+                    comments{
                         name
-                      }
+                        
+                        body
+                        date
+                        replies{
+                            name
+                            
+                            body
+                            date
+                            replies{
+                                name
+                                
+                                body
+                                date
+                                replies{
+                                    name
+                                }
+                            }
+                        }
+                    }
+                    tags{
+                        name
+                        slug
+                    }
 				}
 			}
 		`,
 	});
-	console.log(allPosts);
+	// console.log(allPosts);
 
 	// Pass post data to the page via props
 	return { props: { post: allPosts[0] } };
@@ -96,12 +129,15 @@ export class index extends Component<Props> {
 	constructor(props: Props) {
 		super(props);
 	}
+
 	render() {
+		const hostname: String = "https://naqib.info/public/blogs/";
+
 		console.log(this.props);
 		const { post } = this.props;
-        const postedOn = new Date(post.posted).toDateString();
-	    const markup = { __html: post.body }; 
-        
+		const postedOn = new Date(post.posted).toDateString();
+		const markup = { __html: post.body };
+
 		return (
 			<React.Fragment>
 				<Navbar />
@@ -116,7 +152,6 @@ export class index extends Component<Props> {
 							</li>
 							<li>Blog Details</li>
 							<li>{post.slug}</li>
-
 						</ul>
 					</div>
 				</div>
@@ -128,7 +163,7 @@ export class index extends Component<Props> {
 								<div className="blog-details">
 									<div className="article-img">
 										<img
-											src={require("../../images/blog-image/1.jpg")}
+											src={hostname + post.image.filename}
 											alt="blog-details"
 										/>
 										<div className="date">
@@ -137,31 +172,25 @@ export class index extends Component<Props> {
 									</div>
 
 									<div className="article-content">
-										{/* TODO: someday add tagging */}
-										<ul className="category disable">
-											<li>
-												<a href="#">TODO: implement relational tags</a>
-											</li>
-											<li>
-												<a href="#">Mobile</a>
-											</li>
-											<li>
-												<a href="#">Marketing</a>
-											</li>
-											<li>
-												<a href="#">Design</a>
-											</li>
-											<li>
-												<a href="#">Development</a>
-											</li>
+										<ul className="category">
+                                            {post.tags && post.tags.length>0? (
+                                                 post.tags.map((e,i)=>{
+                                                     return (
+                                                        <li key={i}>
+                                                        <Link href={"../blogs/tags/"+e.slug}>
+                                                     <a > {e.name}</a>
+                                                        </Link>
+                                                    </li>
+                                                     )
+                                                 })   
+                                            ) : (" ")}
+											
 										</ul>
 
 										<h3>{post.heading}</h3>
 
-                                        <div dangerouslySetInnerHTML={markup}></div>
+										<div dangerouslySetInnerHTML={markup}></div>
 
-
-										
 										<div disabled={true} className="share-post">
 											<ul>
 												<li>
@@ -201,7 +230,7 @@ export class index extends Component<Props> {
 										</a>
 									</div>
 
-									<div disabled={true}  className="controls-right">
+									<div disabled={true} className="controls-right">
 										<a href="#">
 											TODO:Next Post <i className="icofont-double-right"></i>
 										</a>
@@ -277,34 +306,32 @@ export class index extends Component<Props> {
 												<i className="icofont-reply"></i>
 											</a>
 										</div>
-                                        <div className="single-comment">
-										<div className="comment-img">
-											<img
-												src={require("../../images/client-image/1.jpg")}
-												alt="client"
-											/>
-										</div>
-										<div className="comment-content">
-											<h4>John Cina</h4>
-											<p>
-												Lorem ipsum, dolor sit amet consectetur adipisicing
-												elit. Et minus, saepe porro a voluptatem, quidem aut
-												libero consequatur unde molestiae quae impedit
-												accusantium dolor est corporis! Dolores ut dignissimos
-												doloribus?
-											</p>
-											<span>Jan 19, 2018 - 9:10AM</span>
-											<a href="#">
-												<i className="icofont-reply"></i>
-											</a>
+										<div className="single-comment">
+											<div className="comment-img">
+												<img
+													src={require("../../images/client-image/1.jpg")}
+													alt="client"
+												/>
+											</div>
+											<div className="comment-content">
+												<h4>John Cina</h4>
+												<p>
+													Lorem ipsum, dolor sit amet consectetur adipisicing
+													elit. Et minus, saepe porro a voluptatem, quidem aut
+													libero consequatur unde molestiae quae impedit
+													accusantium dolor est corporis! Dolores ut dignissimos
+													doloribus?
+												</p>
+												<span>Jan 19, 2018 - 9:10AM</span>
+												<a href="#">
+													<i className="icofont-reply"></i>
+												</a>
+											</div>
 										</div>
 									</div>
-									</div>
-
-
 								</div>
 
-								<div disabled={true}  className="leave-a-reply">
+								<div disabled={true} className="leave-a-reply">
 									<h3>TODO: Leave a Reply</h3>
 									<div className="row">
 										<div className="col-lg-6 col-md-6">
@@ -348,7 +375,7 @@ export class index extends Component<Props> {
 								</div>
 							</div>
 
-							<div disabled={true}  className="col-lg-4 col-md-12">
+							<div disabled={true} className="col-lg-4 col-md-12">
 								<div className="sidebar">
 									<div className="widget widget_search">
 										<form>

@@ -2,9 +2,9 @@ import React, { Component } from "react";
 import Link from "next/link";
 import gql from "graphql-tag";
 
-import Navbar from "../components/layout/Navbar";
-import Footer from "../components/layout/Footer";
-import Post from "../components/digital-agency-animation/Post";
+import Navbar from "../../components/layout/Navbar";
+import Footer from "../../components/layout/Footer";
+import Post from "../../components/digital-agency-animation/Post";
 
 interface BlogPosts {
 	title: string;
@@ -18,7 +18,7 @@ interface Props {
 	allPosts: BlogPosts[];
 }
 
-import { initializeApollo } from "../utils/apolloClient";
+import { initializeApollo } from "../../utils/apolloClient";
 
 export async function getServerSideProps() {
 	const apolloClient = initializeApollo();
@@ -53,9 +53,9 @@ export class index extends Component<Props> {
 	}
 	render() {
 		console.log(this.props);
-		let posts = this.props.allPosts.map((item, ind) => {
+		let posts = this.props.allPosts ? this.props.allPosts.map((item, ind) => {
 			return <Post data={item} key={ind} />;
-		});
+		}) : null;
 
 		return (
 			<React.Fragment>
