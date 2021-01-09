@@ -8,7 +8,7 @@ const expressSession = require("express-session"); //REVIEW: what does this do?
 const MongoStore = require("connect-mongo")(expressSession); //REVIEW: what does this do?
 require("dotenv").config();
 
-const { User } = require("./schema/user.js");
+const { User, Interest} = require("./schema/user.js");
 const { Comment } = require("./schema/comment.ts");
 const { Page } = require("./schema/page.js");
 const { Tag } = require("./schema/tags.ts");
@@ -66,6 +66,7 @@ keystone.createList("Post", Post);
 keystone.createList("SubSkill", SubSkill);
 keystone.createList("Skill", Skill);
 keystone.createList("Tag", Tag);
+keystone.createList("Interest", Interest);
 
 const adminAuthStrategy = keystone.createAuthStrategy({
 	type: PasswordAuthStrategy,

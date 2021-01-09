@@ -1,46 +1,49 @@
 import React, { Component } from 'react';
 
+ function Service(props) {
+	const { data, i } = props;
+	const item = data;
+
+
+    return (
+        <div key={i} className="col-lg-4 col-md-6">
+        <div className="single-services">
+            <div className="icon">
+                <i className={item.icoFont}></i>
+            </div>
+            <h3>{item.title}</h3>
+            <p>{item.body}</p>
+        </div>
+    </div>
+    )
+ }
+
 export class Services extends Component {
-    //TODO: get from CMS API
+	constructor(props) {
+		super(props);
+	}
+
     render() {
+
+		//console.log("props from services render: " + JSON.stringify(this.props));
+
+        let items = this.props.data.map((item, ind) => {
+			return <Service data={item} key={ind}/>
+		});
+
         return (
             <section className="welcome-services ptb-120 bg-38d16a">
                 <div className="container">
                     <div className="section-title">
                         <span className="wow fadeInUp">I am currently </span>
-                        <h2 className="wow fadeInDown">Specializing in...</h2>
+                        <h2 className="wow fadeInDown">Interested in...</h2>
                     </div>
 
                     <div className="row">
-                        <div className="col-lg-4 col-md-6">
-                            <div className="single-services">
-                                <div className="icon">
-                                    <i className="icofont-cloud"></i>
-                                </div>
-                                <h3>Cloud Application Development</h3>
-                                <p>Quis ipsum suspendisse ultrices gravida. Risus commodo  maecenas accumsan lacus vel facilisis labore dolore magna aliqua.</p>
-                            </div>
-                        </div>
 
-                        <div className="col-lg-4 col-md-6">
-                            <div className="single-services">
-                                <div className="icon">
-                                    <i className="icofont-pie-chart"></i>
-                                </div>
-                                <h3>Machine Learning & Data Science</h3>
-                                <p>Quis ipsum suspendisse ultrices gravida. Risus commodo  maecenas accumsan lacus vel facilisis labore dolore magna aliqua.</p>
-                            </div>
-                        </div>
+						{this.props.data ? items : ""}
 
-                        <div className="col-lg-4 col-md-6 offset-lg-0 offset-md-3">
-                            <div className="single-services">
-                                <div className="icon">
-                                    <i className=" icofont-handshake-deal"></i>
-                                </div>
-                                <h3>Business Development</h3>
-                                <p>Quis ipsum suspendisse ultrices gravida. Risus commodo  maecenas accumsan lacus vel facilisis labore dolore magna aliqua.</p>
-                            </div>
-                        </div>
+                       
 
                         {/* <div className="col-lg-12 col-md-12">
                             <div className="more-services-btn wow fadeInUp">

@@ -24,6 +24,13 @@ import Contact from "../components/digital-agency-animation/Contact";
 
 import { initializeApollo } from "../utils/apolloClient";
 
+interface IData{
+	allSkills: Object[],
+	allPages: Object[],
+	allPosts: any,
+	allInterests: Object[]
+}
+
 export async function getServerSideProps() {
 	const apolloClient = initializeApollo();
 
@@ -43,11 +50,26 @@ export async function getServerSideProps() {
 				allPages(orderBy: "name_ASC", first: 4) {
 					name
 				}
-				allPosts(orderBy: "id_DESC", first: 4,where:{status:published,private:false}) {
+				allPosts(
+					orderBy: "id_DESC"
+					first: 4
+					where: { status: published, private: false }
+				) {
 					title
 					posted
 					slug
 					heading
+					image {
+						filename
+					}
+				}
+				allInterests(
+					orderBy: "id_ASC"	
+					where: { status: published }
+				) {
+					title
+					body
+					icoFont
 				}
 			}
 		`,
@@ -60,8 +82,8 @@ export async function getServerSideProps() {
 	};
 }
 
-class index extends Component {
-	constructor(props) {
+class index extends Component<IData> {
+	constructor(props: IData) {
 		super(props);
 	}
 
@@ -77,13 +99,13 @@ class index extends Component {
 	}
 
 	render() {
-		console.log("props from index render: " + JSON.stringify(this.props));
+		// console.log("props from index render: " + JSON.stringify(this.props));
 		return (
 			<React.Fragment>
 				<Navbar />
 				<Banner />
 				{/* <About /> */}
-				<Services />
+				<Services data={this.props.allInterests}/>
 
 				{/* <HowWeWork /> */}
 				<Skills data={this.props.allSkills} />
@@ -103,5 +125,8 @@ class index extends Component {
 		);
 	}
 }
+
+
+
 
 export default index;

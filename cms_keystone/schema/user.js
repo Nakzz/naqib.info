@@ -4,6 +4,7 @@ const {
 	Checkbox,
 	Password,
 	Relationship,
+	Select
 } = require("@keystonejs/fields");
 const { LocalFileAdapter } = require("@keystonejs/file-adapters");
 
@@ -52,3 +53,21 @@ module.exports.User = {
 		avatar: { type: File, adapter: avatarFileAdapter },
 	},
 };
+
+//TODO: move skills and subskills here since they are part of a user. 
+
+module.exports.Interest = {
+	schemaDoc: "Interests of a user.",
+	fields: {
+		title: { type: Text },
+		body: { type: Text },
+		icoFont:{ type: Text},
+		status: {
+			type: Select,
+			defaultValue: "draft",
+			options: [
+				{ label: "Draft", value: "draft" },
+				{ label: "Published", value: "published" },
+			],
+		},
+	}}
