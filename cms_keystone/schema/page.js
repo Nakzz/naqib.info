@@ -51,7 +51,6 @@ const Page = {
       schemaDoc: "The number of claps"
     },
     heading: { type: Text },
-
 		body: { type: Wysiwyg },
     comments: {
       type: Relationship,

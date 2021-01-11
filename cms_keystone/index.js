@@ -8,12 +8,11 @@ const expressSession = require("express-session"); //REVIEW: what does this do?
 const MongoStore = require("connect-mongo")(expressSession); //REVIEW: what does this do?
 require("dotenv").config();
 
-const { User, Interest} = require("./schema/user.js");
+const { User, Interest, Skill, SubSkill} = require("./schema/user.js");
 const { Comment } = require("./schema/comment.ts");
 const { Page } = require("./schema/page.js");
 const { Tag } = require("./schema/tags.ts");
 const { Post, PostCategory } = require("./schema/post.js");
-const { Skill, SubSkill } = require("./schema/skills");
 const { staticRoute, staticPath, distDir } = require("./config.ts");
 
 const initialiseData = require("./initial-data");
