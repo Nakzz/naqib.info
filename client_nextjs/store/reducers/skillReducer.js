@@ -17,7 +17,7 @@ import {
 // 1
 
 export const initState = {
-	skillPicked: -1,
+	skillPicked: 0,
 	skills: [],
 };
 

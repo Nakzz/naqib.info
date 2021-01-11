@@ -1,5 +1,5 @@
 /*
-@File: Fleja Template Styles
+@File: Naqib.info application Styles
 
 * This file contains the styling for the actual tepmlate, this
 is the file you need to edit to change the look of the
@@ -48,6 +48,7 @@ This files table contents are outlined below>>>>>
 ** - 404 Error CSS
 ** - Footer CSS
 ** - Go Top CSS
+** - Animation CSS
 ** - Padding Stuff [aj]
 */
 
@@ -1389,7 +1390,7 @@ Main Banner CSS
 				}
 			}
 		}
-		
+
 		ul {
 			padding: 0;
 			margin: 0;
@@ -5320,6 +5321,28 @@ Go Top CSS
 	}
 }
 
+/*================================================
+Animation CSS
+=================================================*/
+.item-enter {
+	opacity: 0;
+}
+.item-enter-active {
+	opacity: 1;
+	transition: opacity 500ms ease-in;
+}
+.item-exit {
+	opacity: 1;
+}
+.item-exit-active {
+	opacity: 0;
+	transition: opacity 0ms ease-in;
+	display: none;
+}
+
+/*================================================
+Margin CSS
+=================================================*/
 /*
 This .scss loop will create "margin helpers" and "padding helpers" for use in your web projects.
 It will generate several classes such as:
