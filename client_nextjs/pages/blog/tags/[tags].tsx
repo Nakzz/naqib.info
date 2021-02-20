@@ -11,11 +11,12 @@ interface BlogPosts {
 	posted: string;
 	slug: string;
 	body: string;
-	headin;
+	heading : string;
 }
 
 interface Props {
 	allPosts: BlogPosts[];
+	tag: string;
 }
 
 import { initializeApollo } from "../../../utils/apolloClient";
@@ -67,11 +68,11 @@ export async function getStaticProps({ params }) {
 			}
 		`,
 	});
-	console.log("getServerSideProps");
-	console.log(data);
+	// console.log("getServerSideProps");
+	// console.log(data);
 
 	return {
-		props: { ...data, tag:params.tags},
+		props: { ...data, tag: params.tags },
 	};
 }
 export class index extends Component<Props> {
@@ -79,7 +80,7 @@ export class index extends Component<Props> {
 		super(props);
 	}
 	render() {
-		console.log(this.props);
+		// console.log(this.props);
 		let posts = this.props.allPosts
 			? this.props.allPosts.map((item, ind) => {
 					return <Post data={item} key={ind} />;
@@ -91,7 +92,7 @@ export class index extends Component<Props> {
 				<Navbar />
 				<div className="page-title-area item-bg1">
 					<div className="container">
-		<h1>Posts tagged: {this.props.tag}</h1>
+						<h1>Posts tagged: {this.props.tag}</h1>
 						<ul>
 							<li>
 								<Link href="/">

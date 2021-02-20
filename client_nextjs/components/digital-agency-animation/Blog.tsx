@@ -30,7 +30,7 @@ export class Blog extends Component<Props> {
 					<div className="section-title">
 						<span className="wow fadeInUp">Latest Blog</span>
 						<h2 className="wow fadeInDown">
-							Read Inspirational Story every week
+							Read about what I've been doing recently!
 						</h2>
 					</div>
 					<div className="row">

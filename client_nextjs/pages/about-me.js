@@ -6,7 +6,6 @@ import AboutMe from '../components/about/AboutMe';
 import Education from '../components/about/Education';
 import Services from '../components/freelancer/Services';
 import Skills from '../components/freelancer/Skills';
-import Funfacts from '../components/freelancer/Funfacts';
 import About from '../components/digital-agency-animation/About';
 
 export class index extends Component {
@@ -33,8 +32,8 @@ export class index extends Component {
                 <Skills />
 
                 {/* <Cta /> */}
-                <Services />
-                <Funfacts />
+                {/* <Services /> */}
+                {/* <Funfacts /> */}
 
                 <Footer />
             </React.Fragment>

@@ -3,19 +3,15 @@ import { PieChart } from 'react-minimal-pie-chart';
 import { useDispatch, useSelector  } from 'react-redux';
 import { changeSkillPieId } from '../../store/actions/skillAction';
 
-type Props = {
-  data: {
-    color: string;
-    value: number;
+type IProps = {
+    color?: string;
+    value?: number;
     key?: string | number;
     title?: string | number;
     [key: string]: any;
-  }[];
 };
 
-
-
-export default function FullOption(props: Props) {
+export default function FullOption(props: IProps) {
   const [selected, setSelected] = useState<number | undefined>(0);
   const [hovered, setHovered] = useState<number | undefined>(undefined);
 

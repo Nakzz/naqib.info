@@ -134,8 +134,8 @@ export class index extends Component {
 													name="message"
 													className="form-control"
 													id="message"
-													cols="30"
-													rows="5"
+													cols={30}
+													rows={5}
 													required
 													data-error="Write your message"
 													placeholder="Your Message"

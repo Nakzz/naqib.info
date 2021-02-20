@@ -90,8 +90,7 @@ export class Footer extends Component {
                     <div className="copyright-area">
                         <div className="row">
                             <div className="col-lg-6 col-md-6">
-                                <p>Copyright @2020. All rights reserved.</p>
-                                {/* TODO: generate server date */}
+                                <p>Copyright {new Date().getUTCFullYear()} All rights reserved.</p>
                             </div>
 
                             <div className="col-lg-6 col-md-6 text-right">

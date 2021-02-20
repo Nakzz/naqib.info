@@ -7,33 +7,47 @@ import Footer from "../../components/layout/Footer";
 
 import { initializeApollo } from "../../utils/apolloClient";
 
-interface Post {
+interface IPost {
 	title: string;
 	slug: string;
 	posted: string;
 	body: string;
 	heading: string;
 	image: {
-        filename?: string
-    }
+		filename?: string;
+	};
 	author: {
 		name: string;
 		email: string;
 	};
 	categories: {
 		name: string;
-	};
-	comments: {
-		name: string;
-    };
-    tags:[{
-        name: string;
-        slug: string;
-    }]
+		slug: string;
+	}[];
+	comments: IComment[];
+	tags: [
+		{
+			name: string;
+			slug: string;
+		}
+	];
 }
-
-interface Props {
-	post: Post;
+interface IComment {
+	name: string;
+	body: string;
+	date: string;
+	replies?: IComment[];
+}
+interface ITag {
+	name?: string;
+	slug?: string;
+}
+interface IProps {
+	post: IPost;
+	tags: ITag[];
+}
+interface IState {
+	recentPosts?: [];
 }
 
 const apolloClient = initializeApollo();
@@ -69,6 +83,7 @@ export async function getStaticProps({ params }) {
 	// If the route is like /posts/1, then params.id is 1
 	const {
 		data: { allPosts },
+		data: { allTags },
 	} = await apolloClient.query({
 		query: gql`
 			# Write your query or mutation here
@@ -92,7 +107,6 @@ export async function getStaticProps({ params }) {
                     }
                     comments{
                         name
-                        
                         body
                         date
                         replies{
@@ -115,6 +129,10 @@ export async function getStaticProps({ params }) {
                         name
                         slug
                     }
+                }
+                allTags {
+					slug
+					name
 				}
 			}
 		`,
@@ -122,399 +140,359 @@ export async function getStaticProps({ params }) {
 	// console.log(allPosts);
 
 	// Pass post data to the page via props
-	return { props: { post: allPosts[0] } };
+	return { props: { post: allPosts[0] ? allPosts[0] : null, tags: allTags } };
 }
 
-export class index extends Component<Props> {
-	constructor(props: Props) {
+export class index extends Component<IProps, IState> {
+	constructor(props: IProps) {
 		super(props);
+
+		this.state = {
+			recentPosts: [],
+		};
+	}
+
+	async componentDidMount() {
+		const { data } = await apolloClient.query({
+			query: gql`
+				# Write your query or mutation here
+				{
+					allPosts(
+						orderBy: "id_DESC"
+						first: 4
+						where: { status: published, private: false }
+					) {
+						title
+						posted
+						slug
+						heading
+						image {
+							filename
+						}
+					}
+				}
+			`,
+		});
+
+		// console.log(data);
+
+		this.setState({ recentPosts: data.allPosts });
+	}
+
+	//TODO: Solve this.
+	recursiveComment(e: IComment, i: any) {
+		console.log(e);
+		if (!e) return;
+		else {
+			return (
+				<div key={i}>
+					<div className={"single-comment left-m m-l-" + 20 * i}>
+						<div className="comment-img">
+							<img
+								src={require("../../images/client-image/2.jpg")}
+								alt="client"
+							/>
+						</div>
+						<div className="comment-content">
+							<h4>{e.name}</h4>
+							<p>{e.body}</p>
+							<span>{new Date(e.date).toDateString()}</span>
+							<a href="#">
+								<i className="icofont-reply"></i>
+							</a>
+						</div>
+					</div>
+					{e.replies.map((e2, j) => {
+						console.log("will recurse?" + i);
+						return this.recursiveComment(e2, i);
+					})}
+				</div>
+			);
+		}
 	}
 
 	render() {
-		const hostname: String = "https://naqib.info/public/blogs/";
+		const hostnameBlogs: String = "https://naqib.info/public/blogs/";
+		const hostnameAvatars: String = "https://naqib.info/public/avatars/";
 
-		console.log(this.props);
-		const { post } = this.props;
-		const postedOn = new Date(post.posted).toDateString();
-		const markup = { __html: post.body };
+		// console.log(this.props);
+		const { post, tags } = this.props;
+		if (post) {
+			const postedOn = new Date(post.posted).toDateString();
+			const markup = { __html: post.body };
+			const { recentPosts } = this.state;
 
-		return (
-			<React.Fragment>
-				<Navbar />
-				<div className="page-title-area item-bg1">
-					<div className="container">
-						<h1>{post.title}</h1>
-						<ul>
-							<li>
-								<Link href="/">
-									<a>Home</a>
-								</Link>
-							</li>
-							<li>Blog Details</li>
-							<li>{post.slug}</li>
-						</ul>
+			return (
+				<React.Fragment>
+					<Navbar />
+					<div className="page-title-area item-bg1">
+						<div className="container">
+							<h1>{post.title}</h1>
+							<ul>
+								<li>
+									<Link href="/">
+										<a>Home</a>
+									</Link>
+								</li>
+								<li>Blog Details</li>
+								<li>{post.slug}</li>
+							</ul>
+						</div>
 					</div>
-				</div>
 
-				<section className="blog-details-area ptb-120">
-					<div className="container">
-						<div className="row">
-							<div className="col-lg-8 col-md-12">
-								<div className="blog-details">
-									<div className="article-img">
-										<img
-											src={hostname + post.image.filename}
-											alt="blog-details"
-										/>
-										<div className="date">
-											{postedOn.substring(0, postedOn.length - 5)}
+					<section className="blog-details-area ptb-120">
+						<div className="container">
+							<div className="row">
+								<div className="col-lg-8 col-md-12">
+									<div className="blog-details">
+										<div className="article-img">
+											<img
+												src={hostnameBlogs + post.image.filename}
+												alt="blog-details"
+											/>
+											<div className="date">
+												{postedOn.substring(0, postedOn.length - 5)}
+											</div>
 										</div>
-									</div>
 
-									<div className="article-content">
-										<ul className="category">
-                                            {post.tags && post.tags.length>0? (
-                                                 post.tags.map((e,i)=>{
-                                                     return (
-                                                        <li key={i}>
-                                                        <Link href={"../blogs/tags/"+e.slug}>
-                                                     <a > {e.name}</a>
-                                                        </Link>
-                                                    </li>
-                                                     )
-                                                 })   
-                                            ) : (" ")}
-											
-										</ul>
-
-										<h3>{post.heading}</h3>
-
-										<div dangerouslySetInnerHTML={markup}></div>
-
-										<div disabled={true} className="share-post">
-											<ul>
-												<li>
-													<a href="#">
-														<i className="icofont-facebook"></i>
-													</a>
-												</li>
-												<li>
-													<a href="#">
-														<i className="icofont-twitter"></i>
-													</a>
-												</li>
-												<li>
-													<a href="#">
-														<i className="icofont-linkedin"></i>
-													</a>
-												</li>
-												<li>
-													<a href="#">
-														<i className="icofont-instagram"></i>
-													</a>
-												</li>
-												<li>
-													<a href="#">
-														<i className="icofont-vimeo"></i>
-													</a>
-												</li>
+										<div className="article-content">
+											<ul className="category">
+												{post.tags && post.tags.length > 0
+													? post.tags.map((e, i) => {
+															return (
+																<li key={i}>
+																	<Link href={"../blogs/tags/" + e.slug}>
+																		<a> {e.name}</a>
+																	</Link>
+																</li>
+															);
+													  })
+													: " "}
 											</ul>
-										</div>
-									</div>
-								</div>
 
-								<div disabled={true} className="post-controls-buttons">
-									<div className="controls-left">
-										<a href="#">
-											<i className="icofont-double-left"></i>TODO: Prev Post
-										</a>
-									</div>
+											<h3>{post.heading}</h3>
 
-									<div disabled={true} className="controls-right">
-										<a href="#">
-											TODO:Next Post <i className="icofont-double-right"></i>
-										</a>
-									</div>
-								</div>
+											<div dangerouslySetInnerHTML={markup}></div>
 
-								<div disabled={true} className="post-comments">
-									<h3>Comments</h3>
-									<div className="single-comment">
-										<div className="comment-img">
-											<img
-												src={require("../../images/client-image/1.jpg")}
-												alt="client"
-											/>
-										</div>
-										<div className="comment-content">
-											<h4>John Smith</h4>
-											<p>
-												Lorem ipsum, dolor sit amet consectetur adipisicing
-												elit. Et minus, saepe porro a voluptatem, quidem aut
-												libero consequatur unde molestiae quae impedit
-												accusantium dolor est corporis! Dolores ut dignissimos
-												doloribus?
-											</p>
-											<span>Jan 19, 2018 - 9:10AM</span>
-											<a href="#">
-												<i className="icofont-reply"></i>
-											</a>
-										</div>
-									</div>
-
-									<div className="single-comment left-m">
-										<div className="comment-img">
-											<img
-												src={require("../../images/client-image/2.jpg")}
-												alt="client"
-											/>
-										</div>
-										<div className="comment-content">
-											<h4>Doe John</h4>
-											<p>
-												Lorem ipsum, dolor sit amet consectetur adipisicing
-												elit. Et minus, saepe porro a voluptatem, quidem aut
-												libero consequatur unde molestiae quae impedit
-												accusantium dolor est corporis! Dolores ut dignissimos
-												doloribus?
-											</p>
-											<span>Jan 19, 2018 - 9:10AM</span>
-											<a href="#">
-												<i className="icofont-reply"></i>
-											</a>
-										</div>
-									</div>
-
-									<div className="single-comment">
-										<div className="comment-img">
-											<img
-												src={require("../../images/client-image/3.jpg")}
-												alt="client"
-											/>
-										</div>
-										<div className="comment-content">
-											<h4>Steven Doe</h4>
-											<p>
-												Lorem ipsum, dolor sit amet consectetur adipisicing
-												elit. Et minus, saepe porro a voluptatem, quidem aut
-												libero consequatur unde molestiae quae impedit
-												accusantium dolor est corporis! Dolores ut dignissimos
-												doloribus?
-											</p>
-											<span>Jan 19, 2018 - 9:10AM</span>
-											<a href="#">
-												<i className="icofont-reply"></i>
-											</a>
-										</div>
-										<div className="single-comment">
-											<div className="comment-img">
-												<img
-													src={require("../../images/client-image/1.jpg")}
-													alt="client"
-												/>
-											</div>
-											<div className="comment-content">
-												<h4>John Cina</h4>
-												<p>
-													Lorem ipsum, dolor sit amet consectetur adipisicing
-													elit. Et minus, saepe porro a voluptatem, quidem aut
-													libero consequatur unde molestiae quae impedit
-													accusantium dolor est corporis! Dolores ut dignissimos
-													doloribus?
-												</p>
-												<span>Jan 19, 2018 - 9:10AM</span>
-												<a href="#">
-													<i className="icofont-reply"></i>
-												</a>
+											<div disabled={true} className="share-post">
+												<ul>
+													<li>
+														<a href="#">
+															<i className="icofont-facebook"></i>
+														</a>
+													</li>
+													<li>
+														<a href="#">
+															<i className="icofont-twitter"></i>
+														</a>
+													</li>
+													<li>
+														<a href="#">
+															<i className="icofont-linkedin"></i>
+														</a>
+													</li>
+													<li>
+														<a href="#">
+															<i className="icofont-instagram"></i>
+														</a>
+													</li>
+													<li>
+														<a href="#">
+															<i className="icofont-vimeo"></i>
+														</a>
+													</li>
+												</ul>
 											</div>
 										</div>
 									</div>
+
+									<div disabled={true} className="post-controls-buttons">
+										<div className="controls-left">
+											<a href="#">
+												<i className="icofont-double-left"></i>TODO: Prev Post
+											</a>
+										</div>
+
+										<div className="controls-right">
+											<a href="#">
+												TODO:Next Post <i className="icofont-double-right"></i>
+											</a>
+										</div>
+									</div>
+
+									<div disabled={true} className="post-comments">
+										<h3>Comments</h3>
+
+										{post.comments && post.comments.length > 0
+											? post.comments.map((e, i) => {
+													return (
+														<div>
+															<div key={i} className="single-comment">
+																<div className="comment-img">
+																	{/* TODO: if user is logged in, set image. */}
+																	<img
+																		// src={hostnameAvatars+e.}
+																		src={require("../../images/client-image/2.jpg")}
+																		alt="client"
+																	/>
+																</div>
+																<div className="comment-content">
+																	<h4>{e.name}</h4>
+																	<p>{e.body}</p>
+																	<span>{new Date(e.date).toDateString()}</span>
+																	<a href="#">
+																		<i className="icofont-reply"></i>
+																	</a>
+																</div>
+															</div>
+
+															{e.replies.map((e2, i) => {
+																return this.recursiveComment(e2, i + 1);
+															})}
+														</div>
+													);
+											  })
+											: " "}
+									</div>
+
+									<div disabled={true} className="leave-a-reply">
+										<h3>TODO: Leave a Reply</h3>
+										<div className="row">
+											<div className="col-lg-6 col-md-6">
+												<div className="form-group">
+													<input
+														type="text"
+														className="form-control"
+														placeholder="Full Name"
+													/>
+												</div>
+											</div>
+
+											<div className="col-lg-6 col-md-6">
+												<div className="form-group">
+													<input
+														type="email"
+														className="form-control"
+														placeholder="E-Mail"
+													/>
+												</div>
+											</div>
+
+											<div className="col-lg-12 col-md-12">
+												<div className="form-group">
+													<textarea
+														name="comment"
+														cols={30}
+														rows={5}
+														className="form-control"
+														placeholder="Your Comment"
+													/>
+												</div>
+											</div>
+
+											<div className="col-lg-12 col-md-12">
+												<button type="submit" className="btn btn-primary">
+													Submit
+												</button>
+											</div>
+										</div>
+									</div>
 								</div>
 
-								<div disabled={true} className="leave-a-reply">
-									<h3>TODO: Leave a Reply</h3>
-									<div className="row">
-										<div className="col-lg-6 col-md-6">
-											<div className="form-group">
+								<div className="col-lg-4 col-md-12">
+									<div className="sidebar">
+										<div disabled={true} className="widget widget_search">
+											<form>
 												<input
 													type="text"
 													className="form-control"
-													placeholder="Full Name"
+													placeholder="Search here..."
 												/>
+												<button type="submit">
+													<i className="icofont-ui-search"></i>
+												</button>
+											</form>
+										</div>
+
+										<div className="widget widget_recent_entries">
+											<h3 className="widget-title">
+												<span>Recent Posts</span>
+											</h3>
+
+											<ul>
+												{recentPosts
+													? recentPosts.map((item: IPost, ind) => {
+															return (
+																<li key={ind}>
+																	<Link href={"/blog-details/" + item.slug}>
+																		<a href="">
+																			<img
+																				src={
+																					hostnameBlogs + item.image.filename
+																				}
+																				alt="image"
+																			/>
+																		</a>
+																	</Link>
+
+																	<h5>
+																		<Link href={"/blog-details/" + item.slug}>
+																			{item.heading}
+																		</Link>
+																	</h5>
+																	<p className="date">
+																		{new Date(item.posted).toDateString()}
+																	</p>
+																</li>
+															);
+													  })
+													: null}
+											</ul>
+										</div>
+
+										<div
+											disabled={true}
+											className="m-t-40 widget widget_categories"
+										>
+											<h3 className="widget-title">
+												<span>Categories</span>
+											</h3>
+
+											<ul>
+												{post.categories && post.categories.length > 0
+													? post.categories.map((e, i) => {
+															return (
+																<li key={i}>
+																	<Link href={"../blogs/categories/" + e.slug}>
+																		<a> {e.name}</a>
+																	</Link>
+																</li>
+															);
+													  })
+													: " "}
+											</ul>
+										</div>
+
+										<div className="m-t-20 widget widget_tag_cloud">
+											<h3 className="widget-title">
+												<span>Tags</span>
+											</h3>
+
+											<div className="tagcloud">
+												{tags && tags.length > 0
+													? tags.map((e, i) => {
+															return (
+																<Link key={i} href={"../blogs/tags/" + e.slug}>
+																	<a> {e.name}</a>
+																</Link>
+															);
+													  })
+													: " "}
 											</div>
 										</div>
 
-										<div className="col-lg-6 col-md-6">
-											<div className="form-group">
-												<input
-													type="email"
-													className="form-control"
-													placeholder="E-Mail"
-												/>
-											</div>
-										</div>
-
-										<div className="col-lg-12 col-md-12">
-											<div className="form-group">
-												<textarea
-													name="comment"
-													cols="30"
-													rows="5"
-													className="form-control"
-													placeholder="Your Comment"
-												/>
-											</div>
-										</div>
-
-										<div className="col-lg-12 col-md-12">
-											<button type="submit" className="btn btn-primary">
-												Submit
-											</button>
-										</div>
-									</div>
-								</div>
-							</div>
-
-							<div disabled={true} className="col-lg-4 col-md-12">
-								<div className="sidebar">
-									<div className="widget widget_search">
-										<form>
-											<input
-												type="text"
-												className="form-control"
-												placeholder="Search here..."
-											/>
-											<button type="submit">
-												<i className="icofont-ui-search"></i>
-											</button>
-										</form>
-									</div>
-
-									<div disabled={true} className="widget widget_recent_entries">
-										<h3 className="widget-title">
-											<span>Recent Posts</span>
-										</h3>
-
-										<ul>
-											<li>
-												<a href="#">
-													<img
-														src={require("../../images/blog-image/1.jpg")}
-														alt="image"
-													/>
-												</a>
-
-												<h5>
-													<a href="#">The Most Popular New top Business Apps</a>
-												</h5>
-												<p className="date">21 March, 2019</p>
-											</li>
-
-											<li>
-												<a href="#">
-													<img
-														src={require("../../images/blog-image/2.jpg")}
-														alt="image"
-													/>
-												</a>
-
-												<h5>
-													<a href="#">3 WooCommerce Plugins to Boost Sales</a>
-												</h5>
-												<p className="date">20 March, 2019</p>
-											</li>
-
-											<li>
-												<a href="#">
-													<img
-														src={require("../../images/blog-image/3.jpg")}
-														alt="image"
-													/>
-												</a>
-
-												<h5>
-													<a href="#">
-														The Best Marketing top Management Tools
-													</a>
-												</h5>
-												<p className="date">27 March, 2019</p>
-											</li>
-
-											<li>
-												<a href="#">
-													<img
-														src={require("../../images/blog-image/4.jpg")}
-														alt="image"
-													/>
-												</a>
-
-												<h5>
-													<a href="#">How to Build a Business Dashboard</a>
-												</h5>
-												<p className="date">27 January, 2019</p>
-											</li>
-										</ul>
-									</div>
-
-									<div disabled={true} className="widget widget_categories">
-										<h3 className="widget-title">
-											<span>Categories</span>
-										</h3>
-
-										<ul>
-											<li>
-												<a href="#">AJAX</a>
-											</li>
-											<li>
-												<a href="#">Apache</a>
-											</li>
-											<li>
-												<a href="#">CSS</a>
-											</li>
-											<li>
-												<a href="#">PHP</a>
-											</li>
-											<li>
-												<a href="#">Django</a>
-											</li>
-											<li>
-												<a href="#">Error</a>
-											</li>
-											<li>
-												<a href="#">IIS</a>
-											</li>
-											<li>
-												<a href="#">JavaScript</a>
-											</li>
-										</ul>
-									</div>
-
-									<div className="widget widget_tag_cloud">
-										<h3 className="widget-title">
-											<span>Tags</span>
-										</h3>
-
-										<div className="tagcloud">
-											<a href="#">Error</a>
-											<a href="#">Cake Bake</a>
-											<a href="#">Dromzone</a>
-											<a href="#">File</a>
-											<a href="#">Yii</a>
-											<a href="#">Yii2</a>
-											<a href="#">UUID</a>
-											<a href="#">Setup</a>
-											<a href="#">Error</a>
-											<a href="#">Cake Bake</a>
-											<a href="#">Dromzone</a>
-											<a href="#">File</a>
-											<a href="#">Yii</a>
-											<a href="#">Yii2</a>
-											<a href="#">UUID</a>
-											<a href="#">Setup</a>
-										</div>
-									</div>
-
-									<div className="widget widget_archive">
+										{/*TODO: maybe someday
+                                     <div className="widget widget_archive">
 										<h3 className="widget-title">
 											<span>Archives</span>
 										</h3>
@@ -533,16 +511,18 @@ export class index extends Component<Props> {
 												<a href="#">March 2019</a>
 											</li>
 										</ul>
+									</div> */}
 									</div>
 								</div>
 							</div>
 						</div>
-					</div>
-				</section>
+					</section>
 
-				<Footer />
-			</React.Fragment>
-		);
+					<Footer />
+				</React.Fragment>
+			);
+		}else
+		return null
 	}
 }
 

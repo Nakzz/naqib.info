@@ -7,12 +7,19 @@ import { ApolloClient, HttpLink, InMemoryCache } from "@apollo/client";
 let apolloClient;
 
 function createApolloClient() {
+	var url =
+	process.env.NODE_ENV === "docker_production"
+			? "https://172.17.0.1:3010/admin/api"
+			: "https://192.168.1.126:3000/admin/api";
+	console.log(url);
+	console.log("env" + process.env.NODE_ENV);
 	return new ApolloClient({
 		ssrMode: typeof window === "undefined", // set to true for SSR
 		link: new HttpLink({
 			//    uri: "https://naqib.info:3000/admin/api",
 			//uri: "https://192.168.1.126:3010/admin/api", //docker
-			uri: "https://192.168.1.126:3000/admin/api", //dev
+			// uri: "https://192.168.1.126:3000/admin/api", //dev
+			uri:url,
 			fetchOptions: {
 				agent: new https.Agent({ rejectUnauthorized: false }), //Since Keystone is in internal network, cert verification isn't needed
 			},

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Link from 'next/link';
 
 export class Education extends Component{
-//TODO: componentdidmount() and get the strings in the TypedReact from API
+//TODO(2): componentdidmount() and get the strings in the TypedReact from API
     render(){
         return(
             <div>
@@ -23,7 +23,7 @@ export class Education extends Component{
                                         <h5>with focus in Entrepreneurship and Product Development</h5>
                                         <p>University of Wisconsin Madison</p>
                                         <span>
-                                            <i class="icofont-calendar pr-1"></i>
+                                            <i className="icofont-calendar pr-1"></i>
                                              2017-2022
                                         </span>
                                 </div>
