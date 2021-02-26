@@ -8,7 +8,7 @@ const expressSession = require("express-session"); //REVIEW: what does this do?
 const MongoStore = require("connect-mongo")(expressSession); //REVIEW: what does this do?
 require("dotenv").config();
 
-const { User, Interest, Skill, SubSkill} = require("./schema/user.js");
+const { User, Interest, Skill, SubSkill } = require("./schema/user.js");
 const { Comment } = require("./schema/comment.ts");
 const { Page } = require("./schema/page.js");
 const { Tag } = require("./schema/tags.ts");
@@ -21,16 +21,16 @@ var mongoUri; // Database connection
 
 const PROJECT_NAME = "cms_naqib";
 
-//process.env.NODE_ENV="development"  //REVIEW: only for testing
+// process.env.NODE_ENV="docker_production"  //REVIEW: force builds
 
 if (process.env.NODE_ENV === "production")
 	mongoUri = "mongodb://localhost/cms-naqib";
 else if (process.env.NODE_ENV === "docker_production")
-	mongoUri = "mongodb://mongo:27017/cms-naqib";
+	mongoUri = "mongodb://172.17.0.1:27017/cms-naqib";
+// mongoUri = "mongodb://localhost:27016/cms-naqib";
 else mongoUri = "mongodb://localhost/cms-naqib_dev";
 
 const cookieSecret = process.env.cookieSecret;
-// "95a0c37c6a2942ca6a62fbd4fa45b7646aaf1c5a3f0efa64a526dace27700926"; //TODO: add to .env
 
 const adapterConfig = { mongoUri };
 

@@ -4,16 +4,16 @@
   "description": "Built from scrach",
   "main": "index.js",
   "scripts": {
-    "dev": "node server.ts -p $PORT",
+    "dev": "node server.mjs -p $PORT",
     "build": "next build",
-    "start": "NODE_ENV=production node server.ts -p $PORT",
-    "requirements-check": "node check_node_version.js",
+    "start": "NODE_ENV=production node server.mjs -p $PORT",
+    "requirements-check": "node --experimental-json-modules check_node_version.js ",
     "predev": "npm run requirements-check"
   },
   "engines": {
     "node": ">=14.15.3"
- },
- "engineStrict": true,
+  },
+  "engineStrict": true,
   "author": "Ajmain Naqib",
   "license": "ISC",
   "dependencies": {
@@ -23,8 +23,10 @@
     "@zeit/next-sass": "^1.0.1",
     "axios": "^0.19.2",
     "body-parser": "^1.19.0",
+    "compression": "^1.7.4",
     "express": "^4.17.1",
     "graphql": "^15.4.0",
+    "helmet": "^4.4.1",
     "imagemin-mozjpeg": "^8.0.0",
     "imagemin-optipng": "^7.1.0",
     "imagemin-svgo": "^7.1.0",
