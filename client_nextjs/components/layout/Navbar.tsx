@@ -118,7 +118,9 @@ export class Navbar extends Component<any, IState> {
 									</li>
 
 									<li className="nav-item">
-										<Link activeClassName="active" href="/blog">
+									<Link activeClassName="active" href="/coming-soon">
+
+										{/* <Link activeClassName="active" href="/blog"> */}
 											<a href="#" className="nav-link">
 												Blog{" "}
 											</a>
@@ -136,7 +138,7 @@ export class Navbar extends Component<any, IState> {
                                         </ul> */}
 									</li>
 
-									<li className="nav-item">
+									{/* <li className="nav-item">
 										<a href="#" className="nav-link">
 											Portfolio <i className="icofont-simple-down"></i>
 										</a>
@@ -156,10 +158,11 @@ export class Navbar extends Component<any, IState> {
 												</Link>
 											</li>
 										</ul>
-									</li>
+									</li> */}
 
 									<li className="nav-item">
-										<Link activeClassName="active" href="/contact">
+										<Link activeClassName="active" href="/coming-soon">
+										{/* <Link activeClassName="active" href="/contact"> */}
 											<a className="nav-link">Contact</a>
 										</Link>
 									</li>

@@ -114,21 +114,21 @@ class index extends Component<IData> {
 				<Navbar />
 				<Banner />
 				{/* <About /> */}
-				<Services data={this.props.allInterests}/>
+				{/* <Services data={this.props.allInterests}/> */}
 
 				{/* <HowWeWork /> */}
-				<Skills data={this.props.allSkills} />
-				<Funfacts /> 
+				{/* <Skills data={this.props.allSkills} /> */}
+				{/* <Funfacts />  */}
 
 				{/* <WhyChooseUs /> TODO: add later */}
 
-				<Works data={this.props.allPages}/>
+				{/* <Works data={this.props.allPages}/> */}
 				{/* <Feedback /> TODO: maybe in the future if I can get some bigger deals */}
 
 				{/* TODO: add later */}
-				<Blog data={this.props.allPosts} />
+				{/* <Blog data={this.props.allPosts} /> */}
 
-				<Contact />
+				{/* <Contact /> */}
 
 				<Footer />
 			</React.Fragment>

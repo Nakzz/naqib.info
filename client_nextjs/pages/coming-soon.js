@@ -59,10 +59,10 @@ class ComingSoon extends Component {
 					<div className="d-table-cell">
 						<div className="container">
 							<div className="coming-soon-content">
-								<h1>I am launching my new website. </h1>
+								<h2>This part of the website isn't done yet! </h2>
 								<p>
 									I am building the whole application from scratch with all the
-									new technologies I am learning, so it will take some time.
+									new technologies and frameworks I am learning, so it will take some time.
 									Stay tuned!{" "}
 								</p>
 

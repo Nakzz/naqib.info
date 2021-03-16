@@ -67,7 +67,7 @@ export class Banner extends Component {
 						</li>
 
 						<li>
-							<a href="mailto:naqib@wisc.edu">
+							<a href="mailto:ajmain@naqib.info">
 								<i className="icofont-email"></i>
 
 								<span>Email</span>

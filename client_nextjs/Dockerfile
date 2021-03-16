@@ -18,7 +18,6 @@ RUN apk add --no-cache yarn g++ make libpng-dev pkgconfig autoconf automake libt
 
 # NOTE: docker-compose is not mounting the drive properly. So hardcoding here.
 # VOLUME ["/data"] 
-WORKDIR /home/node
 
 # COPY --from=build /home/node /home/node
 # Install app dependencies
@@ -36,14 +35,18 @@ RUN yarn install
 # RUN ls -l /data
 # CMD ls -l /data
 
-# RUN yarn build
+# since i am building outside right?
+RUN yarn build 
+
 # RUN yarn start
 
-RUN yarn dev
-
 # CMD [ "ls", "/data" ] 
-# CMD [ "yarn", "start" ] 
+CMD [ "yarn", "startDocker" ] 
 
 
 # EXPOSE 3000
 # EXPOSE 27017
+# Bash commands
+
+# docker build -t naqib.info/client:v1.2 .
+# docker run -p 8001:7001 --net="host" -e NODE_ENV=docker_production -v /data:/data/ naqib.info/client:v1.2

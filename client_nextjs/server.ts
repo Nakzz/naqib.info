@@ -88,13 +88,13 @@ app.prepare().then(() => {
 
 	const PORT = Number(process.env.PORT) || 7000;
 
-	// var httpServer = http.createServer(server);
+	var httpServer = http.createServer(server);
 	var httpsServer = https.createServer(credentials, server);
 
-	// httpServer.listen(PORT, () => {
-	// 	// if (err) throw err;
-	// 	console.log(`> Read on http://localhost:${PORT}`);
-	// });
+	httpServer.listen(PORT, () => {
+		// if (err) throw err;
+		console.log(`> Read on http://localhost:${PORT}`);
+	});
 
 	httpsServer.listen(PORT + 1, () => {
 		// if (err) throw err;

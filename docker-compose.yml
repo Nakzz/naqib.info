@@ -1,19 +1,31 @@
 version: "2"
 services:
-  cms:
-    build: ./CMS/
-    network_mode: bridge
+  client:
+    image: client_nextjs
+    container_name: client_nextjs
+    build: ./client_nextjs/
+    # network_mode: bridge
+
     environment:
       - NODE_ENV=docker_production
     ports:
-      - "3010:3000"
+      - "8001:7001"
     depends_on:
-      - mongo
+      #   - mongo
+      - cms
+    # volumes:
+      #- /data/naqib.info_static_content:/data/naqib.info_static_content:ro
+      # - /data:/data
+
+  cms:
+    container_name: cms_keystone
+    build: ./cms_keystone/
+    # network_mode: bridge
+    environment:
+      - NODE_ENV=docker_production
+    ports:
+      - "8010:5000"
     volumes:
-      - /data/naqib.info_static_content:/data/naqib.info_static_content
-  mongo:
-    image: mongo
-    network_mode: bridge
-    # ports:
-    #   - "27017:27017"
+      - /data/naqib.info_static_content:/data/naqib.info_static_content:rw
+
 # docker-compose up --build -d

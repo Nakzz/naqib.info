@@ -1,9 +1,10 @@
 import "../assets/styles/bootstrap.min.css";
 import "../assets/styles/icofont.min.css";
 import "../assets/styles/style.scss";
+import "../assets/styles/custom.scss";
 import "../assets/styles/responsive.scss";
 import "../assets/styles/animate.min.css";
-import '../node_modules/react-modal-video/scss/modal-video.scss';
+// import '../node_modules/react-modal-video/scss/modal-video.scss';
 
 import { Provider } from "react-redux";
 import { Preloader, Placeholder } from "react-preloading-screen";

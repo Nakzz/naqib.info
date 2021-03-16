@@ -31,7 +31,7 @@ export class Footer extends Component {
                         </li>
 
                         <li>
-                            <a href="mailto:naqib@wisc.edu">
+                            <a href="mailto:ajmain@naqib.info">
                                 <i className="icofont-email"></i>
 
                             </a>
@@ -48,10 +48,14 @@ export class Footer extends Component {
                                 <ul className="list">
                                     <li><a href="/home">Home</a></li>
                                     <li><a href="/about-me">About</a></li>
-                                    <li><a href="/projects">Portfolio</a></li>
-                                    <li><a href="/blog">Blog</a></li>
-                                    <li><a href="/contact">Contact</a></li>
+                                    <li><a href="/coming-soon">Portfolio</a></li>
+                                    <li><a href="/coming-soon">Contact</a></li>
+                                    <li><a href="/coming-soon">Blog</a></li>
+                                    {/* <li><a href="/projects">Portfolio</a></li> */}
+                                    {/* <li><a href="/blog">Blog</a></li> */}
+                                    {/* <li><a href="/contact">Contact</a></li> */}
                                     {/* <li><a href="/faq">FAQ's</a></li> */}
+                                {/* TODO: use links instead of direct a href */}
                                 </ul>
                             </div>
                         </div>
@@ -70,7 +74,6 @@ export class Footer extends Component {
                                         <span>Location:</span> 
                                         27 Division St, New York, NY 10002, USA
                                     </li> */}
-
                                     <li>
                                         <i className="icofont-phone"></i>
                                         <span>Phone:</span> 
@@ -80,7 +83,7 @@ export class Footer extends Component {
                                     <li>
                                         <i className="icofont-email"></i>
                                         <span>Email:</span> 
-                                        <a href="mailto:naqib@wisc.edu">naqib@wisc.edu</a>
+                                        <a href="mailto:ajmain@naqib.info">ajmain@naqib.info</a>
                                     </li>
                                 </ul>
                             </div>
@@ -94,7 +97,7 @@ export class Footer extends Component {
                             </div>
 
                             <div className="col-lg-6 col-md-6 text-right">
-                                <p>Developed by <a href="http://naqib.info" target="_blank">Ajmain Naqib</a></p>
+                                <p>Developed by <a href="https://naqib.info" target="_blank">Ajmain Naqib</a></p>
                             </div>
                         </div>
                     </div>

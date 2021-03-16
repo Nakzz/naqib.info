@@ -29,7 +29,7 @@ export class index extends Component {
                 {/* <AboutMe /> */}
                 <About />
                 <Education/>
-                <Skills />
+                {/* <Skills /> */}
 
                 {/* <Cta /> */}
                 {/* <Services /> */}
