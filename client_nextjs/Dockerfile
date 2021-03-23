@@ -41,7 +41,7 @@ RUN yarn build
 # RUN yarn start
 
 # CMD [ "ls", "/data" ] 
-CMD [ "yarn", "startDocker" ] 
+CMD [ "yarn", "start" ] 
 
 
 # EXPOSE 3000

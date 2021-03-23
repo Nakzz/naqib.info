@@ -8,15 +8,16 @@ let apolloClient;
 
 function createApolloClient() {
 	var url =
-		process.env.NODE_ENV === "docker_production"
-			? "https://172.17.0.1:8010/admin/api"
+		process.env.NODE_ENV === "docker_production" ||
+		process.env.NODE_ENV === "production"
+			? "http://172.17.0.1:8010/admin/api"
 			: "http://192.168.1.126:5000/admin/api";
 	console.log(url);
 	console.log("Client env: " + process.env.NODE_ENV);
+	// url = "http://172.17.0.1:8010/admin/api" //TODO: fix why NODE-ENV is coming to be development
 	return new ApolloClient({
 		ssrMode: typeof window === "undefined", // set to true for SSR
 		link: new HttpLink({
-			
 			uri: url,
 			// fetchOptions: {
 			// 	agent: new https.Agent({ rejectUnauthorized: false }), //Since Keystone is in internal network, cert verification isn't needed

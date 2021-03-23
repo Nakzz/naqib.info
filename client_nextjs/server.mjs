@@ -50,7 +50,7 @@ app.prepare().then(() => {
 
 	server.use(
 		"/_next",
-		express.static(path.join(__dirname, ".next"), {
+		express.static(path.join(__dirname, ".next/static"), {
 			maxAge: dev ? "0" : "365d",
 		})
 	);
