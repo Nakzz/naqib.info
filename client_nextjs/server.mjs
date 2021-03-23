@@ -50,7 +50,7 @@ app.prepare().then(() => {
 
 	server.use(
 		"/_next",
-		express.static(path.join(__dirname, ".next/static"), {
+		express.static(path.join(__dirname, ".next"), {
 			maxAge: dev ? "0" : "365d",
 		})
 	);
@@ -58,27 +58,26 @@ app.prepare().then(() => {
 	server.use(bodyParser.json());
 	server.use(compression()); //Compress all routes
 	//server.use(helmet()); //protect against well known vulnerabilities
-	
+
 	server.get("/cyber", (req, res) => {
 		if (!req.secure)
 			// HTTP=> HTTPS
 			res.redirect("https://" + req.headers.host + req.url);
-		
-			return handle(req, res);
+
+		return handle(req, res);
 		// return app.render(req, res, '/coming-soon') //FOR COMING SOON PAGE REDIRECT
 	});
 
 	server.get("*", (req, res) => {
-		if (allowedPath.indexOf(req.originalUrl) >=0){
+		if (allowedPath.indexOf(req.originalUrl) >= 0) {
 			return handle(req, res);
-
 		}
-		console.log(req.originalUrl)
+		// console.log(req.originalUrl);
 		// if (!req.secure)
 		// 	// HTTP=> HTTPS
 		// 	res.redirect("https://" + req.headers.host + req.url);
-		
-		return app.render(req, res, '/coming-soon') //FOR COMING SOON PAGE REDIRECT
+
+		return app.render(req, res, "/coming-soon"); //FOR COMING SOON PAGE REDIRECT
 	});
 
 	//NOT USING STRIPE
