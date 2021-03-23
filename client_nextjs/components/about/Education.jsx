@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Link from 'next/link';
 
 export class Education extends Component{
-//TODO: componentdidmount() and get the strings in the TypedReact from API
+//TODO(2): componentdidmount() and get the strings in the TypedReact from API
     render(){
         return(
             <div>
@@ -23,7 +23,7 @@ export class Education extends Component{
                                         <h5>with focus in Entrepreneurship and Product Development</h5>
                                         <p>University of Wisconsin Madison</p>
                                         <span>
-                                            <i class="icofont-calendar pr-1"></i>
+                                            <i className="icofont-calendar pr-1"></i>
                                              2017-2022
                                         </span>
                                 </div>
@@ -33,13 +33,13 @@ export class Education extends Component{
                             <div className="col-lg-6 col-md-6">
                                 <div className="single-services-box">
                                         <div className="icon">
-                                        <i class="icofont-education"></i>
+                                        <i className="icofont-education"></i>
                                         </div>
                                         <h3>Computer Science </h3>
                                         <h5>OpenCourseware</h5>
                                         <p>Massachusetts Institute of Technology</p>
                                         <span>
-                                            <i class="icofont-calendar pr-1"></i>
+                                            <i className="icofont-calendar pr-1"></i>
                                              2017-2020
                                         </span>
                                 </div>
@@ -48,12 +48,12 @@ export class Education extends Component{
                             <div className="col-lg-6 col-md-6">
                                 <div className="single-services-box">
                                         <div className="icon">
-                                        <i class="icofont-globe-alt"></i>
+                                        <i className="icofont-globe-alt"></i>
                                         </div>
                                         <h3>Business and E-Commerce</h3>
                                         <p>LaGuardia Community College</p>
                                         <span>
-                                            <i class="icofont-calendar pr-1"></i>
+                                            <i className="icofont-calendar pr-1"></i>
                                              2016-2017
                                         </span>
                                 </div>
@@ -62,12 +62,12 @@ export class Education extends Component{
                             <div className="col-lg-6 col-md-6">
                                 <div className="single-services-box">
                                         <div className="icon">
-                                        <i class="icofont-instrument"></i>
+                                        <i className="icofont-instrument"></i>
                                         </div>
                                         <h3>Architectural Engineering</h3>
                                         <p>Queensborough Community College</p>
                                         <span>
-                                            <i class="icofont-calendar pr-1"></i>
+                                            <i className="icofont-calendar pr-1"></i>
                                              2015-2017
                                         </span>
                                 </div>

@@ -8,7 +8,7 @@ export class About extends Component {
                     <div className="row">
                         <div className="col-lg-6 col-md-6 col-sm-12">
                             <div className="cta-about-image">
-                                <img src={require("../../images/home/graduation.jpg")} alt="cta-image" />
+                                <img src={require("../../images/blog-home-image/About-NY.jpg")} alt="cta-image" />
                             </div>
                         </div>
 
@@ -24,7 +24,9 @@ export class About extends Component {
                                 <p>
                                 I started my college career with a Full-Tuition Leadership and Merit-based Scholarship from the POSSE Foundation with the hopes of solving real-world problems with technology. Along the way, I found my passion for Entrepreneurship and Product Development as I started working with local startup companies, and eventually founded my own company - Breezy Systems LLC.
                                 </p>
-
+<p>
+Since beginning my journey as a freelance designer nearly 10 years ago, I've done remote work for agencies, consulted for startups, and collaborated with talented people to create digital products for both business and consumer use. I'm quietly confident, naturally curious, and perpetually working on improving my chops one design problem at a time.
+</p>
                                 {/* <a href="#" className="btn btn-primary wow fadeInUp">Want to know more about me?</a> */}
                             </div>
                         </div>

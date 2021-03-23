@@ -31,6 +31,7 @@ export class Services extends Component {
 			return <Service data={item} key={ind}/>
 		});
 
+        if(this.props.data && this.props.data.length !=0)
         return (
             <section className="welcome-services ptb-120 bg-38d16a">
                 <div className="container">
@@ -39,7 +40,7 @@ export class Services extends Component {
                         <h2 className="wow fadeInDown">Interested in...</h2>
                     </div>
 
-                    <div className="row">
+                    <div className="row justify-content-md-center">
 
 						{this.props.data ? items : ""}
 
@@ -61,6 +62,8 @@ export class Services extends Component {
                 </div>
             </section>
         );
+        else
+		return null
     }
 }
 

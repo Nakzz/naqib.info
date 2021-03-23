@@ -3,7 +3,7 @@ import TypedReact from "../home/typedReact";
 import Link from "next/link";
 
 export class Banner extends Component {
-	//TODO: componentdidmount() and get the strings in the TypedReact from API
+	//TODO(2): componentdidmount() and get the strings in the TypedReact from API. Set defaults.
 
 	render() {
 		return (
@@ -33,9 +33,8 @@ export class Banner extends Component {
 											]}
 										/>
 
-										<Link href="/">
+										<Link href="/about-me">
 											<a
-												href="#"
 												className="m-t-30 btn btn-primary wow fadeInLeft"
 											>
 												Learn more about me!
@@ -68,7 +67,7 @@ export class Banner extends Component {
 						</li>
 
 						<li>
-							<a href="mailto:naqib@wisc.edu">
+							<a href="mailto:ajmain@naqib.info">
 								<i className="icofont-email"></i>
 
 								<span>Email</span>

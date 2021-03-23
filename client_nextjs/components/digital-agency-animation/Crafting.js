@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Link from 'next/link';
 import ModalVideo from 'react-modal-video';
-import '../../node_modules/react-modal-video/scss/modal-video.scss';
+// import '../../node_modules/react-modal-video/scss/modal-video.scss';
 
 export class Crafting extends Component {
 

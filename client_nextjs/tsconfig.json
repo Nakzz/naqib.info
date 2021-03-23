@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    // "target": "es5",
     "lib": [
       "dom",
       "dom.iterable",
@@ -12,11 +12,12 @@
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
     "esModuleInterop": true,
-    "module": "esnext",
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "preserve"
+    "jsx": "preserve",
+    "target": "es5",
+    "module": "esnext"
   },
   "exclude": [
     "node_modules"

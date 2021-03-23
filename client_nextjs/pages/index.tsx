@@ -16,7 +16,8 @@ import HowWeWork from "../components/digital-agency-animation/HowWeWork";
 import Team from "../components/digital-agency-animation/Team";
 import Cta from "../components/digital-agency-animation/Cta";
 import Skills from "../components/digital-agency-animation/Skills";
-import Funfacts from "../components/digital-agency-animation/Funfacts";
+import Funfacts from '../components/freelancer/Funfacts';
+
 import Blog from "../components/digital-agency-animation/Blog";
 import Partner from "../components/digital-agency-animation/Partner";
 import Contact from "../components/digital-agency-animation/Contact";
@@ -25,10 +26,10 @@ import Contact from "../components/digital-agency-animation/Contact";
 import { initializeApollo } from "../utils/apolloClient";
 
 interface IData{
-	allSkills: Object[],
-	allPages: Object[],
+	allSkills: any,
+	allPages: any,
 	allPosts: any,
-	allInterests: Object[]
+	allInterests: any
 }
 
 export async function getServerSideProps() {
@@ -42,13 +43,20 @@ export async function getServerSideProps() {
 					title
 					value
 					color
+					heading
+					body
 					subSkills {
 						name
 						level
 					}
 				}
-				allPages(orderBy: "name_ASC", first: 4) {
-					name
+				allPages(orderBy: "name_ASC", first: 6) {
+					name,
+					path,
+					heading,
+					image {
+						filename
+					}
 				}
 				allPosts(
 					orderBy: "id_DESC"
@@ -99,26 +107,28 @@ class index extends Component<IData> {
 	}
 
 	render() {
-		// console.log("props from index render: " + JSON.stringify(this.props));
+		// console.log("props from index render: ");
+		// console.log(this.props)
 		return (
 			<React.Fragment>
 				<Navbar />
 				<Banner />
 				{/* <About /> */}
-				<Services data={this.props.allInterests}/>
+				{/* <Services data={this.props.allInterests}/> */}
 
 				{/* <HowWeWork /> */}
-				<Skills data={this.props.allSkills} />
+				{/* <Skills data={this.props.allSkills} /> */}
+				{/* <Funfacts />  */}
 
 				{/* <WhyChooseUs /> TODO: add later */}
 
-				<Works />
+				{/* <Works data={this.props.allPages}/> */}
 				{/* <Feedback /> TODO: maybe in the future if I can get some bigger deals */}
 
-				{/* <Funfacts /> TODO: add later*/}
-				<Blog data={this.props.allPosts} />
+				{/* TODO: add later */}
+				{/* <Blog data={this.props.allPosts} /> */}
 
-				<Contact />
+				{/* <Contact /> */}
 
 				<Footer />
 			</React.Fragment>

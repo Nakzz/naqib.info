@@ -1,18 +1,19 @@
 const express = require("express");
 const { keystone, apps } = require("./index.js");
 var fs = require("fs");
+var http = require("http");
 var https = require("https");
 const path = require("path");
 
-var privateKey = fs.readFileSync(
-	"/data/naqib.info_static_content/cert/privkey.pem",
-	"utf8"
-);
-var certificate = fs.readFileSync(
-	"/data/naqib.info_static_content/cert/fullchain.pem",
-	"utf8"
-);
-var credentials = { key: privateKey, cert: certificate };
+// var privateKey = fs.readFileSync(
+// 	"/data/naqib.info_static_content/cert/privkey.pem",
+// 	"utf8"
+// );
+// var certificate = fs.readFileSync(
+// 	"/data/naqib.info_static_content/cert/fullchain.pem",
+// 	"utf8"
+// );
+// var credentials = { key: privateKey, cert: certificate };
 
 const dev =
 	process.env.NODE_ENV !== "production" ||
@@ -29,8 +30,11 @@ keystone
 
 		app.use(middlewares);
 
-		var httpsServer = https.createServer(credentials, app);
+		var httpServer = http.createServer(app);
+		// var httpsServer = https.createServer(credentials, app);
+		const PORT = Number(process.env.PORT) || 5000
 
-		httpsServer.listen(3000);
+		httpServer.listen(PORT);
+		//httpsServer.listen(PORT);
 		// app.use(middlewares).listen(3000);
 	});

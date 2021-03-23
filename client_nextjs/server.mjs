@@ -12,22 +12,22 @@ import helmet from "helmet";
 let __dirname = path.resolve();
 
 // import keys from "./server/config/keys";
-var privateKey = fs.readFileSync(
-	"/data/naqib.info_static_content/cert/privkey.pem",
-	"utf8"
-);
-var certificate = fs.readFileSync(
-	"/data/naqib.info_static_content/cert/fullchain.pem",
-	"utf8"
-);
-var credentials = { key: privateKey, cert: certificate };
+// var privateKey = fs.readFileSync(
+// 	"/data/naqib.info_static_content/cert/privkey.pem",
+// 	"utf8"
+// );
+// var certificate = fs.readFileSync(
+// 	"/data/naqib.info_static_content/cert/fullchain.pem",
+// 	"utf8"
+// );
+// var credentials = { key: privateKey, cert: certificate };
 
 const dev = process.env.NODE_ENV !== "production";
 
 const app = next({ dir: ".", dev });
 const handle = app.getRequestHandler();
 
-const allowedPath = ["/", "/about-me", "/blog", "/blog"]; // TODO: add allowed path until website is complete
+const allowedPath = ["/", "/about-me"]; // TODO: add allowed path until website is complete
 
 app.prepare().then(() => {
 	const server = express();
@@ -50,7 +50,7 @@ app.prepare().then(() => {
 
 	server.use(
 		"/_next",
-		express.static(path.join(__dirname, ".next"), {
+		express.static(path.join(__dirname, ".next/static"), {
 			maxAge: dev ? "0" : "365d",
 		})
 	);
@@ -69,11 +69,15 @@ app.prepare().then(() => {
 	});
 
 	server.get("*", (req, res) => {
-		if (!req.secure)
-			// HTTP=> HTTPS
-			res.redirect("https://" + req.headers.host + req.url);
+		if (allowedPath.indexOf(req.originalUrl) >=0){
+			return handle(req, res);
+
+		}
+		console.log(req.originalUrl)
+		// if (!req.secure)
+		// 	// HTTP=> HTTPS
+		// 	res.redirect("https://" + req.headers.host + req.url);
 		
-			// return handle(req, res);
 		return app.render(req, res, '/coming-soon') //FOR COMING SOON PAGE REDIRECT
 	});
 
@@ -90,16 +94,16 @@ app.prepare().then(() => {
 
 	const PORT = Number(process.env.PORT) || 7000;
 
-	// var httpServer = http.createServer(server);
-	var httpsServer = https.createServer(credentials, server);
+	var httpServer = http.createServer(server);
+	// var httpsServer = https.createServer(credentials, server);
 
-	// httpServer.listen(PORT, () => {
-	// 	// if (err) throw err;
-	// 	console.log(`> Read on http://localhost:${PORT}`);
-	// });
-
-	httpsServer.listen(PORT + 1, () => {
+	httpServer.listen(PORT, () => {
 		// if (err) throw err;
-		console.log(`> Read on http://localhost:${PORT + 1}`);
+		console.log(`> Read on http://localhost:${PORT}`);
 	});
+
+	// httpsServer.listen(PORT + 1, () => {
+	// 	// if (err) throw err;
+	// 	console.log(`> Read on http://localhost:${PORT + 1}`);
+	// });
 });

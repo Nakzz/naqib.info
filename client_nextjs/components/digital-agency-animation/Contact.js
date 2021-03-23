@@ -9,12 +9,11 @@ export class Contact extends Component {
                     <div className="contact-cta-content">
                         <div className="section-title">
                             <span className="wow fadeInUp">Get in Touch</span>
-                            <h2 className="wow fadeInDown">Want to work with me? Let's talk!</h2>
+                            <h3 className="wow fadeInDown">If you like to discuss a project or partnership, Let's talk!</h3>
                         </div>
-
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.</p>
-                        <Link href="/contact">
-                            <a className="btn btn-primary wow fadeInUp">Contact Me</a>
+{/* TODO: redirect to a different page with differet communication. look at this for inspiration https://mattfarley.ca/startup-inquiry*/}
+                        <Link href="/contact"> 
+                            <a className="btn btn-primary wow fadeInUp">Start a conversation</a>
                         </Link>
                     </div>
                 </div>

@@ -7,11 +7,11 @@ import Footer from "../../components/layout/Footer";
 import Post from "../../components/digital-agency-animation/Post";
 
 interface BlogPosts {
-	title: string;
-	posted: string;
-	slug: string;
-	body: string;
-	headin;
+	title?: string;
+	posted?: string;
+	slug?: string;
+	body?: string;
+	heading?: string;
 }
 
 interface Props {
@@ -37,6 +37,7 @@ export async function getServerSideProps() {
 					heading
 					body
 				}
+
 			}
 		`,
 	});

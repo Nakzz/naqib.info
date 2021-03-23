@@ -21,8 +21,8 @@ COPY . .
 
 # Bundle app source
 
-EXPOSE 7001
-EXPOSE 7002
+# EXPOSE 7001
+# EXPOSE 7002
 
 # CMD [ "npm", "run-script" "build" ]
 
@@ -33,5 +33,5 @@ USER node
 # CMD ["./dumb-init", "node", "server.js"]
 
 # Bash commands
-# docker build -t naqib.info/cms:v1.1 .
-# docker run -p 3000:3000 --net="host"  naqib.info/cms:v1.1
+# docker build -t naqib.info/cms:v1.2 .
+# docker run -p 8010:5000 --net="host" -e NODE_ENV=docker_production -v /data:/data/ naqib.info/cms:v1.2

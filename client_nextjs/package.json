@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "dev": "node server.mjs -p $PORT",
-    "build": "next build",
+    "build": "next build ",
     "start": "NODE_ENV=production node server.mjs -p $PORT",
+    "startDocker": "NODE_ENV=production node server.mjs -p $PORT",
     "requirements-check": "node --experimental-json-modules check_node_version.js ",
     "predev": "npm run requirements-check"
   },
@@ -27,7 +28,7 @@
     "express": "^4.17.1",
     "graphql": "^15.4.0",
     "helmet": "^4.4.1",
-    "imagemin-mozjpeg": "^8.0.0",
+    "imagemin-mozjpeg": "^9.0.0",
     "imagemin-optipng": "^7.1.0",
     "imagemin-svgo": "^7.1.0",
     "next": "^9.3.1",
@@ -38,7 +39,7 @@
     "next-routes": "^1.4.2",
     "next-seo": "^2.2.1",
     "next-videos": "^1.1.3",
-    "node-sass": "^5.0.0",
+    "node-sass": "^4.14.1",
     "react": "^16.13.1",
     "react-accessible-accordion": "^3.0.1",
     "react-dom": "^16.13.1",
