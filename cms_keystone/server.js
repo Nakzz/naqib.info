@@ -30,6 +30,13 @@ keystone
 
 		app.use(middlewares);
 
+		app.use(
+			"/public",
+			express.static("/data/naqib.info_static_content/public", {
+				maxAge: dev ? "0" : "365d",
+			})
+		);
+
 		var httpServer = http.createServer(app);
 		// var httpsServer = https.createServer(credentials, app);
 		const PORT = Number(process.env.PORT) || 5000

