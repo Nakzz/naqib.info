@@ -1,11 +1,25 @@
 import React, { Component } from "react";
 import Link from "next/link";
 import gql from "graphql-tag";
-import { withRouter } from "next/router";
 import Navbar from "../../components/layout/Navbar";
 import Footer from "../../components/layout/Footer";
+import {
+	EmailShareButton,
+	EmailIcon,
+	FacebookShareButton,
+	FacebookIcon,
+	FacebookMessengerIcon,
+	FacebookMessengerShareButton,
+	LinkedinIcon,
+	RedditIcon,
+	TwitterIcon,
+	RedditShareButton,
+	TwitterShareButton,
+	LinkedinShareButton,
+} from "react-share";
 
 import { initializeApollo } from "../../utils/apolloClient";
+import { hostnameResolver } from "../../utils/hostname";
 
 interface IPost {
 	title: string;
@@ -212,9 +226,13 @@ export class index extends Component<IProps, IState> {
 	}
 
 	render() {
-		const hostnameBlogs: String = "https://naqib.info/public/blogs/";
-		const hostnameAvatars: String = "https://naqib.info/public/avatars/";
+		const hostnameBlogs: String = hostnameResolver() + "public/blogs/";
+		const hostnameAvatars: String = hostnameResolver() + "public/avatars/";
 
+		let social: any = {
+			shareTitle: "",
+			url: "https://naqib.info",
+		};
 		// console.log(this.props);
 		const { post, tags } = this.props;
 		if (post) {
@@ -222,6 +240,9 @@ export class index extends Component<IProps, IState> {
 			const markup = { __html: post.body };
 			const { recentPosts } = this.state;
 
+			social.shareTitle = post.title + " | Naqib.info";
+			{social.url =hostnameResolver(true) + "blog-details/" + post.slug }
+			
 			return (
 				<React.Fragment>
 					<Navbar />
@@ -274,39 +295,71 @@ export class index extends Component<IProps, IState> {
 
 											<div dangerouslySetInnerHTML={markup}></div>
 
-											<div disabled={true} className="share-post">
+											<div className="share-post">
 												<ul>
 													<li>
-														<a href="#">
-															<i className="icofont-facebook"></i>
-														</a>
+														<FacebookShareButton
+															url={social.url}
+															quote={social.shareTitle}
+															hashtag={"#naqib.info"}
+															className="Demo__some-network__share-button"
+														>
+															<FacebookIcon size={32} round />
+														</FacebookShareButton>
+													</li>
+													{/* <li> Need APP id for this
+														<FacebookMessengerShareButton
+															url={"shareUrl"}
+															
+															className="Demo__some-network__share-button"
+														>
+															<FacebookMessengerIcon size={32} round />
+														</FacebookMessengerShareButton>
+													</li> */}
+													<li>
+														<LinkedinShareButton
+															url={social.url}
+															className="Demo__some-network__share-button"
+														>
+															<LinkedinIcon size={32} round />
+														</LinkedinShareButton>
 													</li>
 													<li>
-														<a href="#">
-															<i className="icofont-twitter"></i>
-														</a>
+														<TwitterShareButton
+															url={social.url}
+															title={social.shareTitle}
+															className="Demo__some-network__share-button"
+														>
+															<TwitterIcon size={32} round />
+														</TwitterShareButton>
 													</li>
 													<li>
-														<a href="#">
-															<i className="icofont-linkedin"></i>
-														</a>
+														<EmailShareButton
+															url={social.url}
+															subject={social.shareTitle}
+															body={"Check out this cool blog post I found."}
+															className="Demo__some-network__share-button"
+														>
+															<EmailIcon size={32} round />
+														</EmailShareButton>
 													</li>
 													<li>
-														<a href="#">
-															<i className="icofont-instagram"></i>
-														</a>
-													</li>
-													<li>
-														<a href="#">
-															<i className="icofont-vimeo"></i>
-														</a>
+														<RedditShareButton
+															url={social.url}
+															title={social.shareTitle}
+															windowWidth={660}
+															windowHeight={460}
+															className="Demo__some-network__share-button"
+														>
+															<RedditIcon size={32} round />
+														</RedditShareButton>
 													</li>
 												</ul>
 											</div>
 										</div>
 									</div>
 
-									<div disabled={true} className="post-controls-buttons">
+									{/* <div disabled={true} className="post-controls-buttons">
 										<div className="controls-left">
 											<a href="#">
 												<i className="icofont-double-left"></i>TODO: Prev Post
@@ -318,7 +371,7 @@ export class index extends Component<IProps, IState> {
 												TODO:Next Post <i className="icofont-double-right"></i>
 											</a>
 										</div>
-									</div>
+									</div> */}
 
 									<div disabled={true} className="post-comments">
 										<h3>Comments</h3>
@@ -473,7 +526,7 @@ export class index extends Component<IProps, IState> {
 											</ul>
 										</div>
 
-										<div className="m-t-20 widget widget_tag_cloud">
+										<div disabled={true} className="m-t-20 widget widget_tag_cloud">
 											<h3 className="widget-title">
 												<span>Tags</span>
 											</h3>
@@ -521,8 +574,7 @@ export class index extends Component<IProps, IState> {
 					<Footer />
 				</React.Fragment>
 			);
-		}else
-		return null
+		} else return null;
 	}
 }
 

@@ -36,6 +36,9 @@ export async function getServerSideProps() {
 					slug
 					heading
 					body
+					image {
+						filename
+					}
 				}
 
 			}
@@ -53,7 +56,7 @@ export class index extends Component<Props> {
 		super(props);
 	}
 	render() {
-		console.log(this.props);
+		// console.log(this.props);
 		let posts = this.props.allPosts ? this.props.allPosts.map((item, ind) => {
 			return <Post data={item} key={ind} />;
 		}) : null;
