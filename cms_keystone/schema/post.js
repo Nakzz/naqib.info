@@ -87,7 +87,11 @@ const Post = {
 					if (existingItem && existingItem.image) {
 						console.log("going to delete!");
 						console.log(existingItem.image);
-						await fileAdapter.delete(existingItem.image);
+						try {
+							await fileAdapter.delete(existingItem.image);
+						} catch (error) {
+							console.log("File not found trying to delete the file");
+						}
 					}
 				},
 			},

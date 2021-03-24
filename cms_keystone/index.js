@@ -85,11 +85,11 @@ module.exports = {
 		new AdminUIApp({
 			name: PROJECT_NAME,
 			enableDefaultRoute: true,
-			authStrategy:
-				process.env.NODE_ENV !== undefined ? adminAuthStrategy : null,
-			isAccessAllowed: ({ authentication: { item } }) => {
-				return item && item.isAdmin; // Only allow admin to access the UI
-			},
+			// authStrategy:
+			// 	process.env.NODE_ENV !== undefined ? adminAuthStrategy : null,
+			// isAccessAllowed: ({ authentication: { item } }) => {
+			// 	return item && item.isAdmin; // Only allow admin to access the UI
+			// },
 		}),
 		new StaticApp({
 			path: "/",
