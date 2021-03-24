@@ -1010,12 +1010,43 @@ Main Banner CSS
 	position: relative;
 	z-index: 1;
 	height: 810px;
+	// display: flex;
 }
+
 .digital-agency-banner {
+	background-image: url("../../images/home/header_bg.jpg");
+	background-position: center center;
+	background-size: cover;
+	position: relative;
+}
+
+.digital-agency-banner_notBrowser {
 	background-image: url("../../images/home/header_2.jpg");
 	background-position: center center;
 	background-size: cover;
 	position: relative;
+}
+
+
+
+.parallax_banner
+{
+	position: relative;
+	z-index: 1;
+	height: 100%;
+
+	.imgHolder {
+	position: absolute;
+
+		bottom:0px !important;
+		top:auto !important;
+	}
+
+	img{
+	position: relative !important;
+max-width: 95%;
+
+	}
 }
 
 .w-150 {
