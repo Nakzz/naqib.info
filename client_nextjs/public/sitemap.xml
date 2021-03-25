@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+      <urlset xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 
+      http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" 
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" 
+      xmlns:xhtml="http://www.w3.org/1999/xhtml">
+      
+	<url>
+		<loc>https://naqib.info/blog/categories/[tags]</loc>
+		<lastmod>2021-03-24</lastmod>
+	</url>
+
+	<url>
+		<loc>https://naqib.info/blog/tags/[tags]</loc>
+		<lastmod>2021-03-24</lastmod>
+	</url>
+
+	<url>
+		<loc>https://naqib.info/blog/tags/test</loc>
+		<lastmod>2021-03-24</lastmod>
+	</url>
+
+	<url>
+		<loc>https://naqib.info/blog/tags/test2</loc>
+		<lastmod>2021-03-24</lastmod>
+	</url>
+
+	<url>
+		<loc>https://naqib.info/blog-details/[slug]</loc>
+		<lastmod>2021-03-24</lastmod>
+	</url>
+
+	<url>
+		<loc>https://naqib.info/blog-details/test</loc>
+		<lastmod>2021-03-24</lastmod>
+	</url>
+</urlset>
