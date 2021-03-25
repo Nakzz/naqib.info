@@ -5,19 +5,22 @@ var http = require("http");
 var https = require("https");
 const path = require("path");
 
-// var privateKey = fs.readFileSync(
-// 	"/data/naqib.info_static_content/cert/privkey.pem",
-// 	"utf8"
-// );
-// var certificate = fs.readFileSync(
-// 	"/data/naqib.info_static_content/cert/fullchain.pem",
-// 	"utf8"
-// );
-// var credentials = { key: privateKey, cert: certificate };
-
 const dev =
 	process.env.NODE_ENV !== "production" ||
-	process.env.NODE_ENV !== "docker_production";
+	process.env.NODE_ENV !== "docker_production" ||
+	process.env.NODE_ENV === "development";
+
+var privateKey = fs.readFileSync("./cert/localhost.key").toString();
+var certificate = fs.readFileSync("./cert/localhost.crt").toString();
+
+var credentials = {
+	key: privateKey,
+	cert: certificate,
+	ciphers:
+		"ECDHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-SHA:ECDHE-RSA-AES128-SHA256:ECDHE-RSA-AES256-SHA:ECDHE-RSA-AES256-SHA384",
+	honorCipherOrder: true,
+	secureProtocol: "TLSv1_2_method",
+};
 
 keystone
 	.prepare({
@@ -30,11 +33,14 @@ keystone
 
 		app.use(middlewares);
 
-		var httpServer = http.createServer(app);
-		// var httpsServer = https.createServer(credentials, app);
-		const PORT = Number(process.env.PORT) || 5000
+		var server;
+		// if (dev) {
+		// 	//http only
+		// 	server = http.createServer(app);
+		// } else {
+		// }
+		server = https.createServer(credentials, app);
+		const PORT = Number(process.env.PORT) || 5000;
 
-		httpServer.listen(PORT);
-		//httpsServer.listen(PORT);
-		// app.use(middlewares).listen(3000);
+		server.listen(PORT);
 	});

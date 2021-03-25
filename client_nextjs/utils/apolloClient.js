@@ -13,9 +13,9 @@ function createApolloClient() {
 		ssrMode: typeof window === "undefined", // set to true for SSR
 		link: new HttpLink({
 			uri: url,
-			// fetchOptions: {
-			// 	agent: new https.Agent({ rejectUnauthorized: false }), //Since Keystone is in internal network, cert verification isn't needed
-			// },
+			fetchOptions: {
+				agent: new https.Agent({ rejectUnauthorized: false }), 
+			},
 		}),
 		cache: new InMemoryCache(),
 	});

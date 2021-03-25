@@ -8,8 +8,11 @@ import http from "http";
 import https from "https";
 import compression from "compression";
 import helmet from "helmet";
+import sitemap from "nextjs-sitemap-generator";
 
 let __dirname = path.resolve();
+
+const BUILD_ID = fs.readFileSync(".next/BUILD_ID").toString();
 
 // import keys from "./server/config/keys";
 // var privateKey = fs.readFileSync(
@@ -24,10 +27,30 @@ let __dirname = path.resolve();
 
 const dev = process.env.NODE_ENV !== "production";
 
+if(!dev){
+	sitemap({
+		baseUrl: "https://naqib.info",
+		// If you are using Vercel platform to deploy change the route to /.next/serverless/pages 
+		pagesDirectory: __dirname + "/.next/server/pages",
+		targetDirectory: "public/",
+		ignoredExtensions: ["js", "map"],
+		ignoredPaths: ["assets"], // Exclude everything that isn't static page
+// 		targetDirectory : 'static/',
+// 		ignoredPaths: ['admin'],
+//   pagesDirectory: __dirname + "/pages",
+  sitemapFilename: 'sitemap.xml',
+  nextConfigPath: __dirname + "/next.config.js"
+
+	  });
+	
+}
+
 const app = next({ dir: ".", dev });
 const handle = app.getRequestHandler();
 
 const allowedPath = ["/", "/about-me", "/blog", "/public", "/images" , "/blog-details"]; // TODO: add allowed path until website is complete
+
+
 
 app.prepare().then(() => {
 	const server = express();

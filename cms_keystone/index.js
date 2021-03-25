@@ -34,9 +34,9 @@ const cookieSecret = process.env.cookieSecret;
 
 const adapterConfig = { mongoUri };
 
-console.log(cookieSecret);
+// console.log(cookieSecret);
 console.log(mongoUri);
-console.log(process.env.NODE_ENV);
+console.log(`NODE ENV: ${process.env.NODE_ENV}`);
 /**
  * You've got a new KeystoneJS Project! Things you might want to do next:
  * - Add adapter config options (See: https://keystonejs.com/keystonejs/adapter-mongoose/)
