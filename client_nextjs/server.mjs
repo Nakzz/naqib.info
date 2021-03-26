@@ -79,7 +79,9 @@ app.prepare().then(() => {
 
 	if (!dev) {
 		server.use(compression()); //Compress all routes
-		server.use(helmet()); //protect against well known vulnerabilities
+		server.use(helmet({
+			contentSecurityPolicy: false,
+		  })); //protect against well known vulnerabilities
 	}
 
 	server.get("/cyber", (req, res) => {

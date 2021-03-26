@@ -207,7 +207,7 @@ export class Banner extends Component<any, IState> {
 				<div className="shape10 rotateme">
 					<img src={require("../../images/shapes/10.png")} alt="shape10" />
 				</div>
-				<div data-depth="0.82" className="circle-shape1">
+				<div className="circle-shape1">
 					<img
 						src={require("../../images/shapes/circle1.png")}
 						alt="shape"

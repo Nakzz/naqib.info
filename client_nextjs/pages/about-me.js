@@ -9,6 +9,7 @@ import Education from '../components/about/Education';
 import Services from '../components/freelancer/Services';
 import Skills from "../components/digital-agency-animation/Skills";
 import About from '../components/digital-agency-animation/About';
+import Funfacts from '../components/freelancer/Funfacts';
 
 import { initializeApollo } from "../utils/apolloClient";
 
@@ -71,7 +72,7 @@ export class index extends Component {
                 <Education/>
                 {/* TODO: work experiances */}
                 {/* <Cta /> */}
-                {/* <Funfacts /> */}
+                <Funfacts />
 
                 <Footer />
             </React.Fragment>
