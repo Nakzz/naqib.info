@@ -25,7 +25,7 @@ export class Banner extends Component {
 										<TypedReact
 											strings={[
 												"I'm a <strong>Software Engineer...</strong>",
-												"I'm an <strong>Entreprenuer...</strong>",
+												"I'm an <strong>Entrepreneur...</strong>",
 												"I'm a <strong>Photographer...</strong>",
 												"I'm a <strong>Leader...</strong>",
 												"I'm a POSSE scholar...",

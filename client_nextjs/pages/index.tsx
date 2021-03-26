@@ -113,8 +113,8 @@ class index extends Component<IData> {
 			<React.Fragment>
 				<Navbar />
 				<Banner />
-				{/* <About /> */}
-				{/* <Services data={this.props.allInterests}/> */}
+	
+				<Services data={this.props.allInterests}/>
 
 				{/* <HowWeWork /> */}
 				{/* <Skills data={this.props.allSkills} /> */}

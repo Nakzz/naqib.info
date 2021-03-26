@@ -101,7 +101,7 @@ app.prepare().then(() => {
 			}
 		});
 
-		if (foundPath) return handle(req, res);
+		if (foundPath && !dev) return handle(req, res);
 		// console.log(req.originalUrl);
 
 		return app.render(req, res, "/coming-soon"); //FOR COMING SOON PAGE REDIRECT
