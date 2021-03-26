@@ -87,18 +87,20 @@ app.prepare().then(() => {
 
 	server.get("*", (req, res) => {
 		//Only serving allowed path
-		if (req.originalUrl === "/") return handle(req, res);
+		// if (req.originalUrl === "/") return handle(req, res);
 
-		let foundPath = false;
-		allowedPath.forEach((e) => {
-			if (req.originalUrl.includes(e) && !foundPath) {
-				console.log(`	url allowed for ${e}`);
-				foundPath = true;
-			}
-		});
+		// let foundPath = false;
+		// allowedPath.forEach((e) => {
+		// 	if (req.originalUrl.includes(e) && !foundPath) {
+		// 		console.log(`	url allowed for ${e}`);
+		// 		foundPath = true;
+		// 	}
+		// });
 
-		console.log(`	${req.originalUrl} ${foundPath}`);
-		if (foundPath || dev) return handle(req, res);
+		// console.log(`	${req.originalUrl} ${foundPath}`);
+		// if (foundPath || dev)return handle(req, res);
+
+		return handle(req, res);
 
 		return app.render(req, res, "/coming-soon"); //FOR COMING SOON PAGE REDIRECT
 	});

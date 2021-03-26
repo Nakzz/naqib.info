@@ -28,7 +28,7 @@ interface IPost {
 	body: string;
 	heading: string;
 	image: {
-		filename?: string;
+		publicUrlTransformed?: string;
 	};
 	author: {
 		name: string;
