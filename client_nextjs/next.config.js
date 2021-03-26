@@ -3,6 +3,8 @@ const withFonts = require('next-fonts');
 const withPlugins = require('next-compose-plugins');	
 const optimizedImages = require('next-optimized-images');	
 const withSass = require('@zeit/next-sass')
+const withPurgeCss = require("next-purgecss");
+
 module.exports = withPlugins([	
     [optimizedImages, {	
         inlineImageLimit: 8192,	
@@ -27,5 +29,5 @@ module.exports = withPlugins([
             quality: 75,	
         },	
     }],	
-    [withCSS],[withFonts],[withSass]	
+    [withCSS(withPurgeCss())],[withFonts],[withSass(withPurgeCss())]	
 ]);

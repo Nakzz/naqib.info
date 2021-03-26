@@ -35,6 +35,7 @@
     "next-compose-plugins": "^2.2.1",
     "next-fonts": "^0.18.0",
     "next-optimized-images": "^2.6.2",
+    "next-purgecss": "^4.0.0",
     "next-redux-wrapper": "^3.0.0",
     "next-routes": "^1.4.2",
     "next-seo": "^4.22.0",

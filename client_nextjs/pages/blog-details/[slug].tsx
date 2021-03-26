@@ -106,7 +106,7 @@ export async function getStaticProps({ params }) {
                     title
                     slug
                     image{
-                        filename
+                        publicUrlTransformed
                     }
                     posted
                     heading
@@ -181,7 +181,7 @@ export class index extends Component<IProps, IState> {
 						slug
 						heading
 						image {
-							filename
+							publicUrlTransformed(transformation: { width: "150", crop: "limit" })
 						}
 					}
 				}
@@ -268,7 +268,7 @@ export class index extends Component<IProps, IState> {
 									<div className="blog-details">
 										<div className="article-img">
 											<img
-												src={hostnameBlogs + post.image.filename}
+												src={post.image.publicUrlTransformed}
 												alt="blog-details"
 											/>
 											<div className="date">
@@ -481,7 +481,7 @@ export class index extends Component<IProps, IState> {
 																		<a href="">
 																			<img
 																				src={
-																					hostnameBlogs + item.image.filename
+																					item.image.publicUrlTransformed
 																				}
 																				alt="image"
 																			/>

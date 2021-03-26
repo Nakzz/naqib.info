@@ -68,7 +68,7 @@ export async function getServerSideProps() {
 					slug
 					heading
 					image {
-						filename
+						publicUrlTransformed(transformation: { width: "150", crop: "limit" })
 					}
 				}
 				allInterests(

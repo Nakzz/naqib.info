@@ -7,7 +7,7 @@ export default function Post(props) {
 	const hostname: String = hostnameResolver() + "public/blogs/";
 	
 	const item = data;
-	console.log(item.image ? hostname + item.image.filename : "");
+	// console.log(item.image ? hostname + item.image.filename : "");
 	return (
 		<>
 			<div key={i} className="col-lg-4 col-md-6">
@@ -16,7 +16,7 @@ export default function Post(props) {
 						<Link href={"/blog-details/" + item.slug}>
 							<a>
 								<img
-									src={item.image ? hostname + item.image.filename : ""}
+									src={item.image ? item.image.publicUrlTransformed : ""}
 									alt="image"
 								/>
 							</a>
