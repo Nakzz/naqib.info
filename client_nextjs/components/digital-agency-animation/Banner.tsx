@@ -47,12 +47,14 @@ export class Banner extends Component<any, IState> {
 	render() {
 		// if(this.state.width <= 1024 && this.parallax)
 
-		if (!isDesktop) {
+		if (!isDesktop || isTablet) {
 			if (this.state.rootClass != "digital-agency-banner_notBrowser")
 				this.setState({ rootClass: "digital-agency-banner_notBrowser" });
 
 			console.log("Its a mobile");
-		}
+		} 
+
+
 
 		return (
 			<div className={"main-banner " + this.state.rootClass}>
@@ -61,7 +63,7 @@ export class Banner extends Component<any, IState> {
 					<span id="scroll-title">Scroll down</span>
 				</div>
 
-				{isDesktop ? (
+				{isDesktop && !isTablet ? (
 						<div
 							className="parallax_banner"
 							ref={(el: any) => (this.scene = el)}
