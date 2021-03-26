@@ -66,11 +66,11 @@ export class Funfacts extends Component<any, IState> {
 							</div>
 						</div>
 						<div className=" container">
-							<a href="https://github.com/Nakzz/">
+							{/* <a href="https://github.com/Nakzz/"> */}
 								<div className="col-lg-12 col-md-12 col-sm-12 row justify-content-md-center m-t-40">
 									<img src="https://github-readme-stats.vercel.app/api?username=nakzz&count_private=true&show_icons=true&hide_title=true&theme=vue" />
 								</div>
-							</a>
+							{/* </a> */}
 						</div>
 					</div>
 				</div>
