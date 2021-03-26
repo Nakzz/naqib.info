@@ -12,8 +12,6 @@ import sitemap from "nextjs-sitemap-generator";
 
 let __dirname = path.resolve();
 
-const BUILD_ID = fs.readFileSync(".next/BUILD_ID").toString();
-
 // import keys from "./server/config/keys";
 // var privateKey = fs.readFileSync(
 // 	"/data/naqib.info_static_content/cert/privkey.pem",
@@ -27,30 +25,29 @@ const BUILD_ID = fs.readFileSync(".next/BUILD_ID").toString();
 
 const dev = process.env.NODE_ENV !== "production";
 
-if(!dev){
+if (!dev) {
 	sitemap({
 		baseUrl: "https://naqib.info",
-		// If you are using Vercel platform to deploy change the route to /.next/serverless/pages 
 		pagesDirectory: __dirname + "/.next/server/pages",
 		targetDirectory: "public/",
 		ignoredExtensions: ["js", "map"],
 		ignoredPaths: ["assets"], // Exclude everything that isn't static page
-// 		targetDirectory : 'static/',
-// 		ignoredPaths: ['admin'],
-//   pagesDirectory: __dirname + "/pages",
-  sitemapFilename: 'sitemap.xml',
-  nextConfigPath: __dirname + "/next.config.js"
-
-	  });
-	
+		sitemapFilename: "sitemap.xml",
+		nextConfigPath: __dirname + "/next.config.js",
+	});
 }
 
 const app = next({ dir: ".", dev });
 const handle = app.getRequestHandler();
 
-const allowedPath = ["/", "/about-me", "/blog", "/public", "/images" , "/blog-details"]; // TODO: add allowed path until website is complete
-
-
+const allowedPath = [
+	"/",
+	"/about-me",
+	"/blog",
+	"/public",
+	"/images",
+	"/blog-details",
+]; // TODO: add allowed path until website is complete
 
 app.prepare().then(() => {
 	const server = express();
@@ -79,8 +76,12 @@ app.prepare().then(() => {
 	);
 
 	server.use(bodyParser.json());
-	server.use(compression()); //Compress all routes
-	//server.use(helmet()); //protect against well known vulnerabilities
+
+	if(!dev){
+		server.use(compression()); //Compress all routes
+		server.use(helmet()); //protect against well known vulnerabilities
+	}
+
 
 	server.get("/cyber", (req, res) => {
 		if (!req.secure)
@@ -92,20 +93,15 @@ app.prepare().then(() => {
 	});
 
 	server.get("*", (req, res) => {
-		// if (allowedPath.indexOf(req.originalUrl) >= 0) {
-		// 	return handle(req, res);
-		// }
-
 		//Only serving allowed path
 		let foundPath = false;
-		allowedPath.forEach(e => {
-			if(req.originalUrl.includes(e) && !foundPath){
+		allowedPath.forEach((e) => {
+			if (req.originalUrl.includes(e) && !foundPath) {
 				foundPath = true;
 			}
 		});
-		
-		if(foundPath)
-		return handle(req, res);
+
+		if (foundPath && !dev) return handle(req, res);
 		// console.log(req.originalUrl);
 
 		return app.render(req, res, "/coming-soon"); //FOR COMING SOON PAGE REDIRECT
