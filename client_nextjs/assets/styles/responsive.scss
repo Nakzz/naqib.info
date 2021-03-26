@@ -926,14 +926,14 @@ $bg-gray: #f9f9f9;
     }
 
     .coming-soon {
-        height: 100%;
+        // height: 100%;
         padding: {
             top: 70px;
             bottom: 70px;
         }
         .coming-soon-content {
-            h1 {
-                font-size: 30px;
+            h2 {
+                font-size: 1em;
                 line-height: 45px;
             }
             p {

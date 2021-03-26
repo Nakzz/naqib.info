@@ -4878,3 +4878,40 @@ Login CSS
 	}
 }
 
+.coming-soon {
+	height: 100%;
+	padding: {
+		top: 70px;
+		bottom: 70px;
+	}
+	.coming-soon-content {
+		h1 {
+			font-size: 30px;
+			line-height: 45px;
+		}
+		p {
+			margin-top: 10px;
+		}
+		#timer {
+			div {
+				font-size: 40px;
+				width: 120px;
+				height: 120px;
+				padding-top: 27px;
+				line-height: 39px;
+				margin: 0 5px 15px;
+			}
+		}
+		form {
+			button {
+				position: relative;
+				right: 0;
+				top: 0;
+				width: 100%;
+				border-radius: 30px;
+				margin-top: 10px;
+				padding: 13px 0;
+			}
+		}
+	}
+}
