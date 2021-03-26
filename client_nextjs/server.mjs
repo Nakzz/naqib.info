@@ -41,7 +41,6 @@ const app = next({ dir: ".", dev });
 const handle = app.getRequestHandler();
 
 const allowedPath = [
-	"/",
 	"/about-me",
 	"/blog",
 	"/public",
@@ -89,7 +88,7 @@ app.prepare().then(() => {
 	server.get("*", (req, res) => {
 		//Only serving allowed path
 		if (req.originalUrl === "/") return handle(req, res);
-		
+
 		let foundPath = false;
 		allowedPath.forEach((e) => {
 			if (req.originalUrl.includes(e) && !foundPath) {
