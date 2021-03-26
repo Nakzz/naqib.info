@@ -77,11 +77,10 @@ app.prepare().then(() => {
 
 	server.use(bodyParser.json());
 
-	if(!dev){
+	if (!dev) {
 		server.use(compression()); //Compress all routes
 		server.use(helmet()); //protect against well known vulnerabilities
 	}
-
 
 	server.get("/cyber", (req, res) => {
 		if (!req.secure)
@@ -101,7 +100,7 @@ app.prepare().then(() => {
 			}
 		});
 
-		if (foundPath && !dev) return handle(req, res);
+		if (foundPath || dev) return handle(req, res);
 		// console.log(req.originalUrl);
 
 		return app.render(req, res, "/coming-soon"); //FOR COMING SOON PAGE REDIRECT
