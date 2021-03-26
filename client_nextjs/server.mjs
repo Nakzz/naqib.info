@@ -79,31 +79,27 @@ app.prepare().then(() => {
 
 	if (!dev) {
 		server.use(compression()); //Compress all routes
-		server.use(helmet({
-			contentSecurityPolicy: false,
-		  })); //protect against well known vulnerabilities
+		server.use(
+			helmet({
+				contentSecurityPolicy: false,
+			})
+		); //protect against well known vulnerabilities
 	}
-
-	server.get("/cyber", (req, res) => {
-		if (!req.secure)
-			// HTTP=> HTTPS
-			res.redirect("https://" + req.headers.host + req.url);
-
-		return handle(req, res);
-		// return app.render(req, res, '/coming-soon') //FOR COMING SOON PAGE REDIRECT
-	});
 
 	server.get("*", (req, res) => {
 		//Only serving allowed path
+		if (req.originalUrl === "/") return handle(req, res);
+		
 		let foundPath = false;
 		allowedPath.forEach((e) => {
 			if (req.originalUrl.includes(e) && !foundPath) {
+				console.log(`	url allowed for ${e}`);
 				foundPath = true;
 			}
 		});
 
+		console.log(`	${req.originalUrl} ${foundPath}`);
 		if (foundPath || dev) return handle(req, res);
-		// console.log(req.originalUrl);
 
 		return app.render(req, res, "/coming-soon"); //FOR COMING SOON PAGE REDIRECT
 	});
