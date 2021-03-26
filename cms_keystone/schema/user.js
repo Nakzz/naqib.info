@@ -6,10 +6,13 @@ const {
 	Relationship,
 	Select,
 	Integer,
+	Url
 } = require("@keystonejs/fields");
 const { LocalFileAdapter } = require("@keystonejs/file-adapters");
 const { Color } = require("@keystonejs/fields-color");
 const { Wysiwyg } = require("@keystonejs/fields-wysiwyg-tinymce");
+const { CloudinaryAdapter } = require('@keystonejs/file-adapters');
+const { CloudinaryImage } = require('@keystonejs/fields-cloudinary-image');
 
 const { staticRoute, staticPath } = require("../config.ts");
 const { userOwnsItem, isUserAdmin } = require("../access-control");
@@ -94,12 +97,24 @@ module.exports.Skill = {
 			isUnique: true,
 		},
 	},
+	labelResolver: item => item.title,
 };
+
+const fileAdapter = new CloudinaryAdapter({
+	cloudName: process.env.CLOUDINARY_CLOUD_NAME,
+	apiKey: process.env.CLOUDINARY_KEY,
+	apiSecret: process.env.CLOUDINARY_SECRET,
+	folder: 'naqib.info/subskill',
+  });
 
 module.exports.SubSkill = {
 	schemaDoc: "SubSkill data",
 	fields: {
 		name: { type: Text },
+		// image: { type: Url },
+		image: { type: CloudinaryImage, adapter: fileAdapter },
+		link: { type: Url },
+
 		level: { type: Integer },
 		skill: {
 			type: Relationship,

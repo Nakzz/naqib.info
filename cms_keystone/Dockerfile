@@ -29,7 +29,7 @@ COPY . .
 CMD [ "node", "server.js" ] 
 
 # Change user to node. Better Security before running node/ 
-USER node 
+# USER node 
 # CMD ["./dumb-init", "node", "server.js"]
 
 # Bash commands

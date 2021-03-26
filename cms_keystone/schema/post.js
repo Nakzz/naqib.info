@@ -120,6 +120,8 @@ const Post = {
 			}
 		},
 	},
+	labelResolver: item => `${item.status === 'draft' ? 'DRAFT - ' : ''}` + item.title,
+
 };
 
 const PostCategory = {

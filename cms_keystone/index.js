@@ -28,7 +28,7 @@ if (process.env.NODE_ENV === "production")
 else if (process.env.NODE_ENV === "docker_production")
 	mongoUri = "mongodb://172.17.0.1:27017/cms-naqib";
 // mongoUri = "mongodb://localhost:27016/cms-naqib";
-else mongoUri = "mongodb://localhost/cms-naqib_dev";
+else mongoUri = "mongodb://localhost/cms-naqib"; //TODO: change 
 
 const cookieSecret = process.env.cookieSecret;
 
