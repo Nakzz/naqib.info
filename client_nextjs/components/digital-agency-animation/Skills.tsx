@@ -62,7 +62,7 @@ export class Skills extends Component<IProps> {
 
 		this.dispatchSubSkills(this.props.data);
 
-		console.log(data);
+		// console.log(data);
 		if (data) {
 			return (
 				<section className="skill-area m-t-50">
