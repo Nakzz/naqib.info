@@ -13,9 +13,8 @@ services:
     depends_on:
       #   - mongo
       - cms
-    # volumes:
-      #- /data/naqib.info_static_content:/data/naqib.info_static_content:ro
-      # - /data:/data
+    volumes:
+      - /data/naqib.info_static_content:/data/naqib.info_static_content:ro
 
   cms:
     container_name: cms_keystone
@@ -27,5 +26,6 @@ services:
       - "8010:5000"
     volumes:
       - /data/naqib.info_static_content:/data/naqib.info_static_content:rw
+      - /etc/letsencrypt/live/naqib.info/:/cert:ro
 
 # docker-compose up --build -d

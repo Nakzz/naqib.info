@@ -40,7 +40,7 @@ export default withRedux(initStore)(
 				<ApolloProvider client={apolloClient}>
 					<DefaultSeo
 						title="Ajmain Naqib | Personal Website"
-						description="Ajmain Naqib's portfolio website. This has been built with React, Next.js, Express.js, and ES6+" // TODO: change this since this will be shown on google search
+						description="Ajmain Naqib's portfolio website. I am a Software Engineer, Entrepreneur, Photographer, POSSE Scholar, FIRST Alum. "
 						openGraph={{
 							type: "website",
 							locale: "en_IE",

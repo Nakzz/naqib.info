@@ -118,7 +118,7 @@ export class Navbar extends Component<any, IState> {
 									</li>
 
 									<li className="nav-item">
-									<Link activeClassName="active" href="/coming-soon">
+									<Link activeClassName="active" href="/blog">
 
 										{/* <Link activeClassName="active" href="/blog"> */}
 											<a href="#" className="nav-link">

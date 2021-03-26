@@ -8,6 +8,7 @@ import http from "http";
 import https from "https";
 import compression from "compression";
 import helmet from "helmet";
+import sitemap from "nextjs-sitemap-generator";
 
 let __dirname = path.resolve();
 
@@ -24,10 +25,29 @@ let __dirname = path.resolve();
 
 const dev = process.env.NODE_ENV !== "production";
 
+if (!dev) {
+	sitemap({
+		baseUrl: "https://naqib.info",
+		pagesDirectory: __dirname + "/.next/server/pages",
+		targetDirectory: "public/",
+		ignoredExtensions: ["js", "map"],
+		ignoredPaths: ["assets"], // Exclude everything that isn't static page
+		sitemapFilename: "sitemap.xml",
+		nextConfigPath: __dirname + "/next.config.js",
+	});
+}
+
 const app = next({ dir: ".", dev });
 const handle = app.getRequestHandler();
 
-const allowedPath = ["/", "/about-me"]; // TODO: add allowed path until website is complete
+const allowedPath = [
+	"/",
+	"/about-me",
+	"/blog",
+	"/public",
+	"/images",
+	"/blog-details",
+]; // TODO: add allowed path until website is complete
 
 app.prepare().then(() => {
 	const server = express();
@@ -56,8 +76,11 @@ app.prepare().then(() => {
 	);
 
 	server.use(bodyParser.json());
-	server.use(compression()); //Compress all routes
-	//server.use(helmet()); //protect against well known vulnerabilities
+
+	if (!dev) {
+		server.use(compression()); //Compress all routes
+		server.use(helmet()); //protect against well known vulnerabilities
+	}
 
 	server.get("/cyber", (req, res) => {
 		if (!req.secure)
@@ -69,13 +92,16 @@ app.prepare().then(() => {
 	});
 
 	server.get("*", (req, res) => {
-		if (allowedPath.indexOf(req.originalUrl) >= 0) {
-			return handle(req, res);
-		}
+		//Only serving allowed path
+		let foundPath = false;
+		allowedPath.forEach((e) => {
+			if (req.originalUrl.includes(e) && !foundPath) {
+				foundPath = true;
+			}
+		});
+
+		if (foundPath || dev) return handle(req, res);
 		// console.log(req.originalUrl);
-		// if (!req.secure)
-		// 	// HTTP=> HTTPS
-		// 	res.redirect("https://" + req.headers.host + req.url);
 
 		return app.render(req, res, "/coming-soon"); //FOR COMING SOON PAGE REDIRECT
 	});
