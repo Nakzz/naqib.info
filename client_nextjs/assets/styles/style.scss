@@ -1045,7 +1045,8 @@ Main Banner CSS
 	position: relative;
 	z-index: 1;
 	height: 100%;
-
+	overflow:hidden;
+	
 	.imgHolder {
 	position: absolute;
 
@@ -1055,7 +1056,7 @@ Main Banner CSS
 
 	img{
 	position: relative !important;
-max-width: 95%;
+max-width: 90%;
 
 	}
 }

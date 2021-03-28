@@ -13,7 +13,7 @@ type IState = {
 export class Banner extends Component<any, IState> {
 	scene: React.RefObject<any>;
 	parallax: any;
-	//TODO(2): componentdidmount() and get the strings in the TypedReact from API. Set defaults.
+	//TODO: componentdidmount() and get the strings in the TypedReact from API. Set defaults.
 
 	constructor(props) {
 		super(props);
@@ -105,7 +105,7 @@ export class Banner extends Component<any, IState> {
 							<div className="imgHolder" data-depth=".4">
 								<img
 									src={require("../../images/home/header_aj.png")}
-									alt="adidas"
+									alt="Picture of AJ"
 								/>
 							</div>
 						</div>
