@@ -35,7 +35,6 @@ module.exports = withPlugins([
 		},
 	],
 	// [withCSS],
-	[withFonts],
     // [withSass],
     postcssflexbugsfixes,
     [
@@ -60,5 +59,7 @@ module.exports = withPlugins([
         defaultExtractor: content => content.match(/[\w-/:]+(?<!:)/g) || [],
         safelist: ["html", "body"]
       }
-    ],
+	],
+	// [withFonts],
+	
 ]);
