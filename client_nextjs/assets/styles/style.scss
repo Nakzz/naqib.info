@@ -1046,7 +1046,8 @@ Main Banner CSS
 	z-index: 1;
 	height: 100%;
 	overflow:hidden;
-	
+	pointer-events: auto;
+
 	.imgHolder {
 	position: absolute;
 

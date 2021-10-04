@@ -16,7 +16,7 @@ services:
       - cms
     volumes:
       - /data/naqib.info_static_content:/data/naqib.info_static_content:ro
-
+    restart: unless-stopped
   cms:
     container_name: cms_keystone
     build: ./cms_keystone/
@@ -32,4 +32,6 @@ services:
     volumes:
       - /data/naqib.info_static_content:/data/naqib.info_static_content:rw
       - /etc/letsencrypt/live/naqib.info/:/cert:ro
+
+    restart: unless-stopped
 # docker-compose up --build -d

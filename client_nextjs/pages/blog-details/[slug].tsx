@@ -59,15 +59,18 @@ interface ITag {
 interface IProps {
 	post: IPost;
 	tags: ITag[];
+	recentPosts?: [];
 }
 interface IState {
 	recentPosts?: [];
 }
 
-const apolloClient = initializeApollo();
+// const apolloClient = initializeApollo();
 
 export async function getStaticPaths() {
 	// Call an external API endpoint to get posts
+const apolloClient = initializeApollo();
+
 	const { data } = await apolloClient.query({
 		query: gql`
 			# Write your query or mutation here
@@ -95,6 +98,8 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
 	// params contains the post `id`.
 	// If the route is like /posts/1, then params.id is 1
+const apolloClient = initializeApollo();
+
 	const {
 		data: { allPosts },
 		data: { allTags },
@@ -151,10 +156,34 @@ export async function getStaticProps({ params }) {
 			}
 		`,
 	});
-	// console.log(allPosts);
+	console.log(allPosts);
+
+	
+	const  recentPosts  = await apolloClient.query({
+		query: gql`
+			# Write your query or mutation here
+			{
+				allPosts(
+					orderBy: "id_DESC"
+					first: 4
+					where: { status: published, private: false }
+				) {
+					title
+					posted
+					slug
+					heading
+					image {
+						publicUrlTransformed(transformation: { width: "150", crop: "limit" })
+					}
+				}
+			}
+		`,
+	});
+
+	
 
 	// Pass post data to the page via props
-	return { props: { post: allPosts[0] ? allPosts[0] : null, tags: allTags } };
+	return { props: { post: allPosts[0] ? allPosts[0] : null, tags: allTags, recentPosts: recentPosts.data.allPosts } };
 }
 
 export class index extends Component<IProps, IState> {
@@ -167,30 +196,32 @@ export class index extends Component<IProps, IState> {
 	}
 
 	async componentDidMount() {
-		const { data } = await apolloClient.query({
-			query: gql`
-				# Write your query or mutation here
-				{
-					allPosts(
-						orderBy: "id_DESC"
-						first: 4
-						where: { status: published, private: false }
-					) {
-						title
-						posted
-						slug
-						heading
-						image {
-							publicUrlTransformed(transformation: { width: "150", crop: "limit" })
-						}
-					}
-				}
-			`,
-		});
+		// //TODO: this is happening from client side, so this link has to be public
 
-		// console.log(data);
+		// const { data } = await apolloClient.query({
+		// 	query: gql`
+		// 		# Write your query or mutation here
+		// 		{
+		// 			allPosts(
+		// 				orderBy: "id_DESC"
+		// 				first: 4
+		// 				where: { status: published, private: false }
+		// 			) {
+		// 				title
+		// 				posted
+		// 				slug
+		// 				heading
+		// 				image {
+		// 					publicUrlTransformed(transformation: { width: "150", crop: "limit" })
+		// 				}
+		// 			}
+		// 		}
+		// 	`,
+		// });
 
-		this.setState({ recentPosts: data.allPosts });
+		// // console.log(data);
+
+		// this.setState({ recentPosts: data.allPosts });
 	}
 
 	//TODO: Solve this.
@@ -234,11 +265,11 @@ export class index extends Component<IProps, IState> {
 			url: "https://naqib.info",
 		};
 		// console.log(this.props);
-		const { post, tags } = this.props;
+		const { post, tags, recentPosts } = this.props;
 		if (post) {
 			const postedOn = new Date(post.posted).toDateString();
 			const markup = { __html: post.body };
-			const { recentPosts } = this.state;
+			// const { recentPosts } = this.state;
 
 			social.shareTitle = post.title + " | Naqib.info";
 			{social.url =hostnameResolver(true) + "blog-details/" + post.slug }
