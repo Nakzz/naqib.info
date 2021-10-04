@@ -17,8 +17,10 @@ import { initStore } from "../store/reducers/index";
 import { DefaultSeo } from "next-seo";
 import Loader from "../components/shared/Loader";
 import GoTop from "../components/shared/GoTop";
+import { LogPageView } from "../utils/google-analytics";
 
 export default withRedux(initStore)(
+
 	class MyApp extends App {
 		static async getInitialProps({ Component, ctx }) {
 			const pageProps = Component.getInitialProps
@@ -31,6 +33,14 @@ export default withRedux(initStore)(
 			}
 			return {};
 		}
+
+		componentDidMount () {
+			if (!window.GA_INITIALIZED) {
+			//   initGA()
+			  window.GA_INITIALIZED = true
+			}
+			LogPageView(window.location.pathname)
+		  }
 
 		render() {
 			const { Component, pageProps, store } = this.props;
