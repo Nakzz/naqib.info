@@ -21,8 +21,9 @@ services:
       - /data/naqib.info_static_content:/data/naqib.info_static_content:ro
     restart: unless-stopped
   cms:
+    image: naqibprio/naqibinfo_cms:1.00
     container_name: cms_keystone
-    build: ./cms_keystone/
+    #build: ./cms_keystone/
     # network_mode: bridge
     # environment:
     #   - NODE_ENV=docker_production
