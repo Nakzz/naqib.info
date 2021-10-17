@@ -21,11 +21,10 @@ var mongoUri; // Database connection
 
 const PROJECT_NAME = "cms_naqib";
 
-if (process.env.NODE_ENV === "development")
-	mongoUri = "mongodb://localhost/cms-naqib";
-else if (process.env.NODE_ENV === "production")
-	mongoUri =
-		"mongodb+srv://Keystone:thisisatrap@naqib-cms.rxd6j.mongodb.net/cms-naqib?retryWrites=true&w=majority";
+
+var mongoUri = process.env.MONGO_URL === undefined
+			? "mongodb://localhost/cms-naqib"
+			: process.env.MONGO_URL;
 
 const cookieSecret = process.env.cookieSecret;
 
