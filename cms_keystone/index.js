@@ -21,13 +21,11 @@ var mongoUri; // Database connection
 
 const PROJECT_NAME = "cms_naqib";
 
-if (process.env.NODE_ENV === "production")
+if (process.env.NODE_ENV === "development")
 	mongoUri = "mongodb://localhost/cms-naqib";
-else if (process.env.NODE_ENV === "docker_production")
-	mongoUri = "mongodb://172.17.0.1:27017/cms-naqib";
-// mongoUri = "mongodb://localhost:27016/cms-naqib";
-// else mongoUri = "mongodb://localhost/cms-naqib_dev";
-else mongoUri = "mongodb://localhost/cms-naqib"; //NOTE: to simulate production db
+else if (process.env.NODE_ENV === "production")
+	mongoUri =
+		"mongodb+srv://Keystone:thisisatrap@naqib-cms.rxd6j.mongodb.net/cms-naqib?retryWrites=true&w=majority";
 
 const cookieSecret = process.env.cookieSecret;
 

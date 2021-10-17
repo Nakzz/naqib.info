@@ -5,9 +5,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "node server.mjs -p $PORT",
-    "build": "next build ",
-    "start": "NODE_ENV=production node server.mjs -p $PORT",
-    "startDocker": "NODE_ENV=production node server.mjs -p $PORT",
+    "build": "NODE_ENV=development next build ",
+    "start": "NODE_ENV=$NODE_ENV node server.mjs -p $PORT",
     "requirements-check": "node --experimental-json-modules check_node_version.js ",
     "predev": "npm run requirements-check"
   },

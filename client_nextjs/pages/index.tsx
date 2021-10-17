@@ -6,6 +6,7 @@ const WOW = !isServer ? require("wowjs") : null;
 import Navbar from "../components/layout/Navbar";
 import Footer from "../components/layout/Footer";
 import Banner from "../components/digital-agency-animation/Banner";
+import Head from 'next/head';
 import About from "../components/digital-agency-animation/About";
 import Services from "../components/digital-agency-animation/Services";
 import WhyChooseUs from "../components/digital-agency-animation/WhyChooseUs";
