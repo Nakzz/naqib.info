@@ -56,7 +56,8 @@ case "${COMMAND}" in
 
     "prod" )
         echo "STARTING FOR PRODUCTION"
-        docker-compose -f prod-docker-compose.yml up -d
+	docker-compose -f prod-docker-compose.yml pull
+	docker-compose -f prod-docker-compose.yml up -d --force-recreate
         ;;
 
     *) echo "Incorrect command";;
