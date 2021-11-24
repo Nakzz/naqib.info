@@ -45,6 +45,7 @@ services:
     volumes:
       - ./nginx/nginx_secrets:/etc/letsencrypt
       - ./nginx/user_conf.d:/etc/nginx/user_conf.d
+      - ./nginx/logs:/var/logs/nginx
     networks:
       - naqibinfo-net
 
