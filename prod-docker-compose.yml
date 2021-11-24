@@ -33,6 +33,21 @@ services:
 
     restart: unless-stopped
   
+  nginx:
+    image: jonasal/nginx-certbot:latest
+    restart: unless-stopped
+
+    env_file:
+      - ./config/nginx-certbot.env
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - ./nginx/nginx_secrets:/etc/letsencrypt
+      - ./nginx/user_conf.d:/etc/nginx/user_conf.d
+    networks:
+      - naqibinfo-net
+
 networks:
   naqibinfo-net:
     external: false # specifies that this network has been created outside of Compose
