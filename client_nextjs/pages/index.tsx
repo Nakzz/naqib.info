@@ -6,6 +6,7 @@ const WOW = !isServer ? require("wowjs") : null;
 import Navbar from "../components/layout/Navbar";
 import Footer from "../components/layout/Footer";
 import Banner from "../components/digital-agency-animation/Banner";
+import Head from 'next/head';
 import About from "../components/digital-agency-animation/About";
 import Services from "../components/digital-agency-animation/Services";
 import WhyChooseUs from "../components/digital-agency-animation/WhyChooseUs";
@@ -68,7 +69,7 @@ export async function getServerSideProps() {
 					slug
 					heading
 					image {
-						filename
+						publicUrlTransformed(transformation: { width: "150", crop: "limit" })
 					}
 				}
 				allInterests(
@@ -113,8 +114,8 @@ class index extends Component<IData> {
 			<React.Fragment>
 				<Navbar />
 				<Banner />
-				{/* <About /> */}
-				{/* <Services data={this.props.allInterests}/> */}
+	
+				<Services data={this.props.allInterests}/>
 
 				{/* <HowWeWork /> */}
 				{/* <Skills data={this.props.allSkills} /> */}
@@ -125,8 +126,7 @@ class index extends Component<IData> {
 				{/* <Works data={this.props.allPages}/> */}
 				{/* <Feedback /> TODO: maybe in the future if I can get some bigger deals */}
 
-				{/* TODO: add later */}
-				{/* <Blog data={this.props.allPosts} /> */}
+				<Blog data={this.props.allPosts} />
 
 				{/* <Contact /> */}
 

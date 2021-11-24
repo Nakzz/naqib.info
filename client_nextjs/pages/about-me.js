@@ -1,12 +1,50 @@
 import React, { Component } from 'react';
 import Link from 'next/link';
+import gql from "graphql-tag";
+
 import Navbar from '../components/layout/Navbar';
 import Footer from '../components/layout/Footer';
 import AboutMe from '../components/about/AboutMe';
 import Education from '../components/about/Education';
 import Services from '../components/freelancer/Services';
-import Skills from '../components/freelancer/Skills';
+import Skills from "../components/digital-agency-animation/Skills";
 import About from '../components/digital-agency-animation/About';
+import Funfacts from '../components/freelancer/Funfacts';
+
+import { initializeApollo } from "../utils/apolloClient";
+
+export async function getServerSideProps() {
+	const apolloClient = initializeApollo();
+
+	const { data } = await apolloClient.query({
+		query: gql`
+			# Write your query or mutation here
+			{
+				allSkills(orderBy: "title_ASC") {
+					title
+					value
+					color
+					heading
+					body
+					subSkills {
+                        name
+                        image{
+                            publicUrlTransformed(transformation: { width: "150", crop: "limit" })
+                        }
+                        link
+						level
+					}
+				}
+			}
+		`,
+	});
+	// console.log("getServerSideProps");
+	// console.log(data);
+
+	return {
+		props: { ...data },
+	};
+}
 
 export class index extends Component {
     render() {
@@ -27,13 +65,14 @@ export class index extends Component {
                     </div>
                 </div>
                 {/* <AboutMe /> */}
+                
                 <About />
+                <Services />
+                <Skills data={this.props.allSkills}/>
                 <Education/>
-                {/* <Skills /> */}
-
+                {/* TODO: work experiances */}
                 {/* <Cta /> */}
-                {/* <Services /> */}
-                {/* <Funfacts /> */}
+                <Funfacts />
 
                 <Footer />
             </React.Fragment>

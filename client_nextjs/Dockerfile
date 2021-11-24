@@ -25,7 +25,7 @@ RUN yarn build
 
 
 # CMD [ "ls", "/data" ] 
-CMD [ "yarn", "start" ] 
+CMD [ "yarn", "start"]
 
 
 

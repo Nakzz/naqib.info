@@ -251,6 +251,17 @@ h6 {
 		max-width: 630px;
 		font-weight: 600;
 		line-height: 1.3;
+
+		span {
+			color: $template-color;
+			display: block;
+			text-transform: uppercase;
+			margin-bottom: 15px;
+			margin-top: -5px;
+		font-size: 20px;
+
+		}
+
 	}
 }
 
@@ -1010,12 +1021,45 @@ Main Banner CSS
 	position: relative;
 	z-index: 1;
 	height: 810px;
+	// display: flex;
 }
+
 .digital-agency-banner {
+	background-image: url("../../images/home/header_bg.jpg");
+	background-position: center center;
+	background-size: cover;
+	position: relative;
+}
+
+.digital-agency-banner_notBrowser {
 	background-image: url("../../images/home/header_2.jpg");
 	background-position: center center;
 	background-size: cover;
 	position: relative;
+}
+
+
+
+.parallax_banner
+{
+	position: relative;
+	z-index: 1;
+	height: 100%;
+	overflow:hidden;
+	pointer-events: auto;
+
+	.imgHolder {
+	position: absolute;
+
+		bottom:0px !important;
+		top:auto !important;
+	}
+
+	img{
+	position: relative !important;
+max-width: 90%;
+
+	}
 }
 
 .w-150 {
@@ -4836,3 +4880,40 @@ Login CSS
 	}
 }
 
+.coming-soon {
+	height: 100%;
+	padding: {
+		top: 70px;
+		bottom: 70px;
+	}
+	.coming-soon-content {
+		h1 {
+			font-size: 30px;
+			line-height: 45px;
+		}
+		p {
+			margin-top: 10px;
+		}
+		#timer {
+			div {
+				font-size: 40px;
+				width: 120px;
+				height: 120px;
+				padding-top: 27px;
+				line-height: 39px;
+				margin: 0 5px 15px;
+			}
+		}
+		form {
+			button {
+				position: relative;
+				right: 0;
+				top: 0;
+				width: 100%;
+				border-radius: 30px;
+				margin-top: 10px;
+				padding: 13px 0;
+			}
+		}
+	}
+}

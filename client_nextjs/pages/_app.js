@@ -17,8 +17,10 @@ import { initStore } from "../store/reducers/index";
 import { DefaultSeo } from "next-seo";
 import Loader from "../components/shared/Loader";
 import GoTop from "../components/shared/GoTop";
+import { LogPageView } from "../utils/google-analytics";
 
 export default withRedux(initStore)(
+
 	class MyApp extends App {
 		static async getInitialProps({ Component, ctx }) {
 			const pageProps = Component.getInitialProps
@@ -32,6 +34,14 @@ export default withRedux(initStore)(
 			return {};
 		}
 
+		componentDidMount () {
+			if (!window.GA_INITIALIZED) {
+			//   initGA()
+			  window.GA_INITIALIZED = true
+			}
+			LogPageView(window.location.pathname)
+		  }
+
 		render() {
 			const { Component, pageProps, store } = this.props;
 			const apolloClient = initializeApollo();
@@ -40,7 +50,7 @@ export default withRedux(initStore)(
 				<ApolloProvider client={apolloClient}>
 					<DefaultSeo
 						title="Ajmain Naqib | Personal Website"
-						description="Ajmain Naqib's portfolio website. This has been built with React, Next.js, Express.js, and ES6+" // TODO: change this since this will be shown on google search
+						description="Ajmain Naqib's portfolio website. I am a Software Engineer, Entrepreneur, Photographer, POSSE Scholar, FIRST Alum. "
 						openGraph={{
 							type: "website",
 							locale: "en_IE",

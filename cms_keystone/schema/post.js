@@ -22,13 +22,15 @@ const {
 	userOwnsItem,
 } = require("../access-control");
 const { staticRoute, staticPath } = require("../config.ts");
-// const cloudinaryAdapter = new CloudinaryAdapter({
-// 	cloudName: process.env.CLOUDINARY_CLOUD_NAME,
-// 	apiKey: process.env.CLOUDINARY_KEY,
-// 	apiSecret: process.env.CLOUDINARY_SECRET,
-// });
 
-const fileAdapter = new LocalFileAdapter({
+const cloudfileAdapter = new CloudinaryAdapter({
+	cloudName: process.env.CLOUDINARY_CLOUD_NAME,
+	apiKey: process.env.CLOUDINARY_KEY,
+	apiSecret: process.env.CLOUDINARY_SECRET,
+	folder: "naqib.info/blogs",
+});
+
+const localfileAdapter = new LocalFileAdapter({
 	src: `${staticPath}${staticRoute}/blogs`,
 	path: `${staticRoute}/blogs`,
 });
@@ -79,20 +81,24 @@ const Post = {
 				return localISOTime;
 			},
 		},
-		image: {
-			type: File,
-			adapter: fileAdapter,
-			hooks: {
-				beforeChange: async ({ existingItem }) => {
-					if (existingItem && existingItem.image) {
-						console.log("going to delete!");
-						console.log(existingItem.image);
-						await fileAdapter.delete(existingItem.image);
-					}
-				},
-			},
-		},
-		// image: { type: CloudinaryImage, adapter: cloudinaryAdapter }, FIXME: RangeError: Maximum call stack size exceeded on upload
+		// image: {
+		// 	type: File,
+		// 	adapter: localfileAdapter,
+		// 	hooks: {
+		// 		beforeChange: async ({ existingItem }) => {
+		// 			if (existingItem && existingItem.image) {
+		// 				console.log("going to delete!");
+		// 				console.log(existingItem.image);
+		// 				try {
+		// 					await localfileAdapter.delete(existingItem.image);
+		// 				} catch (error) {
+		// 					console.log("File not found trying to delete the file");
+		// 				}
+		// 			}
+		// 		},
+		// 	},
+		// },
+		image: { type: CloudinaryImage, adapter: cloudfileAdapter },
 		comments: {
 			type: Relationship,
 			ref: "Comment.post",
@@ -116,6 +122,8 @@ const Post = {
 			}
 		},
 	},
+	labelResolver: (item) =>
+		`${item.status === "draft" ? "DRAFT - " : ""}` + item.title,
 };
 
 const PostCategory = {

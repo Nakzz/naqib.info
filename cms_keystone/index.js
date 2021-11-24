@@ -21,22 +21,18 @@ var mongoUri; // Database connection
 
 const PROJECT_NAME = "cms_naqib";
 
-// process.env.NODE_ENV="docker_production"  //REVIEW: force builds
+var mongoUri = process.env.MONGO_URL === undefined
+			? "mongodb://localhost/cms-naqib"
+			: process.env.MONGO_URL;
 
-if (process.env.NODE_ENV === "production")
-	mongoUri = "mongodb://localhost/cms-naqib";
-else if (process.env.NODE_ENV === "docker_production")
-	mongoUri = "mongodb://172.17.0.1:27017/cms-naqib";
-// mongoUri = "mongodb://localhost:27016/cms-naqib";
-else mongoUri = "mongodb://localhost/cms-naqib";
 
 const cookieSecret = process.env.cookieSecret;
 
 const adapterConfig = { mongoUri };
 
-console.log(cookieSecret);
+// console.log(cookieSecret);
 console.log(mongoUri);
-console.log(process.env.NODE_ENV);
+console.log(`NODE ENV: ${process.env.NODE_ENV}`);
 /**
  * You've got a new KeystoneJS Project! Things you might want to do next:
  * - Add adapter config options (See: https://keystonejs.com/keystonejs/adapter-mongoose/)

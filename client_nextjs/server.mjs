@@ -8,6 +8,7 @@ import http from "http";
 import https from "https";
 import compression from "compression";
 import helmet from "helmet";
+import sitemap from "nextjs-sitemap-generator";
 
 let __dirname = path.resolve();
 
@@ -24,10 +25,28 @@ let __dirname = path.resolve();
 
 const dev = process.env.NODE_ENV !== "production";
 
+if (!dev) {
+	sitemap({
+		baseUrl: "https://naqib.info",
+		pagesDirectory: __dirname + "/.next/server/pages",
+		targetDirectory: "public/",
+		ignoredExtensions: ["js", "map"],
+		ignoredPaths: ["assets"], // Exclude everything that isn't static page
+		sitemapFilename: "sitemap.xml",
+		nextConfigPath: __dirname + "/next.config.js",
+	});
+}
+
 const app = next({ dir: ".", dev });
 const handle = app.getRequestHandler();
 
-const allowedPath = ["/", "/about-me"]; // TODO: add allowed path until website is complete
+const allowedPath = [
+	"/about-me",
+	"/blog",
+	"/public",
+	"/images",
+	"/blog-details",
+]; // TODO: add allowed path until website is complete
 
 app.prepare().then(() => {
 	const server = express();
@@ -56,26 +75,32 @@ app.prepare().then(() => {
 	);
 
 	server.use(bodyParser.json());
-	server.use(compression()); //Compress all routes
-	//server.use(helmet()); //protect against well known vulnerabilities
 
-	server.get("/cyber", (req, res) => {
-		if (!req.secure)
-			// HTTP=> HTTPS
-			res.redirect("https://" + req.headers.host + req.url);
-
-		return handle(req, res);
-		// return app.render(req, res, '/coming-soon') //FOR COMING SOON PAGE REDIRECT
-	});
+	if (!dev) {
+		server.use(compression()); //Compress all routes
+		server.use(
+			helmet({
+				contentSecurityPolicy: false,
+			})
+		); //protect against well known vulnerabilities
+	}
 
 	server.get("*", (req, res) => {
-		if (allowedPath.indexOf(req.originalUrl) >= 0) {
-			return handle(req, res);
-		}
-		// console.log(req.originalUrl);
-		// if (!req.secure)
-		// 	// HTTP=> HTTPS
-		// 	res.redirect("https://" + req.headers.host + req.url);
+		//Only serving allowed path
+		// if (req.originalUrl === "/") return handle(req, res);
+
+		// let foundPath = false;
+		// allowedPath.forEach((e) => {
+		// 	if (req.originalUrl.includes(e) && !foundPath) {
+		// 		console.log(`	url allowed for ${e}`);
+		// 		foundPath = true;
+		// 	}
+		// });
+
+		// console.log(`	${req.originalUrl} ${foundPath}`);
+		// if (foundPath || dev)return handle(req, res);
+
+		return handle(req, res);
 
 		return app.render(req, res, "/coming-soon"); //FOR COMING SOON PAGE REDIRECT
 	});

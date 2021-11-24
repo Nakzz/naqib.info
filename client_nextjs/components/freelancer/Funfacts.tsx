@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import axios from "axios";
 
-interface IState{
-	github:number
+interface IState {
+	github: number;
 }
 
 export class Funfacts extends Component<any, IState> {
@@ -24,8 +24,6 @@ export class Funfacts extends Component<any, IState> {
 			},
 		});
 		// console.log(data)
-
-		
 
 		this.setState({ github: data.public_repos });
 	}
@@ -61,11 +59,18 @@ export class Funfacts extends Component<any, IState> {
 							<div className="funfact">
 								<h3>
 									<span className="odometer" data-count="54380">
-										54380
+										6438
 									</span>
 								</h3>
 								<p>Lines of Code of this application</p>
 							</div>
+						</div>
+						<div className=" container">
+							{/* <a href="https://github.com/Nakzz/"> */}
+								<div className="col-lg-12 col-md-12 col-sm-12 row justify-content-md-center m-t-40">
+									<img src="https://github-readme-stats.vercel.app/api?username=nakzz&count_private=true&show_icons=true&hide_title=true&theme=vue" />
+								</div>
+							{/* </a> */}
 						</div>
 					</div>
 				</div>

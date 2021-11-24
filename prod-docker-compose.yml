@@ -1,0 +1,57 @@
+version: "3.8"
+
+services:
+  client:
+    image: naqibprio/naqibinfo:latest
+    container_name: client_nextjs
+    hostname: client
+    networks:
+      - naqibinfo-net
+
+    env_file:
+      - ./config/.env.prod
+
+    ports:
+      - "8001:7001"
+    depends_on:
+      - cms
+    restart: unless-stopped
+
+  cms:
+    image: naqibprio/naqibinfo_cms:latest
+    container_name: cms_keystone
+    hostname: cms
+    networks:
+      - naqibinfo-net
+
+    env_file:
+      - ./config/.env.prod
+
+    # Commented till Auth is set up for CMS
+    # ports: 
+      # - "8002:5000"
+
+    restart: unless-stopped
+  
+  nginx:
+    image: jonasal/nginx-certbot:latest
+    restart: unless-stopped
+
+    env_file:
+      - ./config/nginx-certbot.env
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - ./nginx/nginx_secrets:/etc/letsencrypt
+      - ./nginx/user_conf.d:/etc/nginx/user_conf.d
+      - ./nginx/logs:/var/logs/nginx
+    networks:
+      - naqibinfo-net
+
+networks:
+  naqibinfo-net:
+    external: false # specifies that this network has been created outside of Compose
+    driver: bridge
+    name: naqibinfo-net
+

@@ -1,31 +1,62 @@
-version: "2"
+version: "3.8"
+
 services:
   client:
-    image: client_nextjs
+    #    image: client_nextjs
+    image: naqibprio/naqibinfo:1.04
     container_name: client_nextjs
-    build: ./client_nextjs/
-    # network_mode: bridge
+    # build: ./client_nextjs/
+    hostname: client
+    networks:
+      - naqibinfo-net
+      # - host
 
-    environment:
-      - NODE_ENV=docker_production
+    env_file:
+      - ./config/.env
+      # - ./config/.env.prod
+
     ports:
       - "8001:7001"
     depends_on:
-      #   - mongo
       - cms
-    # volumes:
-      #- /data/naqib.info_static_content:/data/naqib.info_static_content:ro
-      # - /data:/data
+    restart: unless-stopped
 
   cms:
-    container_name: cms_keystone
+    # image: naqibprio/naqibinfo_cms:1.00
     build: ./cms_keystone/
-    # network_mode: bridge
-    environment:
-      - NODE_ENV=docker_production
-    ports:
-      - "8010:5000"
-    volumes:
-      - /data/naqib.info_static_content:/data/naqib.info_static_content:rw
+    container_name: cms_keystone
+    hostname: cms
+    networks:
+      - naqibinfo-net
 
-# docker-compose up --build -d
+    env_file:
+      - ./config/.env
+      # - ./config/.env.prod
+    ports:
+      - "8002:5000"
+    depends_on:
+      - mongodb
+    restart: unless-stopped
+  
+  mongodb:
+    image: mongo:latest
+    hostname: mongodb
+    environment:
+      # MONGO_INITDB_ROOT_USERNAME: root
+      # MONGO_INITDB_ROOT_PASSWORD: rootpassword
+      MONGODB_DBNAME: cms-naqib
+    # ports:
+    #   - 27017:27017
+    volumes:
+      - ./mongodb:/data/db
+    networks:
+      - naqibinfo-net
+networks:
+  naqibinfo-net:
+    external: false # specifies that this network has been created outside of Compose
+    driver: bridge
+    name: naqibinfo-net
+  # host: 
+  #   external: false
+  #   driver: host
+  #   name: host
