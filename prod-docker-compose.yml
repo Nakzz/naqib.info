@@ -28,8 +28,8 @@ services:
       - ./config/.env.prod
 
     # Commented till Auth is set up for CMS
-    # ports: 
-      # - "8002:5000"
+    ports: 
+      - "8002:5000"
 
     restart: unless-stopped
   
