@@ -8,9 +8,9 @@
 # Production 
 - Build, tag and push images from dev server. 
 ```
-docker build -t naqibprio/naqibinfo_cms:1.00 ./cms_keystone
+docker build -t naqibprio/naqibinfo_cms:1.01 ./cms_keystone
 docker build -t naqibprio/naqibinfo:1.03 ./client_nextjs
-docker push naqibprio/naqibinfo_cms:1.00
+docker push naqibprio/naqibinfo_cms:1.01
 docker push naqibprio/naqibinfo:1.03
 ```
 

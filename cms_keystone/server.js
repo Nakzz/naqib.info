@@ -34,13 +34,17 @@ keystone
 		app.use(middlewares);
 
 		var server;
+		const PORT = 5000;
+
 		// if (dev) {
 		// 	//http only
 		// 	server = http.createServer(app);
+		// 	console.log(`Starting HTTP server: ${PORT}`)
 		// } else {
+			server = https.createServer(credentials, app);
+			console.log(`Starting HTTPS server: ${PORT}`)
+
 		// }
-		server = https.createServer(credentials, app);
-		const PORT = Number(process.env.PORT) || 5000;
 
 		server.listen(PORT);
 	});
