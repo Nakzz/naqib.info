@@ -21,10 +21,10 @@ var mongoUri; // Database connection
 
 const PROJECT_NAME = "cms_naqib";
 
-
 var mongoUri = process.env.MONGO_URL === undefined
 			? "mongodb://localhost/cms-naqib"
 			: process.env.MONGO_URL;
+
 
 const cookieSecret = process.env.cookieSecret;
 
@@ -63,10 +63,21 @@ keystone.createList("Skill", Skill);
 keystone.createList("Tag", Tag);
 keystone.createList("Interest", Interest);
 
+const logAuth = ({ hooks, ...options }) => {
+	return {
+	  ...options,
+	  hooks: {
+		afterAuth: () => console.log('A user logged in!'),
+		...hooks,
+	  },
+	};
+  };
 const adminAuthStrategy = keystone.createAuthStrategy({
 	type: PasswordAuthStrategy,
 	list: "User",
+	plugin: [logAuth],
 });
+
 
 module.exports = {
 	keystone,

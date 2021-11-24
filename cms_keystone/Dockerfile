@@ -16,17 +16,12 @@ COPY package*.json ./
 
 
 RUN npm install
+RUN rm -rf node_modules/@keystonejs/keystone/node_modules/graphql
 # Bundle app source
 COPY . .
 
-# Bundle app source
 
-# EXPOSE 7001
-# EXPOSE 7002
-
-# CMD [ "npm", "run-script" "build" ]
-
-CMD [ "node", "server.js" ] 
+CMD [ "npm", "start" ] 
 
 # Change user to node. Better Security before running node/ 
 # USER node 
