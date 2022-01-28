@@ -59,19 +59,6 @@ export async function getServerSideProps() {
 						filename
 					}
 				}
-				allPosts(
-					orderBy: "id_DESC"
-					first: 4
-					where: { status: published, private: false }
-				) {
-					title
-					posted
-					slug
-					heading
-					image {
-						publicUrlTransformed(transformation: { width: "150", crop: "limit" })
-					}
-				}
 				allInterests(
 					orderBy: "id_ASC"	
 					where: { status: published }
@@ -86,8 +73,12 @@ export async function getServerSideProps() {
 	// console.log("getServerSideProps");
 	// console.log(data);
 
+	//fetch feed from medium using 
+	const allPosts = await fetch('https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@aj-naqib').then(res => res.json()).then(blogPosts => blogPosts.items);
+	// data.allPosts = feed;
+
 	return {
-		props: { ...data },
+		props: { ...data, allPosts },
 	};
 }
 
