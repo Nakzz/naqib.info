@@ -38,6 +38,7 @@ export async function getServerSideProps() {
 					body
 					image {
 						filename
+						publicUrlTransformed
 					}
 				}
 

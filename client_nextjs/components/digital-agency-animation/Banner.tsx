@@ -75,7 +75,7 @@ export class Banner extends Component<any, IState> {
 											<div className="col-lg-6 col-md-12">
 												<div className="hero-content">
 													<h4 className="wow fadeInUp m-l-20">Hey there! </h4>
-													<h1 className="wow m-b-20">My name is AJ </h1>
+													<h1 className="wow m-b-20 hero-header">My name is AJ </h1>
 
 													<TypedReact
 														strings={[

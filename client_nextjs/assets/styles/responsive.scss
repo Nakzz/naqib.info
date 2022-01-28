@@ -179,9 +179,16 @@ $bg-gray: #f9f9f9;
 	.banner-social-buttons {
 		display: none;
 	}
+
+	.hero-header {
+		font-size: 25px !important;
+	}
 	.hero-content {
 		h1 {
 			font-size: 27px;
+		}
+		h3{	font-size: 25px !important;
+
 		}
 		p {
 			margin: {

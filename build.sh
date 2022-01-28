@@ -38,15 +38,15 @@ case "${COMMAND}" in
         echo "Sem Version: $version"
         docker login -u naqibprio -p Id2009170023 
 
-        docker build --progress plain -t naqibprio/naqibinfo_cms:$version -t naqibprio/naqibinfo_cms:latest ./cms_keystone 
+        # docker build --progress plain -t naqibprio/naqibinfo_cms:$version -t naqibprio/naqibinfo_cms:latest ./cms_keystone 
 
         # run cms with prod url
-        (docker run naqibprio/naqibinfo_cms:$version --env-file ./config/.env.prod -p 5000:5000)&
-        RUNNING_PID=$!
+        # (docker run naqibprio/naqibinfo_cms:$version --env-file ./config/.env.prod -p 5000:5000)&
+        # RUNNING_PID=$!
 
         docker build --progress plain -t naqibprio/naqibinfo:$version -t naqibprio/naqibinfo:latest ./client_nextjs 
-        kill ${RUNNING_PID}
-        echo "Killed Running docker, hoping Client was able to pull information it needed"
+        # kill ${RUNNING_PID}
+        # echo "Killed Running docker, hoping Client was able to pull information it needed"
 
 
         docker push naqibprio/naqibinfo_cms:latest

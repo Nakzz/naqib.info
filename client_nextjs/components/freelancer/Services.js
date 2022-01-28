@@ -92,7 +92,7 @@ export class Services extends Component {
 									<h3>
 										<a href="#">Project Management</a>
 									</h3>
-									<p>I am quiet flexible however generally follow Scrum and Agile methodology to manage my workflow </p>
+									<p>I am quite flexible, however generally follow Scrum and Agile methodology to manage my workflow </p>
 								</div>
 							</div>
 						</div>
