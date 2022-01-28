@@ -77,7 +77,7 @@ export class Skills extends Component<IProps> {
 						<div className="row h-100 ">
 							<div className="col-lg-5 col-md-12">
 								<div className="our-skill">
-									<TransitionGroup className="section-title">
+									<TransitionGroup key={skillPicked} className="section-title">
 										<div>
 											<span className="wow fadeInUp">
 												Some technologies I've worked with
@@ -104,10 +104,10 @@ export class Skills extends Component<IProps> {
 															></div>
 
 															<div className="row justify-content-md-center m-t-40">
-																{data[skillPicked].subSkills.map((e) => {
+																{data[skillPicked].subSkills.map((e, i) => {
 																	if (e && e.image)
 																		return (
-																			<div className="col-lg-4 col-md-6 m-t-20 ">
+																			<div key={i} className="col-lg-4 col-md-6 m-t-20 ">
 																				<div className="single-about-box text-center">
 																					<a href={e.link}>
 																						<div className="icon">
