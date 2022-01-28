@@ -34,8 +34,8 @@ case "${COMMAND}" in
     
     "deploy" )
         echo "DEPLOYING TO DOCKERHUB NOW"
-        version=$(docker run --rm -v "$(pwd):/repo" gittools/gitversion:5.6.6 /repo | jq -r ".FullSemVer" | sed 's/+/-/')
-        echo "Sem Version: $version"
+        # version=$(docker run --rm -v "$(pwd):/repo" gittools/gitversion:5.6.6 /repo | jq -r ".FullSemVer" | sed 's/+/-/')
+        # echo "Sem Version: $version"
         docker login -u naqibprio -p Id2009170023 
 
         # docker build --progress plain -t naqibprio/naqibinfo_cms:$version -t naqibprio/naqibinfo_cms:latest ./cms_keystone 
@@ -44,12 +44,12 @@ case "${COMMAND}" in
         # (docker run naqibprio/naqibinfo_cms:$version --env-file ./config/.env.prod -p 5000:5000)&
         # RUNNING_PID=$!
 
-        docker build --progress plain -t naqibprio/naqibinfo:$version -t naqibprio/naqibinfo:latest ./client_nextjs 
+        docker build --progress plain -t naqibprio/naqibinfo:latest ./client_nextjs 
         # kill ${RUNNING_PID}
         # echo "Killed Running docker, hoping Client was able to pull information it needed"
 
 
-        docker push naqibprio/naqibinfo_cms:latest
+        # docker push naqibprio/naqibinfo_cms:latest
         docker push naqibprio/naqibinfo:latest
 
         ;;

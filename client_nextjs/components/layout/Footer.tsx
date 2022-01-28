@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import {BLOG_URL, LINKEDIN_URL,GITHUB_URL, EMAIL, DOMAIN} from "../../utils/constants";
 
 export class Footer extends Component {
 	render() {
@@ -16,18 +17,18 @@ export class Footer extends Component {
 
 								<ul className="social-links">
 									<li>
-										<a href="https://www.linkedin.com/in/ajmain/">
+										<a href={LINKEDIN_URL}>
 											<i className="icofont-linkedin"></i>
 										</a>
 									</li>
 									<li>
-										<a href="https://github.com/Nakzz/">
+										<a href={GITHUB_URL}>
 											<i className="icofont-github"></i>
 										</a>
 									</li>
 
 									<li>
-										<a href="mailto:ajmain@naqib.info">
+										<a href={"mailto:"+ EMAIL}>
 											<i className="icofont-email"></i>
 										</a>
 									</li>
@@ -53,7 +54,7 @@ export class Footer extends Component {
 										<a href="/coming-soon">Contact</a>
 									</li>
 									<li>
-										<a href="/blog">Blog</a>
+										<a href={BLOG_URL}>Blog</a>
 									</li>
 									{/* <li><a href="/projects">Portfolio</a></li> */}
 									{/* <li><a href="/blog">Blog</a></li> */}
@@ -85,7 +86,7 @@ export class Footer extends Component {
 									<li>
 										<i className="icofont-email"></i>
 										<span>Email:</span>
-										<a href="mailto:ajmain@naqib.info">ajmain@naqib.info</a>
+										<a href={"mailto:"+ EMAIL}>{EMAIL}</a>
 									</li>
 								</ul>
 							</div>
@@ -103,7 +104,7 @@ export class Footer extends Component {
 							<div className="col-lg-6 col-md-6 text-right">
 								<p>
 									Developed by{" "}
-									<a href="https://naqib.info" target="_blank">
+									<a href={DOMAIN} target="_blank">
 										Ajmain Naqib
 									</a>
 								</p>

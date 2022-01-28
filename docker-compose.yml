@@ -3,9 +3,9 @@ version: "3.8"
 services:
   client:
     #    image: client_nextjs
-    image: naqibprio/naqibinfo:1.04
+    # image: naqibprio/naqibinfo:1.04
     container_name: client_nextjs
-    # build: ./client_nextjs/
+    build: ./client_nextjs/
     hostname: client
     networks:
       - naqibinfo-net

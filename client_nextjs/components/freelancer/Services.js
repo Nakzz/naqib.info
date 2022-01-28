@@ -12,7 +12,7 @@ export class Services extends Component {
 						{/* <h2>Interactive services offered Me</h2> */}
 						<p>
 							I've worked with a wide variety of programming languages.
-							Currently I use <b>Javascript </b> for web application. Whenever I
+							Currently I use <b>Javascript </b> for most personal web applications. Whenever I
 							need the most performance possible I obviously go with <b>C++</b>{" "}
 							or <b>Java</b>. If I am working on a prototype or hobby project, I
 							tend to lean towards <b>Python.</b>
@@ -112,9 +112,9 @@ export class Services extends Component {
 								</div>
 							</div>
 						</div>
-						<div className="col-lg-4 col-md-6">
+						{/* <div className="col-lg-4 col-md-6">
 							<div className="services-box">
-								{/* <img src={require("../../images/blog-image/5.jpg")} alt="image" /> */}
+								
 
 								<div className="services-content">
 									<h3>
@@ -125,7 +125,7 @@ export class Services extends Component {
 									</p>
 								</div>
 							</div>
-						</div>
+						</div> */}
 					</div>
 				</div>
 			</section>

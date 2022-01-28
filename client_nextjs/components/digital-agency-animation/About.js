@@ -9,7 +9,7 @@ export class About extends Component {
 						<div className="col-lg-6 col-md-6 col-sm-12">
 							<div className="cta-about-image">
 								<img
-									src={require("../../images/blog-home-image/About-NY.jpg")}
+									src={require("../../images/blog-home-image/WED-37.jpg")}
 									alt="cta-image"
 								/>
 							</div>
@@ -26,8 +26,8 @@ export class About extends Component {
 								</div>
 								<p>
 									I am currently pursuing a <b>B.S. degree</b> in{" "}
-									<b>Applied Computer Science</b> with a focus on{" "}
-									<b>Entrepreneurship</b> and <b>Product Development</b> at
+									<b>Applied Computer Science</b> focusing{" "}
+									<b>Entrepreneurship</b> and <b>Product Development</b> at the
 									University of Wisconsin- Madison. I am originally from
 									Bangladesh, but now I call New York my home. I am currently
 									situated in Madison, Wisconsin.{" "}
@@ -38,32 +38,23 @@ export class About extends Component {
 									Merit-based Scholarship from the POSSE Foundation with the
 									hopes of solving real-world problems with technology. Along
 									the way, I found my passion for Entrepreneurship and Product
-									Development as I started working with local startup companies,
+									Development as I started working with local startup companies
 									and eventually founded my own company - Breezy Systems LLC.
 								</p>
-								<p>
-									Since beginning my journey as a freelance designer nearly 10
+								{/* <p> LOL this is copied from another dev and i saw bunch of people using the same line. 
+									Since beginning my journey as a freelance web designer nearly ten
 									years ago, I've done remote work for agencies, consulted for
 									startups, and collaborated with talented people to create
-									digital products for both business and consumer use. I'm
+									digital products for business and consumer use. I'm
 									quietly confident, naturally curious, and perpetually working
 									on improving my chops, one at a time.
-								</p>
+								</p> */}
 								<p>
-									Although roles like Software Engineering, Product Development,
-									and Management are currently fulfilling the scope of my career
-									interests, I am a curious soul always ready to learn more. I
-									am interested in exploring the automation technology, fin-tech
-									and space exploration industry.
+									I am very interested in fin-tech, space exploration, and automation. Being a curious soul, I enjoyed working with people of different backgrounds to take on complex, even improbable, challenges- always ready to learn more. That allows me to grow in a magnitude of spaces while furthering my leadership skills.
 								</p>
 
 								<p>
-									Outside of school, work, and extracurricular, I am
-									enthusiastic about keeping up with emerging technologies and
-									financial market trends. This interest expanded my network to
-									connect with different industry professionals. During my spare
-									time, I enjoy boxing, hiking, and tinkering with fun IoT and
-									machine learning projects.{" "}
+									I am enthusiastic about keeping up with emerging technologies and financial market trends outside of school, work, and extracurricular activities. This interest expanded my network to connect with different industry professionals. I enjoy boxing, hiking, and tinkering with fun IoT and machine learning projects during my spare time.{" "}
 								</p>
 							</div>
 						</div>

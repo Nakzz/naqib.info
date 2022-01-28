@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { withRouter } from "next/router";
 import { connect } from "react-redux";
 import Link from "../../utils/ActiveLink";
+import {BLOG_URL} from "../../utils/constants";
 import SearchForm from "./SearchForm";
 import SideDrawer from "./SideDrawer";
 
@@ -118,10 +119,10 @@ export class Navbar extends Component<any, IState> {
 									</li>
 
 									<li className="nav-item">
-									<Link activeClassName="active" href="/blog">
+									<Link activeClassName="active" href={BLOG_URL}>
 
 										{/* <Link activeClassName="active" href="/blog"> */}
-											<a href="#" className="nav-link">
+											<a href={BLOG_URL} className="nav-link">
 												Blog{" "}
 											</a>
 											{/* <ul className="dropdown_menu">

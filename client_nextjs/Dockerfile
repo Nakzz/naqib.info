@@ -7,7 +7,7 @@ ARG NODE_VERSION=14.15.3
 # Build Runtime container
 FROM node:${NODE_VERSION}-alpine AS build
 
-WORKDIR /home/node
+WORKDIR /opt/app
 
 RUN apk add --no-cache yarn g++ make libpng-dev pkgconfig autoconf automake libtool nasm build-base zlib-dev
 
@@ -25,9 +25,29 @@ RUN yarn build
 
 
 # CMD [ "ls", "/data" ] 
+# CMD [ "yarn", "start"]
+
+
+# # Install dependencies only when needed
+# FROM node:${NODE_VERSION}-alpine AS builder
+
+# WORKDIR /opt/app
+# COPY package*.json ./
+# RUN yarn install
+
+# RUN yarn build
+
+# # Production image, copy all the files and run next
+FROM node:${NODE_VERSION}-alpine AS runner
+
+# ARG X_TAG
+# WORKDIR /opt/app
+# ENV NODE_ENV=production
+COPY --from=builder /opt/app/next.config.js ./
+COPY --from=builder /opt/app/public ./public
+COPY --from=builder /opt/app/.next ./.next
+COPY --from=builder /opt/app/node_modules ./node_modules
+# # CMD ["node_modules/.bin/next", "start"]
 CMD [ "yarn", "start"]
 
 
-
-# docker build -t naqib.info/client:v1.2 .
-# docker run -p 8001:7001 --net="host" -e NODE_ENV=docker_production -v /data:/data/ naqib.info/client:v1.2
