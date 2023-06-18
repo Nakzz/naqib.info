@@ -14,22 +14,35 @@ docker push naqibprio/naqibinfo_cms:1.01
 docker push naqibprio/naqibinfo:1.03
 ```
 
-# Future plans
 
-## Auth microservice
-[] Build Auth microservice
-[] Add 401 and 402 for code-server 
+# Naqib's Cosmos 🚀
 
+TODO: Write a short project description 📝
 
-## Client Application
-[] Add login, and sign up page to client
-[] Move static content to CMS
-[] 
+## Table of Contents 🗂️
 
-## Photography website
-[] Photography portfolio site
+1. [Installation](#installation)
+2. [Usage](#usage)
+3. [Testing](#testing)
+4. [Contribution](#contribution)
+5. [License](#license)
 
-## Admin application
-[] Admin- status and up for services
-[] Admin- monitor services
-[] admin - 
+## Installation 🔧
+
+TODO: Describe how to install your project. This can include any necessary prerequisites and dependencies. 
+
+## Usage 🖥️
+
+TODO: Explain how to use your project. If it's an application, describe how to run it. If it's a library, show some examples of how to use it in code.
+
+## Testing 🧪
+
+TODO: Write about the tests that are included in your project, and how to run them.
+
+## Contribution 🤝
+
+TODO: Describe how others can contribute to your project. You may want to include guidelines for coding style, branching, and committing, as well as the process for submitting pull requests.
+
+## License 📄
+
+TODO: Include a copy of the license, or a link to it. Explain what the license means for people who want to use or contribute to your project.

@@ -1,0 +1,14 @@
+version: "3.8"
+
+services:
+  mongodb:
+    image: mongo:latest
+    hostname: mongodb
+    environment:
+      # MONGO_INITDB_ROOT_USERNAME: root
+      # MONGO_INITDB_ROOT_PASSWORD: rootpassword
+      MONGODB_DBNAME: cms-naqib
+    # ports:
+    #   - 27017:27017
+    volumes:
+      - ./mongodb:/data/db
