@@ -34,8 +34,8 @@ export class Services extends Component {
         <section className="welcome-services ptb-120 bg-38d16a">
           <div className="container">
             <div className="section-title">
-              <span className="wow fadeInUp">I am currently </span>
-              <h2 className="wow fadeInDown">Interested in...</h2>
+              <span className="wow fadeInUp">I am passionate about</span>
+              <h2 className="wow fadeInDown">Leading Innovations in...</h2>
             </div>
 
             <div className="row justify-content-md-center">

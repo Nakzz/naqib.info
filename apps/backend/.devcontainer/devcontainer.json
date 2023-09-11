@@ -35,7 +35,9 @@
 		
 				// Remember to install the font in your host machine
 				// "terminal.integrated.fontFamily": "MesloLGS NF",
-		
+				"docker.environment": {
+					"DOCKER_HOST": "ssh://aj@178.128.151.84"
+				},
 				"terminal.integrated.defaultProfile.linux": "/bin/bash",
 				"typescript.validate.enable": false,
 				"eslint.alwaysShowStatus": true,

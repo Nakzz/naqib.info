@@ -36,6 +36,7 @@ interface IData{
 export async function getServerSideProps() {
 	const apolloClient = initializeApollo();
 
+	// TODO: don't make call at root. 
 	const { data } = await apolloClient.query({
 		query: gql`
 			# Write your query or mutation here

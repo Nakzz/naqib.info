@@ -75,7 +75,7 @@ export class Education extends Component{
                         </div>
 
                         <div className="circle-dot">
-                            <img src={require("./../images/shapes/dot-shape1.png")} alt="shape" />
+                            <img src={require("../../images/shapes/dot-shape1.png")} alt="shape" />
                          </div>
                     </div>
                     

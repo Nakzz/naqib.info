@@ -1,8 +1,9 @@
 import TypedReact from "../typedReact";
 import Link from "next/link";
 import { isBrowser, isMobile, isTablet, isDesktop } from "react-device-detect";
-import React, { Component } from "react";
+// import React, { Component } from "react";
 import Parallax from "parallax-js";
+import React, { useState, useEffect, useRef } from "react";
 
 const INITIAL_STATE = {
   width: 0,
@@ -14,59 +15,86 @@ const INITIAL_STATE = {
 const AJ_IMAGE_SMALL = "../../images/headshots/0M1A3350_0.5x.png";
 const AJ_IMAGE_LARGE = "../../images/headshots/0M1A3350_0.5x.png";
 
-class Banner extends Component {
-  scene = React.createRef();
+const Banner = () => {
+  const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
+  const [rootClass, setRootClass] = useState("digital-agency-banner");
+  const sceneRef = useRef(null);
+  const [parallax, setParallax] = useState(null);
+  const parallaxRef = useRef(null);
 
-  state = INITIAL_STATE;
+  useEffect(() => {
+    const updateDimensions = () => {
+      setDimensions({ width: window.innerWidth, height: window.innerHeight });
+    };
 
-  parallax = null;
+    window.addEventListener("resize", updateDimensions);
+    updateDimensions();
 
-  componentDidMount() {
-    window.addEventListener("resize", this.updateDimensions);
-    this.updateDimensions();
-    this.initParallax();
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener("resize", this.updateDimensions);
-    this.destroyParallax();
-  }
-
-  initParallax = () => {
-    if (!this.isMobile()) { // Conditional check for mobile
+    const initParallaxDelayed = () => {
       try {
-        this.parallax = new Parallax(this.scene.current, {
-          relativeInput: true,
-          // limitY=2
-        });
+        if (sceneRef.current) {
+          console.log("Trying to initParallaxDelayed");
+          if (!isMobileDevice()) {
+            try {
+              parallaxRef.current = new Parallax(sceneRef.current, {
+                relativeInput: true,
+                // hoverOnly: true,
+                limitY: 5,
+              });
+              setParallax(parallaxRef.current);
+              // console.log(parallaxRef.current);
+            } catch (error) {
+              console.log("Can't init parallax: ", error.message);
+              throw error;
+            }
+          }
+        } else {
+          throw "Empty Ref";
+        }
       } catch (error) {
-        console.log("Can't init parallax: ", error.message);
-      }
-    }
-  };
+        console.log("Couldn't initParallax, trying again in 300ms");
 
-  destroyParallax = () => {
-    if (this.parallax) {
+        // If the ref is not attached yet, try again after a short delay.
+        setTimeout(initParallaxDelayed, 300); // Try again after 300ms.
+      }
+    };
+
+    initParallaxDelayed();
+
+    return () => {
+      window.removeEventListener("resize", updateDimensions);
+      destroyParallax();
+    };
+  }, []);
+
+  // const initParallax = () => {
+
+  // };
+
+  const destroyParallax = () => {
+    if (parallaxRef.current) {
       try {
-        this.parallax.disable();
+        parallaxRef.current.disable();
       } catch (error) {
         console.log("Can't destroy parallax: ", error.message);
       }
     }
   };
 
-  isMobile = () => {
+  const isMobileDevice = () => {
     const mobile = !isDesktop || isTablet;
-    if (mobile && this.state.rootClass !== "digital-agency-banner_notBrowser") {
-      this.setState({ rootClass: "digital-agency-banner_notBrowser" });
+    if (mobile && rootClass !== "digital-agency-banner_notBrowser") {
+      setRootClass("digital-agency-banner_notBrowser");
     }
     return mobile;
   };
 
-  HeroContent = () => (
+  const HeroContent = () => (
     <div className="hero-content">
       <h1 className="wow fadeInUp">Driven by Innovation.</h1>
-      <h4 className="wow m-b-20 hero-header">A blend of Technical Mastery & Visionary Leadership.</h4>
+      <h4 className="wow m-b-20 hero-header">
+        A blend of Technical Mastery & Visionary Leadership.
+      </h4>
       <TypedReact
         className="statements"
         strings={[
@@ -85,16 +113,8 @@ class Banner extends Component {
     </div>
   );
 
-  updateDimensions = () => {
-    this.setState({ width: window.innerWidth, height: window.innerHeight });
-  };
-
-  ContactCard = () => (
-    // <div className="contact-card">
-    //   <h1>Contact Me</h1>
-    //   <p>Name: AJ</p>
-    // </div>
-    <div class="contact-card-wrapper">
+  const ContactCard = () => (
+    <div className="contact-card-wrapper">
       <div class="contact-card">
         <div class="text-content">
           <div class="contact-header">
@@ -162,93 +182,81 @@ class Banner extends Component {
     </div>
   );
 
-  render() {
-    const isMobile = this.isMobile();
-    const shouldDisplayContactCard = this.state.width < 768;
-    return (
-      <>
-        {shouldDisplayContactCard && <this.ContactCard />}
-        <div className={`main-banner ${this.state.rootClass}`}>
-          <div id="scroll-down">
-            <span className="arrow-down"></span>
-            <span id="scroll-title">Scroll down</span>
-          </div>
-
-          {shouldDisplayContactCard ? (
-            <div className="">
-              <this.HeroContent />
-            </div>
-          ) : (
-            // <div className="parallax_banner" ref={this.scene}>
-            //   <div data-depth=".1">
-            //     <this.HeroContent />
-            //   </div>
-            //   <img
-            //     className="imgHolder"
-            //     src={require("../../images/headshots/0M1A3350_0.5x.png")}
-            //     alt="Picture of AJ in Large Screen"
-            //     data-depth=".9"
-            //   />
-            // </div>
-            <div className="parallax_banner" ref={this.scene}>
-              <this.HeroContent />
-              <img
-                className="imgHolder"
-                src={require("../../images/headshots/0M1A3350_0.5x.png")}
-                alt="Picture of AJ in Large Screen"
-                data-depth="0.9"
-              />
-            </div>
-          )}
-
-          <div className="shape1">
-            <img src={require("../../images/shapes/1.png")} alt="shape1" />
-          </div>
-          <div className="shape2">
-            <img src={require("../../images/shapes/2.png")} alt="shape2" />
-          </div>
-          <div data-depth="0.7" className="shape3">
-            <img src={require("../../images/shapes/3.png")} alt="shape3" />
-          </div>
-          <div className="shape4">
-            <img src={require("../../images/shapes/4.png")} alt="shape4" />
-          </div>
-          <div className="shape5">
-            <img src={require("../../images/shapes/5.png")} alt="shape5" />
-          </div>
-          <div className="shape6">
-            <img src={require("../../images/shapes/6.png")} alt="shape6" />
-          </div>
-          <div className="shape7">
-            <img src={require("../../images/shapes/7.png")} alt="shape7" />
-          </div>
-          <div className="shape8">
-            <img src={require("../../images/shapes/8.png")} alt="shape8" />
-          </div>
-          <div className="shape9 rotateme">
-            <img src={require("../../images/shapes/9.png")} alt="shape9" />
-          </div>
-          <div className="shape10 rotateme">
-            <img src={require("../../images/shapes/10.png")} alt="shape10" />
-          </div>
-          <div className="circle-shape1">
-            <img
-              src={require("../../images/shapes/circle1.png")}
-              alt="shape"
-              className="w-150"
-            />
-          </div>
-          <div className="circle-shape2">
-            <img
-              src={require("../../images/shapes/circle2.png")}
-              alt="shape"
-              className="w-150"
-            />
-          </div>
+  const shouldDisplayContactCard = dimensions.width < 768;
+  return (
+    <>
+      {shouldDisplayContactCard && <ContactCard />}
+      <div className={`main-banner ${rootClass}`}>
+        <div id="scroll-down">
+          <span className="arrow-down"></span>
+          <span id="scroll-title">Scroll down</span>
         </div>
-      </>
-    );
-  }
-}
+
+        {shouldDisplayContactCard ? (
+          <div>
+            <HeroContent />
+          </div>
+        ) : (
+          <div className="parallax_banner" ref={sceneRef}>
+            <div data-depth=".1" style={{ width: '60%' }}>
+              <HeroContent />
+            </div>
+            <img
+              className="imgHolder"
+              src={AJ_IMAGE_LARGE}
+              alt="Picture of AJ in Large Screen"
+              data-depth=".9"
+            />
+          </div>
+        )}
+
+        <div className="shape1">
+          <img src="../../images/shapes/1.png" alt="shape1" />
+        </div>
+        <div className="shape2">
+          <img src="../../images/shapes/2.png" alt="shape2" />
+        </div>
+        <div data-depth="0.7" className="shape3">
+          <img src="../../images/shapes/3.png" alt="shape3" />
+        </div>
+        <div className="shape4">
+          <img src="../../images/shapes/4.png" alt="shape4" />
+        </div>
+        <div className="shape5">
+          <img src="../../images/shapes/5.png" alt="shape5" />
+        </div>
+        <div className="shape6">
+          <img src="../../images/shapes/6.png" alt="shape6" />
+        </div>
+        <div className="shape7">
+          <img src="../../images/shapes/7.png" alt="shape7" />
+        </div>
+        <div className="shape8">
+          <img src="../../images/shapes/8.png" alt="shape8" />
+        </div>
+        <div className="shape9 rotateme">
+          <img src="../../images/shapes/9.png" alt="shape9" />
+        </div>
+        <div className="shape10 rotateme">
+          <img src="../../images/shapes/10.png" alt="shape10" />
+        </div>
+        <div className="circle-shape1">
+          <img
+            src="../../images/shapes/circle1.png"
+            alt="shape"
+            className="w-150"
+          />
+        </div>
+        <div className="circle-shape2">
+          <img
+            src="../../images/shapes/circle2.png"
+            alt="shape"
+            className="w-150"
+          />
+        </div>
+      </div>
+    </>
+  );
+};
 
 export default Banner;

@@ -127,6 +127,18 @@ $bg-gray: #f9f9f9;
 // ipad 
 @media screen and (min-width: $value_md_offset) and (orientation: landscape){
   .parallax_banner {
+
+    h1 {
+      font-size: min(max(6vw, 24px), 42px) !important; /* adjust as necessary */
+    }
+    h3 {
+      font-size: min(max(3vw, 16px), 36px) !important; /* adjust as necessary */
+    }
+    h4 {
+      font-size: min(max(2vw, 16px), 26px) !important; /* adjust as necessary */
+      color: #6084a447;
+    }
+
     overflow: visible;
     display: flex;
     align-items: center;
@@ -149,16 +161,7 @@ $bg-gray: #f9f9f9;
     }
   }
 
-  h1 {
-    font-size: min(max(6vw, 24px), 42px) !important; /* adjust as necessary */
-  }
-  h3 {
-    font-size: min(max(3vw, 16px), 36px) !important; /* adjust as necessary */
-  }
-  h4 {
-    font-size: min(max(2vw, 16px), 26px) !important; /* adjust as necessary */
-    color: #6084a447;
-  }
+
   .hero-content {
     margin-top: 0;
     margin-left: 3%;
@@ -257,7 +260,7 @@ $bg-gray: #f9f9f9;
         background-color: $white-color;
 
         .nav-item {
-          padding: 9px 0;
+          padding: 9px 2%;
 
           a {
             margin-left: 0;
@@ -362,35 +365,35 @@ $bg-gray: #f9f9f9;
   .hero-image {
     margin-bottom: 30px;
   }
-  .shape1,
-  .shape2,
-  .shape7,
-  .shape8,
-  .shape5,
-  .shape6,
-  .shape10,
-  .shape4,
-  .shape3,
-  .circle-shape1,
-  .circle-shape2,
-  .shape11,
-  .shape12,
-  .shape9,
-  .shape14,
-  .shape15,
-  .shape13,
-  .shape18,
-  .shape19,
-  .shape20,
-  .shape21,
-  .shape22,
-  .shape23,
-  .shape24,
-  .shape25,
-  .shape26,
-  .circle-dot {
-    display: none;
-  }
+  // .shape1,
+  // .shape2,
+  // .shape7,
+  // .shape8,
+  // .shape5,
+  // .shape6,
+  // .shape10,
+  // .shape4,
+  // .shape3,
+  // .circle-shape1,
+  // .circle-shape2,
+  // .shape11,
+  // .shape12,
+  // .shape9,
+  // .shape14,
+  // .shape15,
+  // .shape13,
+  // .shape18,
+  // .shape19,
+  // .shape20,
+  // .shape21,
+  // .shape22,
+  // .shape23,
+  // .shape24,
+  // .shape25,
+  // .shape26,
+  // .circle-dot {
+  //   display: none;
+  // }
   .circle-shape3 {
     right: 6%;
     bottom: 5%;
@@ -1561,6 +1564,16 @@ $bg-gray: #f9f9f9;
 @media screen and (min-width: $value_lg_offset) and (max-width: $value_xl) and (orientation: landscape) {
   // @media only #{$media} and ($feature_min : $value_sm) and ($feature_max : $value_md) {
   .parallax_banner {
+    h1 {
+      font-size: min(max(5vw, 24px), 52px) !important; /* adjust as necessary */
+    }
+    h3 {
+      font-size: min(max(3vw, 16px), 30px) !important; /* adjust as necessary */
+    }
+    h4 {
+      font-size: min(max(2vw, 16px), 22px) !important; /* adjust as necessary */
+    }
+
     display: flex;
     align-items: center;
 
@@ -1571,7 +1584,7 @@ $bg-gray: #f9f9f9;
       position: relative;
       // top: 15%;
       // width: 25%; /* adjust this as needed */
-      width: 45vw; /* adjust this as needed */
+      width: 48vw; /* adjust this as needed */
 
       margin-right: 10% !important;
       margin-top: -5%;
@@ -1584,15 +1597,7 @@ $bg-gray: #f9f9f9;
       height: auto;
     }
   }
-  h1 {
-    font-size: min(max(5vw, 24px), 52px) !important; /* adjust as necessary */
-  }
-  h3 {
-    font-size: min(max(3vw, 16px), 30px) !important; /* adjust as necessary */
-  }
-  h4 {
-    font-size: min(max(2vw, 16px), 22px) !important; /* adjust as necessary */
-  }
+
 
   .main-banner {
     height: 100vh;
@@ -1600,7 +1605,7 @@ $bg-gray: #f9f9f9;
   .hero-content {
     margin-top: 0;
     margin-left: 3%;
-    max-width: 50%;
+    max-width: 60vw;
   }
   .contact-area {
     border-top: 1px solid #eee;
@@ -2156,26 +2161,81 @@ $bg-gray: #f9f9f9;
       max-width: 100%;
       height: auto;
     }
+    h1 {
+      font-size: min(max(8vw, 24px), 52px) !important; /* adjust as necessary */
+    }
+    h3 {
+      font-size: min(max(3vw, 16px), 36px) !important; /* adjust as necessary */
+    }
+    h4 {
+      font-size: min(max(2vw, 16px), 26px) !important; /* adjust as necessary */
+      color: #6084a447;
+    }
   }
 
-  h1 {
-    font-size: min(max(8vw, 24px), 52px) !important; /* adjust as necessary */
-  }
-  h3 {
-    font-size: min(max(3vw, 16px), 36px) !important; /* adjust as necessary */
-  }
-  h4 {
-    font-size: min(max(2vw, 16px), 26px) !important; /* adjust as necessary */
-    color: #6084a447;
-  }
 
+
+  nav {
+    .navbar-nav {
+      padding-top: 10px;
+      padding-bottom: 10px;
+      padding-left: 15px;
+      padding-right: 15px;
+      background-color: $white-color;
+
+      .nav-item {
+        padding: 9px 5% !important;
+
+        a {
+          margin-left: 0;
+          margin-right: 0;
+        }
+        .dropdown_menu {
+          left: 0;
+
+          li {
+            .dropdown_menu {
+              top: 0;
+              left: -5px;
+              position: relative;
+              display: none;
+              margin-top: 0;
+              border: 1px solid #eeeeee;
+              padding: 0 0 0 4px;
+            }
+            &:focus,
+            &:hover {
+              .dropdown_menu {
+                display: block;
+                top: 0 !important;
+              }
+            }
+          }
+        }
+        &:hover ul {
+          top: 40px;
+        }
+      }
+    }
+    .others-option {
+      background-color: $white-color;
+      padding-bottom: 10px;
+      margin-left: 0;
+      padding-left: 15px;
+
+      ul li .side-menu {
+        display: none;
+      }
+    }
+  }
+  
   .main-banner {
     height: 100vh;
   }
   .hero-content {
     margin-top: 0;
     margin-left: 3%;
-    max-width: 50%;
+    max-width: 70vw;
   }
 
   .shape1,
@@ -2208,7 +2268,7 @@ $bg-gray: #f9f9f9;
     display: none;
   }
   .main-banner {
-    height: 768px;
+    height: 100vh;
   }
   .ptb-120 {
     padding-top: 90px;
@@ -2379,7 +2439,7 @@ $bg-gray: #f9f9f9;
   }
   .navbar-brand {
     img {
-      max-width: 100px;
+      max-width: 200px;
     }
   }
   .copyright-area {
@@ -2410,29 +2470,29 @@ $bg-gray: #f9f9f9;
       max-width: 100%;
       height: auto;
     }
+    h1 {
+      font-size: 8vw;
+      font-size: min(max(8vw, 24px), 72px) !important; /* adjust as necessary */
+    }
+    h3 {
+      font-size: 4vw;
+      font-size: min(max(3vw, 16px), 36px) !important; /* adjust as necessary */
+    }
+    h4 {
+      font-size: 2vw;
+      font-size: min(max(2vw, 16px), 26px) !important; /* adjust as necessary */
+    }
   }
 
-  h1 {
-    font-size: 8vw;
-    font-size: min(max(8vw, 24px), 72px) !important; /* adjust as necessary */
-  }
-  h3 {
-    font-size: 4vw;
-    font-size: min(max(3vw, 16px), 36px) !important; /* adjust as necessary */
-  }
-  h4 {
-    font-size: 2vw;
-    font-size: min(max(2vw, 16px), 26px) !important; /* adjust as necessary */
-    color: #6084a447;
-  }
+
 
   .main-banner {
     height: 100vh;
   }
   .hero-content {
     margin-top: 0;
-    margin-left: 3%;
-    max-width: 50%;
+    margin-left: 5%;
+    max-width: 80%;
   }
   .shape6 {
     left: 8%;

@@ -4,9 +4,9 @@ import gql from "graphql-tag";
 
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import AboutMe from "../components/about/AboutMe";
+// import AboutMe from "../components/about/AboutMe";
 import Education from "../components/about/Education";
-import Services from "../components/freelancer/Services";
+import Services from "../components/about/Services";
 import Skills from "../components/Skills";
 import About from "../components/about/About";
 import Funfacts from "../components/Funfacts";
