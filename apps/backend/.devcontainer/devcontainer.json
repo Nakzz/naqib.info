@@ -1,0 +1,57 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/javascript-node-mongo
+{
+	"name": "Node.js & Mongo DB",
+	"dockerComposeFile": ["docker-compose.yml"],
+	"service": "backend",
+	"workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+
+	// Features to add to the dev container. More info: https://containers.dev/features.
+	// "features": {},
+
+	// Configure tool-specific properties.
+	"customizations": {
+		// Configure properties specific to VS Code.
+		"vscode": {
+			// Add the IDs of extensions you want installed when the container is created.
+			"extensions": [
+				"mongodb.mongodb-vscode",
+				"dbaeumer.vscode-eslint",
+				"wix.vscode-import-cost",
+				"streetsidesoftware.code-spell-checker",
+				"oderwat.indent-rainbow",
+				"ms-azuretools.vscode-docker",
+				"bierner.markdown-preview-github-styles",
+				"esbenp.prettier-vscode",
+				"ms-vscode.vscode-typescript-tslint-plugin"
+			],
+			"settings": {
+				// "search.exclude": {
+				// 	"**/.yarn": true,
+				// 	"**/.pnp.*": true
+				// },
+				// "eslint.nodePath": ".yarn/sdks",
+		
+		
+				// Remember to install the font in your host machine
+				// "terminal.integrated.fontFamily": "MesloLGS NF",
+				"docker.environment": {
+					"DOCKER_HOST": "ssh://aj@178.128.151.84"
+				},
+				"terminal.integrated.defaultProfile.linux": "/bin/bash",
+				"typescript.validate.enable": false,
+				"eslint.alwaysShowStatus": true,
+				"editor.formatOnSave": true,
+				"editor.codeActionsOnSave": {
+				  "source.fixAll.eslint": true
+				}
+			},
+		}
+	},
+
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	"forwardPorts": [5000, 27017],
+	"runArgs": [
+		"--network=mynetwork"
+	  ]
+}
