@@ -22,52 +22,55 @@ class Banner extends Component {
   parallax = null;
 
   componentDidMount() {
+    window.addEventListener("resize", this.updateDimensions);
+    this.updateDimensions();
     this.initParallax();
   }
 
   componentWillUnmount() {
+    window.removeEventListener("resize", this.updateDimensions);
     this.destroyParallax();
   }
 
   initParallax = () => {
-    try {
-      this.parallax = new Parallax(this.scene.current, {
-        relativeInput: true,
-        limitY: 2,
-      });
-    } catch (error) {
-      console.log("Can't init parallax: Its a mobile");
+    if (!this.isMobile()) { // Conditional check for mobile
+      try {
+        this.parallax = new Parallax(this.scene.current, {
+          relativeInput: true,
+          // limitY=2
+        });
+      } catch (error) {
+        console.log("Can't init parallax: ", error.message);
+      }
     }
   };
 
   destroyParallax = () => {
-    try {
-      this.parallax.disable();
-    } catch (error) {
-      console.log("Can't destroy parallax: Its a mobile");
+    if (this.parallax) {
+      try {
+        this.parallax.disable();
+      } catch (error) {
+        console.log("Can't destroy parallax: ", error.message);
+      }
     }
   };
 
   isMobile = () => {
-    const isMobile = !isDesktop || isTablet;
-    if (
-      isMobile &&
-      this.state.rootClass !== "digital-agency-banner_notBrowser"
-    ) {
+    const mobile = !isDesktop || isTablet;
+    if (mobile && this.state.rootClass !== "digital-agency-banner_notBrowser") {
       this.setState({ rootClass: "digital-agency-banner_notBrowser" });
     }
-    return isMobile;
+    return mobile;
   };
 
   HeroContent = () => (
     <div className="hero-content">
-      <h4 className="wow fadeInUp m-l-20">Hey there!</h4>
-      <h1 className="wow m-b-20 hero-header">My name is AJ</h1>
+      <h1 className="wow fadeInUp m-l-20">Driven by Innovation.</h1>
+      <h4 className="wow m-b-20 hero-header">A blend of Technical Mastery & Visionary Leadership.</h4>
       <TypedReact
         className="statements"
         strings={[
           "I'm a <strong>Technologist...</strong>",
-          "I'm the Visionary behind <strong>Breezy Systems LLC...</strong>",
           "I'm an <strong>Innovator at the crossroads of AI and Space Exploration...</strong>",
           "I'm a <strong>Leader with a passion for mentoring...</strong>",
           "I'm a distinguished <strong>POSSE Scholar...</strong>",
@@ -82,16 +85,6 @@ class Banner extends Component {
     </div>
   );
 
-  componentDidMount() {
-    window.addEventListener("resize", this.updateDimensions);
-    this.updateDimensions();
-    this.initParallax();
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener("resize", this.updateDimensions);
-    this.destroyParallax();
-  }
   updateDimensions = () => {
     this.setState({ width: window.innerWidth, height: window.innerHeight });
   };
@@ -186,15 +179,24 @@ class Banner extends Component {
               <this.HeroContent />
             </div>
           ) : (
+            // <div className="parallax_banner" ref={this.scene}>
+            //   <div data-depth=".1">
+            //     <this.HeroContent />
+            //   </div>
+            //   <img
+            //     className="imgHolder"
+            //     src={require("../../images/headshots/0M1A3350_0.5x.png")}
+            //     alt="Picture of AJ in Large Screen"
+            //     data-depth=".9"
+            //   />
+            // </div>
             <div className="parallax_banner" ref={this.scene}>
-              <div data-depth=".1">
-                <this.HeroContent />
-              </div>
+              <this.HeroContent />
               <img
                 className="imgHolder"
                 src={require("../../images/headshots/0M1A3350_0.5x.png")}
                 alt="Picture of AJ in Large Screen"
-                data-depth=".4"
+                data-depth="0.9"
               />
             </div>
           )}
