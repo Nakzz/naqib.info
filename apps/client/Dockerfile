@@ -5,7 +5,7 @@ ARG NODE_VERSION=14.15.3
 
 
 # Build Runtime container
-FROM node:${NODE_VERSION}-alpine AS build
+FROM node:${NODE_VERSION}-alpine AS builder
 
 WORKDIR /opt/app
 
@@ -22,20 +22,6 @@ COPY . .
 RUN yarn install
 
 RUN yarn build 
-
-
-# CMD [ "ls", "/data" ] 
-# CMD [ "yarn", "start"]
-
-
-# # Install dependencies only when needed
-# FROM node:${NODE_VERSION}-alpine AS builder
-
-# WORKDIR /opt/app
-# COPY package*.json ./
-# RUN yarn install
-
-# RUN yarn build
 
 # # Production image, copy all the files and run next
 FROM node:${NODE_VERSION}-alpine AS runner
