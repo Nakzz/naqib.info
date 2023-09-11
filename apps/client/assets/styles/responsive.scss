@@ -347,14 +347,14 @@ $bg-gray: #f9f9f9;
   }
 
   .hero-header {
-    font-size: 25px !important;
+    // font-size: 25px !important;
   }
   .hero-content {
     h1 {
-      font-size: 27px;
+      // font-size: 27px;
     }
     h3 {
-      font-size: 25px !important;
+      // font-size: 25px !important;
     }
     p {
       margin: {
@@ -2399,8 +2399,8 @@ $bg-gray: #f9f9f9;
     font-size: min(max(8vw, 24px), 72px)!important; /* adjust as necessary */
 }
 h3 {
-  font-size: 3vw;
-  font-size: min(max(3vw, 16px), 36px);  /* adjust as necessary */
+  font-size: 4vw;
+  font-size: min(max(3vw, 16px), 36px) !important;  /* adjust as necessary */
 }
 h4 {
     font-size: 2vw;

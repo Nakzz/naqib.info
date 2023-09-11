@@ -65,7 +65,7 @@ class Banner extends Component {
 
   HeroContent = () => (
     <div className="hero-content">
-      <h1 className="wow fadeInUp m-l-20">Driven by Innovation.</h1>
+      <h1 className="wow fadeInUp">Driven by Innovation.</h1>
       <h4 className="wow m-b-20 hero-header">A blend of Technical Mastery & Visionary Leadership.</h4>
       <TypedReact
         className="statements"
