@@ -49,8 +49,8 @@ export default withRedux(initStore)(
 			return (
 				<ApolloProvider client={apolloClient}>
 					<DefaultSeo
-						title="Ajmain Naqib | Personal Website"
-						description="Ajmain Naqib's portfolio website. I am a Software Engineer, Entrepreneur, Photographer, POSSE Scholar, FIRST Alum. "
+						title="AJ Naqib | Personal Website"
+						description="Discover the journey of AJ Naqib: Technologist, Innovator, Leader, Adventure, Visionary "
 						openGraph={{
 							type: "website",
 							locale: "en_IE",
