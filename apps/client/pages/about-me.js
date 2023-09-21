@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import Link from "next/link";
 import gql from "graphql-tag";
 
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
+import Navbar from "../components/shared/Navbar";
+import Footer from "../components/shared/Footer";
 // import AboutMe from "../components/about/AboutMe";
 import Education from "../components/about/Education";
 import Services from "../components/about/Services";
