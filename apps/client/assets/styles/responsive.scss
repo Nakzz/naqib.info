@@ -1528,7 +1528,8 @@ $bg-gray: #f9f9f9;
   }
   .navbar-brand {
     img {
-      max-width: 80px;
+      // max-width: 80px;
+      max-width: 20vh;
     }
   }
   .startup-agency-home {
