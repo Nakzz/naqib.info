@@ -44,7 +44,7 @@ export class Banner extends Component {
                       <div className="col-lg-7 col-md-12">
                         <div className="hero-image">
                           <img
-                            src={require("./../images/startup-agency-slider/1.jpg")}
+                            src={"images/startup-agency-slider/1.jpg"}
                             alt="image"
                           />
                         </div>
@@ -83,34 +83,34 @@ export class Banner extends Component {
               </div>
 
               <div className="shape1">
-                <img src={require("./../images/shapes/1.png")} alt="shape" />
+                <img src={"images/shapes/1.png"} alt="shape" />
               </div>
               <div className="shape2">
-                <img src={require("./../images/shapes/2.png")} alt="shape" />
+                <img src={"images/shapes/2.png"} alt="shape" />
               </div>
               <div className="shape3">
-                <img src={require("./../images/shapes/3.png")} alt="shape" />
+                <img src={"images/shapes/3.png"} alt="shape" />
               </div>
               <div className="shape4">
-                <img src={require("./../images/shapes/4.png")} alt="shape" />
+                <img src={"images/shapes/4.png"} alt="shape" />
               </div>
               <div className="shape5">
-                <img src={require("./../images/shapes/5.png")} alt="shape" />
+                <img src={"images/shapes/5.png"} alt="shape" />
               </div>
               <div className="shape6">
-                <img src={require("./../images/shapes/6.png")} alt="shape" />
+                <img src={"images/shapes/6.png"} alt="shape" />
               </div>
               <div className="shape7">
-                <img src={require("./../images/shapes/7.png")} alt="shape" />
+                <img src={"images/shapes/7.png"} alt="shape" />
               </div>
               <div className="shape8">
-                <img src={require("./../images/shapes/8.png")} alt="shape" />
+                <img src={"images/shapes/8.png"} alt="shape" />
               </div>
               <div className="shape9 rotateme">
-                <img src={require("./../images/shapes/9.png")} alt="shape" />
+                <img src={"images/shapes/9.png"} alt="shape" />
               </div>
               <div className="shape10 rotateme">
-                <img src={require("./../images/shapes/10.png")} alt="shape" />
+                <img src={"images/shapes/10.png"} alt="shape" />
               </div>
             </div>
 
@@ -122,7 +122,7 @@ export class Banner extends Component {
                       <div className="col-lg-7 col-md-12">
                         <div className="hero-image">
                           <img
-                            src={require("./../images/startup-agency-slider/2.jpg")}
+                            src={"images/startup-agency-slider/2.jpg"}
                             alt="image"
                           />
                         </div>
@@ -160,34 +160,34 @@ export class Banner extends Component {
                 </div>
               </div>
               <div className="shape1">
-                <img src={require("./../images/shapes/1.png")} alt="shape" />
+                <img src={"images/shapes/1.png"} alt="shape" />
               </div>
               <div className="shape2">
-                <img src={require("./../images/shapes/2.png")} alt="shape" />
+                <img src={"images/shapes/2.png"} alt="shape" />
               </div>
               <div className="shape3">
-                <img src={require("./../images/shapes/3.png")} alt="shape" />
+                <img src={"images/shapes/3.png"} alt="shape" />
               </div>
               <div className="shape4">
-                <img src={require("./../images/shapes/4.png")} alt="shape" />
+                <img src={"images/shapes/4.png"} alt="shape" />
               </div>
               <div className="shape5">
-                <img src={require("./../images/shapes/5.png")} alt="shape" />
+                <img src={"images/shapes/5.png"} alt="shape" />
               </div>
               <div className="shape6">
-                <img src={require("./../images/shapes/6.png")} alt="shape" />
+                <img src={"images/shapes/6.png"} alt="shape" />
               </div>
               <div className="shape7">
-                <img src={require("./../images/shapes/7.png")} alt="shape" />
+                <img src={"images/shapes/7.png"} alt="shape" />
               </div>
               <div className="shape8">
-                <img src={require("./../images/shapes/8.png")} alt="shape" />
+                <img src={"images/shapes/8.png"} alt="shape" />
               </div>
               <div className="shape9 rotateme">
-                <img src={require("./../images/shapes/9.png")} alt="shape" />
+                <img src={"images/shapes/9.png"} alt="shape" />
               </div>
               <div className="shape10 rotateme">
-                <img src={require("./../images/shapes/10.png")} alt="shape" />
+                <img src={"images/shapes/10.png"} alt="shape" />
               </div>
             </div>
 
@@ -199,7 +199,7 @@ export class Banner extends Component {
                       <div className="col-lg-7 col-md-12">
                         <div className="hero-image">
                           <img
-                            src={require("./../images/startup-agency-slider/3.jpg")}
+                            src={"images/startup-agency-slider/3.jpg"}
                             alt="image"
                           />
                         </div>
@@ -237,34 +237,34 @@ export class Banner extends Component {
                 </div>
               </div>
               <div className="shape1">
-                <img src={require("./../images/shapes/1.png")} alt="shape" />
+                <img src={"images/shapes/1.png"} alt="shape" />
               </div>
               <div className="shape2">
-                <img src={require("./../images/shapes/2.png")} alt="shape" />
+                <img src={"images/shapes/2.png"} alt="shape" />
               </div>
               <div className="shape3">
-                <img src={require("./../images/shapes/3.png")} alt="shape" />
+                <img src={"images/shapes/3.png"} alt="shape" />
               </div>
               <div className="shape4">
-                <img src={require("./../images/shapes/4.png")} alt="shape" />
+                <img src={"images/shapes/4.png"} alt="shape" />
               </div>
               <div className="shape5">
-                <img src={require("./../images/shapes/5.png")} alt="shape" />
+                <img src={"images/shapes/5.png"} alt="shape" />
               </div>
               <div className="shape6">
-                <img src={require("./../images/shapes/6.png")} alt="shape" />
+                <img src={"images/shapes/6.png"} alt="shape" />
               </div>
               <div className="shape7">
-                <img src={require("./../images/shapes/7.png")} alt="shape" />
+                <img src={"images/shapes/7.png"} alt="shape" />
               </div>
               <div className="shape8">
-                <img src={require("./../images/shapes/8.png")} alt="shape" />
+                <img src={"images/shapes/8.png"} alt="shape" />
               </div>
               <div className="shape9 rotateme">
-                <img src={require("./../images/shapes/9.png")} alt="shape" />
+                <img src={"images/shapes/9.png"} alt="shape" />
               </div>
               <div className="shape10 rotateme">
-                <img src={require("./../images/shapes/10.png")} alt="shape" />
+                <img src={"images/shapes/10.png"} alt="shape" />
               </div>
             </div>
           </OwlCarousel>

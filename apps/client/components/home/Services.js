@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+// import Image from "next/image"
 function Service(props) {
   const { data, i } = props;
   const item = data;
@@ -50,10 +50,10 @@ export class Services extends Component {
           </div>
 
           <div className="circle-top rotateme">
-            <img src={require("../images/circle-shape.png")} alt="circle" />
+            <img src={"images/circle-shape.png"} alt="circle" />
           </div>
           <div className="circle-bottom rotateme">
-            <img src={require("../images/circle-shape.png")} alt="circle" />
+            <img src={"images/circle-shape.png"} alt="circle" />
           </div>
         </section>
       );

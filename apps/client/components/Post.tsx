@@ -7,7 +7,7 @@ export default function Post(props) {
 	const hostname: String = hostnameResolver() + "public/blogs/";
 	
 	const item = data;
-	console.log(item);
+	// console.log(item);
 	return (
 		<>
 			<div key={i} className="col-lg-4 col-md-6">

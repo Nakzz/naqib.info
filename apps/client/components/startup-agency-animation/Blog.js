@@ -19,10 +19,7 @@ export class Blog extends Component {
                 <div className="blog-image">
                   <Link href="#">
                     <a>
-                      <img
-                        src={require("./../images/blog-image/1.jpg")}
-                        alt="image"
-                      />
+                      <img src={"images/blog-image/1.jpg"} alt="image" />
                     </a>
                   </Link>
 
@@ -48,10 +45,7 @@ export class Blog extends Component {
                 <div className="blog-image">
                   <Link href="#">
                     <a>
-                      <img
-                        src={require("./../images/blog-image/2.jpg")}
-                        alt="image"
-                      />
+                      <img src={"images/blog-image/2.jpg"} alt="image" />
                     </a>
                   </Link>
 
@@ -77,10 +71,7 @@ export class Blog extends Component {
                 <div className="blog-image">
                   <Link href="#">
                     <a>
-                      <img
-                        src={require("./../images/blog-image/3.jpg")}
-                        alt="image"
-                      />
+                      <img src={"images/blog-image/3.jpg"} alt="image" />
                     </a>
                   </Link>
 

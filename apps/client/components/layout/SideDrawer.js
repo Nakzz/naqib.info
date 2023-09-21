@@ -45,7 +45,7 @@ export class SideDrawer extends Component {
                   id="myModalLabel2"
                 >
                   <a href="/">
-                    <img src={require("../images/logo.png")} alt="logo" />
+                    <img src={"images/logo.png"} alt="logo" />
                   </a>
                 </h2>
               </div>

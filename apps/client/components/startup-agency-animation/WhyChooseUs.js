@@ -8,16 +8,8 @@ export class WhyChooseUs extends Component {
           <div className="row h-100 align-items-center">
             <div className="col-lg-6 col-md-12">
               <div className="why-choose-us-img">
-                <img
-                  src={require("./../images/1.jpg")}
-                  className="front-img"
-                  alt="img"
-                />
-                <img
-                  src={require("./../images/2.jpg")}
-                  className="back-img"
-                  alt="img"
-                />
+                <img src={"images/1.jpg"} className="front-img" alt="img" />
+                <img src={"images/2.jpg"} className="back-img" alt="img" />
               </div>
             </div>
 
@@ -60,13 +52,13 @@ export class WhyChooseUs extends Component {
         </div>
 
         <div className="circle-top rotateme">
-          <img src={require("./../images/circle-shape.png")} alt="circle" />
+          <img src={"images/circle-shape.png"} alt="circle" />
         </div>
         <div className="circle-bottom rotateme">
-          <img src={require("./../images/circle-shape.png")} alt="circle" />
+          <img src={"images/circle-shape.png"} alt="circle" />
         </div>
         <div className="circle-dot">
-          <img src={require("./../images/shapes/dot-shape1.png")} alt="shape" />
+          <img src={"images/shapes/dot-shape1.png"} alt="shape" />
         </div>
       </section>
     );
