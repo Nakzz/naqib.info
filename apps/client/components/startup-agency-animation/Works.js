@@ -4,12 +4,12 @@ import Lightbox from "react-image-lightbox";
 import "react-image-lightbox/style.css";
 
 const images = [
-  require("./../images/work-image/1.jpg"),
-  require("./../images/work-image/2.jpg"),
-  require("./../images/work-image/3.jpg"),
-  require("./../images/work-image/4.jpg"),
-  require("./../images/work-image/5.jpg"),
-  require("./../images/work-image/6.jpg"),
+  "assets/images/work-image/1.jpg",
+  "assets/images/work-image/2.jpg",
+  "assets/images/work-image/3.jpg",
+  "assets/images/work-image/4.jpg",
+  "assets/images/work-image/5.jpg",
+  "assets/images/work-image/6.jpg",
 ];
 
 export class Works extends Component {
@@ -34,7 +34,7 @@ export class Works extends Component {
         <div className="row m-0">
           <div className="col-lg-6 col-md-12 col-sm-12 p-0">
             <div className="single-work m-0">
-              <img src={require("./../images/work-image/1.jpg")} alt="image" />
+              <img src={"images/work-image/1.jpg"} alt="image" />
 
               <div className="works-content">
                 <h3>
@@ -87,7 +87,7 @@ export class Works extends Component {
 
           <div className="col-lg-3 col-md-6 col-sm-6 p-0">
             <div className="single-work m-0">
-              <img src={require("./../images/work-image/2.jpg")} alt="image" />
+              <img src={"images/work-image/2.jpg"} alt="image" />
 
               <div className="works-content">
                 <h3>
@@ -121,7 +121,7 @@ export class Works extends Component {
 
           <div className="col-lg-3 col-md-6 col-sm-6 p-0">
             <div className="single-work m-0">
-              <img src={require("./../images/work-image/3.jpg")} alt="image" />
+              <img src={"images/work-image/3.jpg"} alt="image" />
 
               <div className="works-content">
                 <h3>
@@ -155,7 +155,7 @@ export class Works extends Component {
 
           <div className="col-lg-3 col-md-6 col-sm-6 p-0">
             <div className="single-work m-0">
-              <img src={require("./../images/work-image/4.jpg")} alt="image" />
+              <img src={"images/work-image/4.jpg"} alt="image" />
 
               <div className="works-content">
                 <h3>
@@ -189,7 +189,7 @@ export class Works extends Component {
 
           <div className="col-lg-3 col-md-6 col-sm-6 p-0">
             <div className="single-work m-0">
-              <img src={require("./../images/work-image/5.jpg")} alt="image" />
+              <img src={"images/work-image/5.jpg"} alt="image" />
 
               <div className="works-content">
                 <h3>
@@ -223,7 +223,7 @@ export class Works extends Component {
 
           <div className="col-lg-6 col-md-12 col-sm-12 p-0">
             <div className="single-work m-0">
-              <img src={require("./../images/work-image/6.jpg")} alt="image" />
+              <img src={"images/work-image/6.jpg"} alt="image" />
 
               <div className="works-content">
                 <h3>
@@ -257,10 +257,10 @@ export class Works extends Component {
         </div>
 
         <div className="shape11">
-          <img src={require("./../images/shapes/11.png")} alt="shape" />
+          <img src={"images/shapes/11.png"} alt="shape" />
         </div>
         <div className="shape12">
-          <img src={require("./../images/shapes/12.png")} alt="shape" />
+          <img src={"images/shapes/12.png"} alt="shape" />
         </div>
       </section>
     );

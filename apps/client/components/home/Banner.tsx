@@ -12,8 +12,8 @@ const INITIAL_STATE = {
 };
 
 // FIXME: add these references instead of image path with require
-const AJ_IMAGE_SMALL = "../../images/headshots/0M1A3350_0.5x.png";
-const AJ_IMAGE_LARGE = "../../images/headshots/0M1A3350_0.5x.png";
+const AJ_IMAGE_SMALL = "images/headshots/0M1A3350_0.5x.png";
+const AJ_IMAGE_LARGE = "images/headshots/0M1A3350_0.5x.png";
 
 const Banner = () => {
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
@@ -115,9 +115,9 @@ const Banner = () => {
 
   const ContactCard = () => (
     <div className="contact-card-wrapper">
-      <div class="contact-card">
-        <div class="text-content">
-          <div class="contact-header">
+      <div className="contact-card">
+        <div className="text-content">
+          <div className="contact-header">
             <h2>
               <strong>AJ Naqib</strong>
             </h2>
@@ -125,7 +125,7 @@ const Banner = () => {
               <i>A global citizen with a galaxy of dreams</i>
             </h5>
           </div>
-          <div class="contact-info">
+          <div className="contact-info">
             <p>
               <strong>Email:</strong>{" "}
               <a href="mailto:aj.naqib@example.com">aj.naqib@example.com</a>
@@ -147,7 +147,7 @@ const Banner = () => {
               <a href="https://github.com/ajnaqib">github.com/ajnaqib</a>
             </p>
           </div>
-          <div class="about-me">
+          <div className="about-me">
             <ul>
               <li>
                 Armed with a B.S. in Applied Computer Science, I've journeyed
@@ -173,7 +173,7 @@ const Banner = () => {
         <div class="image">
           <img
             class="imgHolder"
-            src="../../images/headshots/0M1A3748.jpg"
+            src="images/headshots/0M1A3748.jpg"
             alt="Picture of AJ in Large Screen"
             data-depth=".4"
           />

@@ -462,7 +462,7 @@ Navbar CSS
   padding-top: 15px;
   width: 100%;
   z-index: 999;
-  height: auto;
+  height: 10vh;
 
   nav {
     ul {
@@ -1023,18 +1023,17 @@ Main Banner CSS
 }
 
 .digital-agency-banner {
-  // background-image: url("./../../images/home/header_bg.jpg");
-  background-image: url("./../../images/bg-shape.jpg");
+  // background-image: url("./../../assets/images/home/header_bg.jpg");
+  background-image: url("./../../assets/images/bg-shape.jpg");
   background-position: center center;
   background-size: cover;
   position: relative;
   animation: oscillate 5s ease-in-out infinite;
-
 }
 
 .digital-agency-banner_notBrowser {
-  //   background-image: url("./../../images/home/header_2.jpg");
-  background-image: url("./../../images/bg-shape.jpg");
+  //   background-image: url("./../../assets/images/home/header_2.jpg");
+  background-image: url("./../../assets/images/bg-shape.jpg");
 
   background-position: center center;
   background-size: cover;
@@ -1302,7 +1301,7 @@ h4 {
       content: "";
       width: 100%;
       height: 100%;
-      background-image: url(../../images/dot.png);
+      background-image: url(../../assets/images/dot.png);
       left: 0;
       top: 0;
     }
@@ -1489,22 +1488,22 @@ h4 {
 /* creative-blog-home */
 
 // .item-bg1 {
-// 	background-image: url(../../images/main-bg-1.jpg);
+// 	background-image: url(../../assets/images/main-bg-1.jpg);
 // }
 // // .item-bg2 {
-// // 	background-image: url(../../images/main-bg-2.jpg);
+// // 	background-image: url(../../assets/images/main-bg-2.jpg);
 // // }
 // .item-bg3 {
-// 	background-image: url(../../images/main-bg-3.jpg);
+// 	background-image: url(../../assets/images/main-bg-3.jpg);
 // }
 // .item-bg4 {
-// 	background-image: url(../../images/main-bg-4.jpg);
+// 	background-image: url(../../assets/images/main-bg-4.jpg);
 // }
 // .item-bg5 {
-// 	background-image: url(../../images/main-bg-5.jpg);
+// 	background-image: url(../../assets/images/main-bg-5.jpg);
 // }
 // .item-bg6 {
-// 	background-image: url(../../images/main-bg-6.jpg);
+// 	background-image: url(../../assets/images/main-bg-6.jpg);
 // }
 .shape1 {
   position: absolute;
@@ -1718,6 +1717,9 @@ Services CSS
   position: relative;
   z-index: 1;
   overflow: hidden;
+  height: 100vh;
+  display: flex;
+  align-items: center;
 }
 .services-area {
   padding-bottom: 90px;
@@ -1984,7 +1986,7 @@ About CSS
 }
 .cta-about-image {
   background: {
-    image: url(../../images/blog-home-image/WED-37.jpg);
+    image: url(../../assets/images/blog-home-image/WED-37.jpg);
     position: center center;
     size: cover;
     repeat: no-repeat;
@@ -2657,7 +2659,7 @@ Team CSS
 
 // 	&.bg-image {
 // 		background: {
-// 			image: url(../../images/bg-shape.jpg);
+// 			image: url(../../assets/images/bg-shape.jpg);
 // 			attachment: fixed;
 // 			repeat: no-repeat;
 // 			position: center center;
@@ -3156,6 +3158,8 @@ Blog CSS
 =================================================*/
 .blog-area {
   padding-bottom: 90px;
+  // height: 100vh;
+  height: calc(100vh - 60px);
 
   .pagination-area {
     margin-bottom: 30px;
@@ -3425,7 +3429,7 @@ Page Title CSS
     content: "";
     width: 100%;
     height: 100%;
-    background-image: url(../../images/dot.png);
+    background-image: url(../../assets/images/dot.png);
     left: 0;
     top: 0;
   }
@@ -5033,6 +5037,6 @@ Login CSS
     background-size: 250% auto; /* mid-size, you can adjust this */
   }
   100% {
-    background-size: 100% auto; /* back to starting size */
+    background-size: 150% auto; /* back to starting size */
   }
 }

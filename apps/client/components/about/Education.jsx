@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Link from 'next/link';
-
+import Image from 'next/image';
 export class Education extends Component{
 //TODO(2): componentdidmount() and get the strings in the TypedReact from API
     render(){
@@ -75,7 +75,8 @@ export class Education extends Component{
                         </div>
 
                         <div className="circle-dot">
-                            <img src={require("../../images/shapes/dot-shape1.png")} alt="shape" />
+                            <img src={require("../../assets/images/shapes/dot-shape1.png")} alt="shape" />
+                            {/* <Image src></Image> */}
                          </div>
                     </div>
                     

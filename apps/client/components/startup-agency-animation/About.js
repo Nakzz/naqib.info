@@ -8,10 +8,7 @@ export class About extends Component {
           <div className="row">
             <div className="col-lg-6 col-md-6">
               <div className="cta-about-image">
-                <img
-                  src={require("./../images/cta-about.jpg")}
-                  alt="cta-image"
-                />
+                <img src={"images/cta-about.jpg"} alt="cta-image" />
               </div>
             </div>
 
