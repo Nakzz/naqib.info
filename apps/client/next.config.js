@@ -1,18 +1,19 @@
-const withCSS = require("@zeit/next-css");
-const withFonts = require("next-fonts");
+// const withCSS = require("@zeit/next-css");
+// const withFonts = require("next-fonts");
 const withPlugins = require("next-compose-plugins");
 const optimizedImages = require("next-optimized-images");
-const withSass = require("@zeit/next-sass");
+// const withSass = require("@zeit/next-sass");
 const postcssflexbugsfixes = require("postcss-flexbugs-fixes");
 const postcsspresetenv = require("postcss-preset-env");
 const purgeCSS = require("@fullhuman/postcss-purgecss")
+const withImages = require('next-images');
 
 module.exports = withPlugins([
 	[
 		optimizedImages,
 		{
 			inlineImageLimit: 8192,
-			imagesFolder: "images",
+			imagesFolder: "assets/images",
 			imagesName: "[name]-[hash].[ext]",
 			handleImages: ["jpeg", "jpg", "png", "svg", "webp", "gif", "ico"],
 			optimizeImages: true,
@@ -61,5 +62,11 @@ module.exports = withPlugins([
       }
 	],
 	// [withFonts],
+	withImages({
+        assetPrefix: './',
+        webpack(config, options) {
+            return config;
+        }
+    }),
 	
 ]);
