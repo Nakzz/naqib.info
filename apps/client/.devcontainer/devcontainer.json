@@ -60,6 +60,8 @@
   "workspaceMount": "source=${localWorkspaceFolder}/,target=/workspace,type=bind",
   "workspaceFolder": "/workspace",
 
-  "runArgs": ["--network=mynetwork"]
+  // "runArgs": ["--network=mynetwork"]
+  "runArgs": ["--network=host"]
+
   // "postAttachCommand": "yarn install"
 }

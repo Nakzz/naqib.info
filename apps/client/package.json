@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "node server.mjs -p $PORT",
     "build": "NODE_ENV=development next build ",
-    "start": "NODE_ENV=$NODE_ENV node server.mjs -p $PORT",
+    "start": "NODE_ENV=$NODE_ENV node server.mjs -p $PORT -H 0.0.0.0",
     "requirements-check": "node --experimental-json-modules check_node_version.js ",
     "predev": "npm run requirements-check"
   },

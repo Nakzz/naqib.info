@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Link from 'next/link';
-import Image from 'next/image';
+// import Link from 'next/link';
+// import Image from 'next/image';
 export class Education extends Component{
 //TODO(2): componentdidmount() and get the strings in the TypedReact from API
     render(){

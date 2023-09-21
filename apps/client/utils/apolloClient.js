@@ -10,9 +10,9 @@ function createApolloClient() {
 		ssrMode: typeof window === "undefined", // set to true for SSR
 		link: new HttpLink({
 			uri: process.env.CMS_URL,
-			// fetchOptions: {
-			// 	agent: new https.Agent({ rejectUnauthorized: false }), 
-			// },
+			fetchOptions: {
+				agent: new https.Agent({ rejectUnauthorized: false }), 
+			},
 		}),
 		cache: new InMemoryCache(),
 	});
