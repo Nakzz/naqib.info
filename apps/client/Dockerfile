@@ -49,5 +49,5 @@ COPY --from=builder /opt/app/.next ./.next
 COPY --from=builder /opt/app/node_modules ./node_modules
 # # CMD ["node_modules/.bin/next", "start"]
 CMD [ "yarn", "start"]
-
+// to-do: build the compiled filed in a directory to pull in built artifact/ 
 

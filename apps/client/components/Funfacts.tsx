@@ -68,8 +68,8 @@ export class Funfacts extends Component<IProps, IState> {
             <div className="col-lg-4 col-md-4 col-sm-6">
               <div className="funfact">
                 <h3>
-                  <span className="odometer" data-count="54380">
-                    6438
+                  <span className="odometer" data-count="54380"> //Static backend process, as part of buildtime
+                    6438\
                   </span>
                 </h3>
                 <p>Lines of Code of this application</p>

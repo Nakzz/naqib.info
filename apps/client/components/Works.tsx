@@ -144,7 +144,7 @@ export class Works extends Component<IProps, IState> {
 
       // <Project data={item} index={index++} key={ind} setState={this.setState}/>;
     });
-
+// TODO: integrate with BACKEND. 
     console.log(images);
 
     if (this.props.data && this.props.data.length != 0)
