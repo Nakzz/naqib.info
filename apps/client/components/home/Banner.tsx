@@ -108,6 +108,11 @@ const Banner = () => {
           "I'm an adventurer, <strong>from the boxing ring to hiking trails...</strong>",
         ]}
       />
+      <Link href="/about-me">
+        <a className="m-t-30 btn btn-primary wow fadeInLeft banner-button">
+          Discover the Layers of My World!
+        </a>
+      </Link>
     </div>
   );
 
@@ -168,9 +173,9 @@ const Banner = () => {
             </ul>
           </div>
         </div>
-        <div class="image">
+        <div className="image">
           <img
-            class="imgHolder"
+            className="imgHolder"
             src="images/headshots/0M1A3748.jpg"
             alt="Picture of AJ in Large Screen"
             data-depth=".4"
@@ -195,23 +200,16 @@ const Banner = () => {
             <HeroContent />
           </div>
         ) : (
-          <div>
-            <div className="parallax_banner" ref={sceneRef}>
-              <div data-depth=".1" style={{ width: "60%" }}>
-                <HeroContent />
-              </div>
-              <img
-                className="imgHolder"
-                src={AJ_IMAGE_LARGE}
-                alt="Picture of AJ in Large Screen"
-                data-depth=".9"
-              />
-            </div>{" "}
-            <Link href="/about-me">
-              <a className="m-t-30 btn btn-primary wow fadeInLeft banner-button">
-                Discover the Layers of My World!
-              </a>
-            </Link>
+          <div className="parallax_banner" ref={sceneRef}>
+            <div data-depth=".1" style={{ width: "60%" }}>
+              <HeroContent />
+            </div>
+            <img
+              className="imgHolder"
+              src={AJ_IMAGE_LARGE}
+              alt="Picture of AJ in Large Screen"
+              data-depth=".9"
+            />
           </div>
         )}
 
