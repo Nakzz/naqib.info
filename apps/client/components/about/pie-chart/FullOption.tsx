@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { PieChart } from "react-minimal-pie-chart";
 import { useDispatch, useSelector } from "react-redux";
-import { changeSkillPieId } from "../../store/actions/skillAction";
+import { changeSkillPieId } from "../../../store/actions/skillAction";
 
 type IProps = {
 	color?: string;

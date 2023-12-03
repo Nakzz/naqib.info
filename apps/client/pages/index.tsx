@@ -8,7 +8,7 @@ import Footer from "../components/shared/Footer";
 import Banner from "../components/home/Banner";
 import Head from "next/head";
 // import About from "../components/about/About";
-import Services from "../components/home/Services";
+import Services from "../components/home/Interest";
 // import WhyChooseUs from "../components/digital-agency-animation/WhyChooseUs";
 // import Crafting from "../components/digital-agency-animation/Crafting";
 // import Works from "../components/Works";
