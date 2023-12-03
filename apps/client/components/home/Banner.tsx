@@ -1,4 +1,4 @@
-import TypedReact from "../typedReact";
+import TypedReact from "../shared/typedReact";
 import Link from "next/link";
 import { isBrowser, isMobile, isTablet, isDesktop } from "react-device-detect";
 // import React, { Component } from "react";
@@ -91,25 +91,23 @@ const Banner = () => {
 
   const HeroContent = () => (
     <div className="hero-content">
-      <h1 className="wow fadeInUp">Driven by Innovation.</h1>
+      <h1 className="wow fadeInUp">Fueled by Innovation 🚀</h1>
       <h4 className="wow m-b-20 hero-header">
-        A blend of Technical Mastery & Visionary Leadership.
+        <em>
+          {/* A Fusion of Inquisitiveness, Futuristic Vision & Unsurpassed Mastery */}
+          A blend of Inquisitive Curiosity, Trailblazing & Synergistic Bonds.
+        </em>
       </h4>
       <TypedReact
         className="statements"
         strings={[
           "I'm a <strong>Technologist...</strong>",
           "I'm an <strong>Innovator at the crossroads of AI and Space Exploration...</strong>",
-          "I'm a <strong>Leader with a passion for mentoring...</strong>",
+          "I'm a <strong>Leader</strong> with a <strong>passion</strong> towards bringing <strong>impactful</strong> change for <strong>Humanity...</strong>",
           "I'm a distinguished <strong>POSSE Scholar...</strong>",
           "I'm an adventurer, <strong>from the boxing ring to hiking trails...</strong>",
         ]}
       />
-      <Link href="/about-me">
-        <a className="m-t-30 btn btn-primary wow fadeInLeft">
-          Learn more about me!
-        </a>
-      </Link>
     </div>
   );
 
@@ -197,16 +195,23 @@ const Banner = () => {
             <HeroContent />
           </div>
         ) : (
-          <div className="parallax_banner" ref={sceneRef}>
-            <div data-depth=".1" style={{ width: '60%' }}>
-              <HeroContent />
-            </div>
-            <img
-              className="imgHolder"
-              src={AJ_IMAGE_LARGE}
-              alt="Picture of AJ in Large Screen"
-              data-depth=".9"
-            />
+          <div>
+            <div className="parallax_banner" ref={sceneRef}>
+              <div data-depth=".1" style={{ width: "60%" }}>
+                <HeroContent />
+              </div>
+              <img
+                className="imgHolder"
+                src={AJ_IMAGE_LARGE}
+                alt="Picture of AJ in Large Screen"
+                data-depth=".9"
+              />
+            </div>{" "}
+            <Link href="/about-me">
+              <a className="m-t-30 btn btn-primary wow fadeInLeft banner-button">
+                Discover the Layers of My World!
+              </a>
+            </Link>
           </div>
         )}
 

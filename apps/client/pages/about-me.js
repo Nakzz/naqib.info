@@ -7,7 +7,7 @@ import Footer from "../components/shared/Footer";
 // import AboutMe from "../components/about/AboutMe";
 import Education from "../components/about/Education";
 import Services from "../components/about/Services";
-import Skills from "../components/Skills";
+import Skills from "../components/about/Skills";
 import About from "../components/about/About";
 import Funfacts from "../components/Funfacts";
 

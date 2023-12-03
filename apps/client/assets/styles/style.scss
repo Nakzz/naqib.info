@@ -917,8 +917,7 @@ Navbar CSS
               &:hover {
                 i {
                   color: $white-color;
-                  border-color: $white-color;
-                  background: $template-color;
+                  border-color: $white-color;                  background: $template-color;
                 }
               }
               &:last-child {
@@ -1028,7 +1027,7 @@ Main Banner CSS
   background-position: center center;
   background-size: cover;
   position: relative;
-  animation: oscillate 5s ease-in-out infinite;
+  animation: oscillateColor 5s ease-in-out infinite;
 }
 
 .digital-agency-banner_notBrowser {
@@ -1040,13 +1039,28 @@ Main Banner CSS
   position: relative;
 }
 
+@keyframes oscillateColor {
+  0% {
+    // filter: contrast(1) hue-rotate(0deg) saturate(100%); /* initial state */
+  }
+  50% {
+    // filter: contrast(1.5) hue-rotate(10deg) saturate(150%); /* mid-state with increased contrast and HSV */
+  }
+  100% {
+    // filter: contrast(1) hue-rotate(0deg) saturate(100%); /* back to initial state */
+  }
+}
+
+
 .parallax_banner {
   position: relative;
   z-index: 1;
   height: 100%;
   overflow: hidden;
   pointer-events: auto;
-
+  // animation: oscillateColor 5s ease-in-out infinite;
+  
+  
   .imgHolder {
     position: relative;
     top: 15%;
@@ -5029,14 +5043,23 @@ Login CSS
   align-items: center;
 }
 
+// FIXME: remove from here. Migrated to own module.
 @keyframes oscillate {
   0% {
-    background-size: 100% auto; /* starting size */
+    background-size: 100% auto;
+    // filter: contrast(1) hue-rotate(0deg) saturate(100%); /* initial state */
   }
   50% {
-    background-size: 250% auto; /* mid-size, you can adjust this */
+    background-size: 250% auto;
+    // filter: contrast(1.5) hue-rotate(10deg) saturate(150%); /* mid-state with increased contrast and HSV */
   }
   100% {
-    background-size: 150% auto; /* back to starting size */
+    background-size: 150% auto;
+    // filter: contrast(1) hue-rotate(0deg) saturate(100%); /* back to initial state */
   }
+}
+
+
+.banner-button {
+  
 }
