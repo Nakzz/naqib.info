@@ -19,41 +19,39 @@ export class About extends Component {
               <div className="cta-about-content ptb-120">
                 <div className="section-title">
                   <span className="wow fadeInUp">About Me</span>
-                  <h2 className="wow fadeInDown">AJ Naqib</h2>
+                  <h2 className="wow fadeInDown">
+                    AJ Naqib: Innovator, Explorer, Lifelong Learner
+                  </h2>
                   <h5>
                     <i>A global citizen with a galaxy of dreams</i>
                   </h5>
                 </div>
                 <p>
                   With a <b>B.S. degree in Applied Computer Science</b>, my
-                  journey began by focusing on
-                  <b>Entrepreneurship</b> and <b>Product Development</b> from
-                  the University of Wisconsin- Madison. Originally from
-                  Bangladesh, New York is now my hearth and home, and I
-                  currently find myself nestled in the lively city of
-                  Washington, DC.
+                  journey began at the
+                  <b>University of Wisconsin-Madison</b>, focusing on{" "}
+                  <b>Entrepreneurship</b> and <b>Product Development</b>.
+                  Originating from Bangladesh, I have found a second home in New
+                  York.
                 </p>
                 <p>
-                  My college adventure started with a Full-Tuition Leadership
-                  and Merit-based Scholarship from the POSSE Foundation. My
-                  passion for Entrepreneurship and Product Development was
-                  ignited as I ventured into the startup ecosystem and founded
-                  Breezy Systems LLC, aimed at innovating real-world
-                  technological solutions.
+                  Awarded a Full-Tuition Leadership and Merit-based Scholarship
+                  by the <b>POSSE Foundation</b>, my venture into the startup
+                  ecosystem led to founding <b>Breezy Systems LLC</b>, where I
+                  innovated real-world technological solutions.
                 </p>
                 <p>
-                  As an Analyst at Blackstone, I explore the intersections of
-                  finance and technology, always on the lookout for new
-                  opportunities. I remain passionate about quantum computing and
-                  space exploration, and I never back down from a challenge, no
-                  matter how complex.
+                  My interests span across quantum computing, space exploration,
+                  and the evolving realm of AI and machine learning. Challenges
+                  inspire me, driving my pursuit for innovative solutions in
+                  technology.
                 </p>
                 <p>
-                  Beyond work and academia, my interests are as diverse as my
-                  experiences. I enjoy keeping abreast of emerging technologies
-                  and financial market trends. Boxing, hiking, and dabbling with
-                  IoT and machine learning projects keep me engaged in my spare
-                  time. I am AJ, always learning, always growing.
+                  Beyond my professional pursuits, I am deeply engaged in a
+                  variety of activities. From staying updated on emerging
+                  technologies and market trends to engaging in boxing, hiking,
+                  and IoT projects, my life is a continuous journey of learning
+                  and growth. I am AJ, ever curious, ever evolving.
                 </p>
               </div>
             </div>

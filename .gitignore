@@ -1,2 +1,3 @@
 mongodb
 nginx/nginx_secrets/
+.aider*

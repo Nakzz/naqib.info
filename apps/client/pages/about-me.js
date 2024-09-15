@@ -74,7 +74,7 @@ export class index extends Component {
         <Education />
         {/* TODO: work experiances */}
         {/* <Cta /> */}
-        <Funfacts />
+        {/* <Funfacts /> */}
 
         <Footer />
       </React.Fragment>

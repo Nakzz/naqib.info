@@ -154,7 +154,7 @@ const Banner = () => {
             <ul>
               <li>
                 Armed with a B.S. in Applied Computer Science, I've journeyed
-                from Bangladesh to New York and Washington, DC, turning caffeine
+                from Bangladesh to New York, turning caffeine
                 into code and dreams into reality.
               </li>
               <li>
