@@ -2,12 +2,12 @@ import React, { Component } from "react";
 import Link from "next/link";
 import gql from "graphql-tag";
 
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
+import Navbar from "../components/shared/Navbar";
+import Footer from "../components/shared/Footer";
 // import AboutMe from "../components/about/AboutMe";
 import Education from "../components/about/Education";
 import Services from "../components/about/Services";
-import Skills from "../components/Skills";
+import Skills from "../components/about/Skills";
 import About from "../components/about/About";
 import Funfacts from "../components/Funfacts";
 
@@ -74,7 +74,7 @@ export class index extends Component {
         <Education />
         {/* TODO: work experiances */}
         {/* <Cta /> */}
-        <Funfacts />
+        {/* <Funfacts /> */}
 
         <Footer />
       </React.Fragment>

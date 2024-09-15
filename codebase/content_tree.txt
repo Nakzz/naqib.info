@@ -1,0 +1,130 @@
+.
+└── .
+    └── apps
+        ├── backend
+        │   ├── Dockerfile
+        │   ├── README.md
+        │   ├── access-control.js
+        │   ├── cert
+        │   ├── config.ts
+        │   ├── data
+        │   │   └── public
+        │   │       ├── avatars
+        │   │       ├── blogs
+        │   │       └── projects
+        │   ├── dump
+        │   ├── index.js
+        │   ├── initial-data.js
+        │   ├── node_modules
+        │   ├── package-lock.json
+        │   ├── package.json
+        │   ├── schema
+        │   │   ├── comment.ts
+        │   │   ├── custom-mutations.ts
+        │   │   ├── page.js
+        │   │   ├── post.js
+        │   │   ├── tags.ts
+        │   │   └── user.js
+        │   ├── scripts
+        │   │   └── dev-setup.sh
+        │   └── server.js
+        └── client
+            ├── Dockerfile
+            ├── README.md
+            ├── assets
+            │   ├── fonts
+            │   └── styles
+            │       ├── custom.scss
+            │       ├── responsive.scss
+            │       └── style.scss
+            ├── check_node_version.js
+            ├── components
+            │   ├── Blog.tsx
+            │   ├── Funfacts.tsx
+            │   ├── Post.tsx
+            │   ├── Services.js
+            │   ├── Skills.tsx
+            │   ├── Works.tsx
+            │   ├── about
+            │   │   ├── About.js
+            │   │   ├── Contact.js
+            │   │   ├── Education.jsx
+            │   │   ├── Feedback.js
+            │   │   ├── Funfacts.js
+            │   │   ├── Services.tsx
+            │   │   ├── Skills.js
+            │   │   └── Team.js
+            │   ├── barSkill.jsx
+            │   ├── home
+            │   │   └── Banner.tsx
+            │   ├── layout
+            │   │   ├── SearchForm.js
+            │   │   └── SideDrawer.js
+            │   ├── parallax
+            │   │   └── ParallaxHomeComponent.jsx
+            │   ├── pie-chart
+            │   │   └── FullOption.tsx
+            │   ├── shared
+            │   │   ├── Footer.tsx
+            │   │   ├── GoTop.js
+            │   │   ├── Loader.js
+            │   │   └── Navbar.tsx
+            │   ├── startup-agency-animation
+            │   │   ├── About.js
+            │   │   ├── Banner.js
+            │   │   ├── Blog.js
+            │   │   ├── Boxes.js
+            │   │   ├── Contact.js
+            │   │   ├── Features.js
+            │   │   ├── Feedback.js
+            │   │   ├── Funfacts.js
+            │   │   ├── HowWeWork.js
+            │   │   ├── Partner.js
+            │   │   ├── Skills.js
+            │   │   ├── Team.js
+            │   │   ├── WhyChooseUs.js
+            │   │   └── Works.js
+            │   └── typedReact.jsx
+            ├── declaration.d.ts
+            ├── images
+            │   ├── blog-home-image
+            │   ├── headshots
+            │   ├── home
+            │   ├── shapes
+            │   └── team-image
+            ├── next-env.d.ts
+            ├── next.config.js
+            ├── node_modules
+            ├── out
+            ├── package.json
+            ├── pages
+            │   ├── _app.js
+            │   ├── _document.js
+            │   ├── _error.js
+            │   ├── about-me.js
+            │   ├── coming-soon.js
+            │   ├── cyber.js
+            │   └── index.tsx
+            ├── public
+            │   ├── robots.txt
+            │   └── sitemap.xml
+            ├── server.mjs
+            ├── store
+            │   ├── actions
+            │   │   ├── action-types
+            │   │   │   └── skill-action_type.js
+            │   │   └── skillAction.js
+            │   └── reducers
+            │       ├── index.js
+            │       └── skillReducer.js
+            ├── tsconfig.json
+            ├── tsconfig.server.json
+            └── utils
+                ├── ActiveLink.js
+                ├── apolloClient.js
+                ├── constants.js
+                ├── google-analytics
+                │   └── index.js
+                └── hostname.js
+
+28 directories, 100 files

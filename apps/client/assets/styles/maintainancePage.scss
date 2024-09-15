@@ -1,0 +1,422 @@
+
+// .maintenance-container {
+//     position: relative;
+//     overflow: hidden;
+//     // background: url("./../../assets/images/bg-shape.jpg");
+//     background: linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0.5)), url('./../../assets/images/bg-shape.jpg');
+    
+//     // background-position: center center;
+//     // background-size: cover;
+//     position: relative;
+//     animation: oscillate 5s ease-in-out infinite;
+  
+//     // color: white;
+//     height: 100vh;
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+//   }
+  
+  
+
+  
+//   .hero-content {
+//     position: relative;
+//     z-index: 10;
+//   }
+  
+//   .animated {
+//     animation-duration: 1s;
+//     animation-fill-mode: both;
+//   }
+  
+//   .fadeInUp {
+//     animation-name: fadeInUp;
+//   }
+  
+//   .fadeInDown {
+//     animation-name: fadeInDown;
+//   }
+  
+//   .fadeInLeft {
+//     animation-name: fadeInLeft;
+//   }
+  
+//   #timer {
+//     display: flex;
+//     justify-content: space-around;
+//   }
+  
+//   @keyframes movebounce {
+//     0% {
+//       transform: translateY(0);
+//     }
+//     50% {
+//       transform: translateY(20px);
+//     }
+//     100% {
+//       transform: translateY(0);
+//     }
+//   }
+//   .space-object {
+//     position: absolute;
+//     border-radius: 50%;
+//   }
+  
+//   .space-object1 {
+//     width: 20px;
+//     height: 20px;
+//     background: radial-gradient(circle, yellow, orange);
+//     animation: movebounce 4s cubic-bezier(0.55, 0, 0.2, -5000) infinite, colorChange 20s infinite;
+//   }
+  
+//   .space-object2 {
+//     width: 10px;
+//     height: 10px;
+//     background: radial-gradient(circle, lightblue, blue);
+//     animation: movebounce 6s cubic-bezier(0.55, 0, 0.2, -5000) infinite, colorChange 20s infinite;
+//   }
+  
+//   .space-object3 {
+//     width: 15px;
+//     height: 15px;
+//     background: radial-gradient(circle, lightgreen, green);
+//     animation: movebounce 7s cubic-bezier(0.55, 0, 0.2, -5000) infinite, colorChange 20s infinite;
+//   }
+  
+//   @keyframes movebounce {
+//     0% {
+//       transform: translateY(0);
+//     }
+//     50% {
+//       transform: translateY(50px);
+//     }
+//     100% {
+//       transform: translateY(0);
+//     }
+//   }
+  
+//   @keyframes colorChange {
+//     0% {
+//       filter: hue-rotate(0deg);
+//     }
+//     100% {
+//       filter: hue-rotate(360deg);
+//     }
+//   }
+
+//   // .maintenance-container {
+// //   position: relative;
+// //   overflow: hidden;
+// // }
+
+// // .space-object {
+// //   position: absolute;
+// //   background: url("./../../assets/images/bg-shape.jpg");
+// //   animation: movebounce 4s linear infinite;
+// // }
+
+// .star {
+//     position: absolute;
+//     border-radius: 50%;
+//     z-index: 10;
+//     // You can set a default color here if you want
+//   }
+
+
+// .maintenance-container {
+//     position: relative;
+//     overflow: hidden;
+//     // background-color: black;
+//     background: url("./../../assets/images/bg-shape.jpg");
+  
+//     // background-position: center center;
+//     // background-size: cover;
+//     position: relative;
+//     animation: oscillate 5s ease-in-out infinite;
+  
+//     // color: white;
+//     height: 100vh;
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+//   }
+  
+  
+ 
+//   .hero-content {
+//     position: relative;
+//     z-index: 10;
+//   }
+  
+//   .animated {
+//     animation-duration: 1s;
+//     animation-fill-mode: both;
+//   }
+  
+//   .fadeInUp {
+//     animation-name: fadeInUp;
+//   }
+  
+//   .fadeInDown {
+//     animation-name: fadeInDown;
+//   }
+  
+//   .fadeInLeft {
+//     animation-name: fadeInLeft;
+//   }
+  
+//   #timer {
+//     display: flex;
+//     justify-content: space-around;
+//   }
+  
+//   @keyframes movebounce {
+//     0% {
+//       transform: translateY(0);
+//     }
+//     50% {
+//       transform: translateY(20px);
+//     }
+//     100% {
+//       transform: translateY(0);
+//     }
+//   }
+//   .space-object {
+//     position: absolute;
+//     border-radius: 50%;
+//   }
+  
+
+  
+//   @keyframes movebounce {
+//     0% {
+//       transform: translateY(0);
+//     }
+//     50% {
+//       transform: translateY(50px);
+//     }
+//     100% {
+//       transform: translateY(0);
+//     }
+//   }
+  
+//   @keyframes colorChange {
+//     0% {
+//       filter: hue-rotate(0deg);
+//     }
+//     100% {
+//       filter: hue-rotate(360deg);
+//     }
+//   }
+
+//   .space-object1 {
+//     width: 20px;
+//     height: 20px;
+//     background: radial-gradient(circle, yellow, orange);
+//     animation: movebounce 4s cubic-bezier(0.55, 0, 0.2, -5000) infinite, colorChange 20s infinite;
+//   }
+  
+//   .space-object2 {
+//     width: 10px;
+//     height: 10px;
+//     background: radial-gradient(circle, lightblue, blue);
+//     animation: movebounce 6s cubic-bezier(0.55, 0, 0.2, -5000) infinite, colorChange 20s infinite;
+//   }
+  
+//   .space-object3 {
+//     width: 15px;
+//     height: 15px;
+//     background: radial-gradient(circle, lightgreen, green);
+//     animation: movebounce 7s cubic-bezier(0.55, 0, 0.2, -5000) infinite, colorChange 20s infinite;
+//   }
+
+//   .space-object {
+//     position: absolute;
+//     // background: white;
+//     border-radius: 50%;
+//     animation: moveSpaceObject infinite linear;
+//     z-index: 100;
+  
+//     &.space-object1,
+//     &.space-object2,
+//     &.space-object3 {
+//       // Add specific styles for each object if needed
+//     }
+
+//       .space-object1 {
+//     width: 20px;
+//     height: 20px;
+//     background: radial-gradient(circle, yellow, orange);
+//     animation: movebounce 4s cubic-bezier(0.55, 0, 0.2, -5000) infinite, colorChange 20s infinite;
+//   }
+  
+//   .space-object2 {
+//     width: 10px;
+//     height: 10px;
+//     background: radial-gradient(circle, lightblue, blue);
+//     animation: movebounce 6s cubic-bezier(0.55, 0, 0.2, -5000) infinite, colorChange 20s infinite;
+//   }
+  
+//   .space-object3 {
+//     width: 15px;
+//     height: 15px;
+//     background: radial-gradient(circle, lightgreen, green);
+//     animation: movebounce 7s cubic-bezier(0.55, 0, 0.2, -5000) infinite, colorChange 20s infinite;
+//   }
+//   }
+  
+
+  
+//   @keyframes moveSpaceObject {
+//     0% {
+//       transform: scale(1) translateZ(0);
+//     }
+//     100% {
+//       transform: scale(0.1) translateZ(-1000px);
+//     }
+//   }
+  
+
+// Variables
+$primary-color: rgba(0,0,0,1);
+$secondary-color: rgba(0,0,0,0.5);
+
+// Mixins
+@mixin backgroundTransition($duration: 60s) {
+  animation: backgroundTransition $duration infinite;
+}
+
+@mixin movebounce($duration: 4s) {
+  animation: movebounce $duration cubic-bezier(0.55, 0, 0.2, -5000) infinite;
+}
+
+// Main Styles
+.maintenance-container {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(to bottom, $primary-color, $secondary-color), url('/assets/shapes/1.png');
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@keyframes backgroundTransition {
+  $totalShapes: 27; // Total number of shapes
+  $step: calc(100% / $totalShapes);
+  @for $i from 1 through $totalShapes {
+    #{($i - 1) * $step} {
+      background-image: url('/assets/shapes/#{$i}.png');
+    }
+  }
+}
+
+// Reusable Object Styles
+.space-object {
+  position: relative;
+  border-radius: 50%;
+  z-index: 100;
+  // @include movebounce;
+  // @include backgroundTransition;
+
+    animation: specialMovebounce 4s cubic-bezier(0.55, 0, 0.2, -5000) infinite;
+
+}
+
+// .space-object1, .space-object2, .space-object3 {
+//   &:hover {
+//   }
+// }
+
+@keyframes specialMovebounce {
+  // Define your special animation keyframes here
+  0% {
+  //  scale:  100% auto; /* starting size */
+  scale: none;
+  }
+  50% {
+    // background-size: 250% auto; /* mid-size, you can adjust this */
+    scale: 50%;
+  }
+  100% {
+    /* Three values */
+scale: 100% 50% 100%;
+  }
+}
+
+// Tooltip Styles
+.tooltip {
+  position: absolute;
+  // Add other styles like background-color, text-color, etc.
+}
+
+// Existing styles remain the same
+
+
+// Mixins
+@mixin backgroundTransition($duration: 60s) {
+  // animation: backgroundTransition $duration infinite;
+}
+
+@mixin movebounce($duration: 4s) {
+  // animation: movebounce $duration cubic-bezier(0.55, 0, 0.2, -5000) infinite;
+}
+
+// Main Styles
+.maintenance-container {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(to bottom, $primary-color, $secondary-color), url('/assets/shapes/1.png');
+  // background-image: url('your_star_image_path_here'), url('/assets/shapes/1.png');
+  // background-image: url('/assets/shapes/#{$i}.png');
+
+  @include backgroundTransition;
+
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: moveStars 30s linear infinite;
+  perspective: 100vh; /* Add 3D perspective */
+}
+
+@keyframes moveStars {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 100px 100px; /* Replace with desired values */
+  }
+}
+
+// Reusable Object Styles
+.space-object {
+  position: fixed; // Changed from relative to fixed
+  top: 0; // Added to position at the top
+  left: 0; // Added to position at the left corner
+  border-radius: 50%;
+  z-index: 100;
+  // @include backgroundTransition;
+  animation: specialMovebounce 9s cubic-bezier(0.55, 0, 0.2,10) infinite;
+}
+
+@keyframes specialMovebounce {
+  0% {
+    // transform-: scale(0.001); // Starting scale
+    
+    transform: perspective(.1rem) rotateX(-15deg) rotateY(30deg);
+  }
+  50% {
+    // transform: scale(0.25); // Mid-size scale
+    // transform: perspective(2rem);
+    transform: perspective(.8rem) rotateX(-19deg) rotateY(10deg);
+
+
+  }
+  100% {
+    // transform: scale(.28); // Ending scale
+    transform: perspective(.9rem) rotateX(-25deg) rotateY(30deg);
+
+  }
+}

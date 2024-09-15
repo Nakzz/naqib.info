@@ -1,0 +1,36 @@
+@keyframes oscillate {
+    0% {
+      background-size: 100% auto; /* starting size */
+      
+    }
+    50% {
+      background-size: 250% auto; /* mid-size, you can adjust this */
+    }
+    100% {
+      background-size: 150% auto; /* back to starting size */
+    }
+  }
+
+// TODO: engulf this with old root. 
+  .parallax_banner {
+    position: relative;
+    z-index: 1;
+    height: 100%;
+    // overflow: hidden;
+    // pointer-events: visibleFill;
+    pointer-events: bounding-box;
+    animation: oscillateColor 5s ease-in-out infinite; /* Add this line */
+  }
+  
+  /* Add this new keyframe */
+  @keyframes oscillateColorForParallax {
+    0% {
+      background-color: #000; /* initial state */
+    }
+    50% {
+      background-color: #555; /* mid-state */
+    }
+    100% {
+      background-color: #000; /* back to initial state */
+    }
+  }
